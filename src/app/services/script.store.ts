@@ -5,24 +5,21 @@ interface Scripts {
 }  
 export const ScriptStore: Scripts[] = [
 
-{ name: 'gmaps', src: 'assets/legales/js/gmaps.js' },
-  { name: 'map-helper', src: 'assets/legales/js/map-helper.js' },
-  { name: 'creote-extension', src: 'assets/legales/js/creote-extension.js' },
-  { name: 'jquery-3.6.0', src: 'assets/legales/js/jquery-3.6.0.min.js' },
-  { name: 'bootstrap', src: 'assets/legales/js/bootstrap.min.js' },
-  { name: 'jquery-fancybox', src: 'assets/legales/js/jquery.fancybox.js' },
-  { name: 'jQuery-style-switcher', src: 'assets/legales/js/jQuery.style.switcher.min.js' },
-  { name: 'jquery-flexslider', src: 'assets/legales/js/jquery.flexslider-min.js' },
-  { name: 'color-scheme', src: 'assets/legales/js/color-scheme.js' },
-  { name: 'owl', src: 'assets/legales/js/owl.js' },
-  { name: 'swiper', src: 'assets/legales/js/swiper.min.js' },
-  { name: 'isotope', src: 'assets/legales/js/isotope.min.js' },
-  { name: 'countdown', src: 'assets/legales/js/countdown.js' },
-  { name: 'simpleParallax', src: 'assets/legales/js/simpleParallax.min.js' },
-  { name: 'appear', src: 'assets/legales/js/appear.js' },
-  { name: 'jquery-countTo', src: 'assets/legales/js/jquery.countTo.js' },
-  { name: 'sharer', src: 'assets/legales/js/sharer.js' },
-  { name: 'validation', src: 'assets/legales/js/validation.js' }
+  { name: 'jquery', src: 'assets/todobienes/app/js/jquery.min.js' },
+  { name: 'jqueryEasing', src: 'assets/todobienes/app/js/jquery.easing.js' },
+  { name: 'jqueryNiceSelect', src: 'assets/todobienes/app/js/jquery.nice-select.min.js' },
+  { name: 'bootstrap', src: 'assets/todobienes/app/js/bootstrap.min.js' },
+  { name: 'swiperBundle', src: 'assets/todobienes/app/js/swiper-bundle.min.js' },
+  { name: 'owl', src: 'assets/todobienes/app/js/owl.js' },
+  { name: 'swiper', src: 'assets/todobienes/app/js/swiper.js' },
+  { name: 'jqueryValidate', src: 'assets/todobienes/app/js/jquery-validate.js' },
+  { name: 'countto', src: 'assets/todobienes/app/js/countto.js' },
+  { name: 'plugin', src: 'assets/todobienes/app/js/plugin.js' },
+  { name: 'shortcodes', src: 'assets/todobienes/app/js/shortcodes.js' },
+  { name: 'main', src: 'assets/todobienes/app/js/main.js' },
+  { name: 'curved', src: 'assets/todobienes/app/js/curved.js' },
+  { name: 'priceRanger', src: 'assets/todobienes/app/js/price-ranger.js' }
+  
 
 
 ];

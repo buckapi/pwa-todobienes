@@ -47,43 +47,39 @@ import { ServAduExtComponent } from './components/serv-adu-ext/serv-adu-ext.comp
     ServInmoComponent,
     ServEmpComponent,
     ServProIntComponent,
-    ServAduExtComponent
+    ServAduExtComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'camiwa';
   constructor(
     public global: GlobalService,
     public script: ScriptService,
-    public virtualRouter: virtualRouter ,
- ) {
-  this.script.load(
-    'gmaps',
-    'map-helper',
-    'creote-extension',
-    'jquery-3.6.0',
-    'bootstrap',
-    'jquery-fancybox',
-    'jQuery-style-switcher',
-    'jquery-flexslider',
-    'color-scheme',
-    'owl',
-    'swiper',
-    'isotope',
-    'countdown',
-    'simpleParallax',
-    'appear',
-    'jquery-countTo',
-    'sharer',
-    'validation'
-  )
-    .then(() => {
-      console.log('Todos los scripts se cargaron correctamente');
-    })
-    .catch(error => console.log(error));
+    public virtualRouter: virtualRouter
+  ) {
+    this.script
+      .load(
+        'jquery',
+        'jqueryEasing',
+        'jqueryNiceSelect',
+        'bootstrap',
+        'swiperBundle',
+        'owl',
+        'swiper',
+        'jqueryValidate',
+        'countto',
+        'plugin',
+        'shortcodes',
+        'main',
+        'curved',
+        'priceRanger'
+      )
+      .then(() => {
+        console.log('Todos los scripts se cargaron correctamente');
+      })
+      .catch((error) => console.log(error));
     // this.epicFunction();
   }
 }
-
