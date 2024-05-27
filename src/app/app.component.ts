@@ -19,6 +19,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ServiceComponent } from './components/service/service.component';
 import { AgentsComponent } from './components/agents/agents.component';
 import { PropertiesComponent } from './components/properties/properties.component';
+import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
 
 @Component({
   selector: 'app-root',
@@ -40,7 +41,8 @@ import { PropertiesComponent } from './components/properties/properties.componen
     ContactComponent,
     ServiceComponent,
     AgentsComponent,
-    PropertiesComponent
+    PropertiesComponent,
+    PropertyDetailComponent
   
     
   ],
