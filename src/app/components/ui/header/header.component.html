@@ -14,16 +14,9 @@
                            <nav class="main-menu show navbar-expand-md">
                                <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                                    <ul class="navigation clearfix">
-                                       <li class="dropdown2 current"><a href="#">Inicio</a>
-                                        <!--    <ul>
-                                               <li class="current"><a href="index.html">Home Page 01</a></li>
-                                               <li><a href="home02.html">Home Page 02</a></li>
-                                               <li><a href="home03.html">Home Page 03</a></li>
-                                               <li><a href="home04.html">Home Page 04</a></li>
-                                               <li><a href="home05.html">Home Page 05</a></li>
-                                           </ul> -->
+                                       <li><a (click)="global.setRoute('home')">Inicio</a>
                                        </li>
-                                       <li class="dropdown2"><a href="#">Propiedades</a>
+                                       <li class="dropdown2"><a (click)="global.setRoute('properties')">Propiedades</a>
                                           <!--  <ul>
                                                <li class="dropdown2"><a href="#">Property List</a>
                                                    <ul>
@@ -57,19 +50,19 @@
                                        </li>
                                        <li class="dropdown2"><a href="#">Nosotros</a>
                                            <ul>
-                                               <li><a href="#">Quienes somos</a></li>
-                                               <li><a href="#">Faq's</a></li>
-                                               <li><a href="#">Agentes</a></li>
+                                               <li><a (click)="global.setRoute('about')">Quienes somos</a></li>
+                                               <li><a (click)="global.setRoute('faq')">Faq's</a></li>
+                                               <li><a (click)="global.setRoute('agents')">Agentes</a></li>
                                                
                                               
                                                
                                            </ul>
                                        </li>
-                                       <li class="dropdown2"><a href="#">Novedades</a>
+                                       <li class="dropdown2"><a (click)="global.setRoute('blog')">Novedades</a>
                                          
                                        </li>
                                        
-                                       <li><a href="#">Contacto</a></li>
+                                       <li><a (click)="global.setRoute('contact')">Contacto</a></li>
                                    </ul>
                                </div>
                            </nav>
@@ -148,7 +141,7 @@
                            </svg>
                        </div>
                        <div class="content fs-13">
-                           Call us: <h5>(201) 555-0124</h5>
+                           Llamanos: <h5>(201) 555-0124</h5>
                        </div>
                    </div>
                    <div class="box flex">
@@ -165,7 +158,8 @@
                            </svg>
                        </div>
                        <div class="content fs-13 lh-16">
-                           Email: <h5>themesflatgmail.com</h5>
+                           Correo: <h5><p>info&#64;todobienesgrupoinmobiliario.com</p>
+                           </h5>
                        </div>
                    </div>
                </div>

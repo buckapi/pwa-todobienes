@@ -72,16 +72,15 @@ export class DataApiService {
 
 	 
 	getAllCategory() {
-		const url_api = this.yeoman.origin.restUrl + '/api/collections/svbCategories/records';
+		const url_api = this.yeoman.origin.restUrl + '/api/collections/tdCategories/records';
 		return this.http.get(url_api);
 	  }
 	  getAllBrand(){
 		const url_api = this.yeoman.origin.restUrl + '/api/collections/svbBrands/records';
 		return this.http.get(url_api);
-	  }
-	  
+	  }	  
 	getAllProducts(){
-		const url_api = this.yeoman.origin.restUrl+'/api/collections/svbProducts/records';
+		const url_api = this.yeoman.origin.restUrl+'/api/collections/tdProperties/records';
 		return this.http.get(url_api);
 	}
 	getAllTestimonials(){

@@ -17,12 +17,9 @@ import { BlogComponent } from './components/blog/blog.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ServiceComponent } from './components/service/service.component';
-import { ServPenalComponent } from './components/serv-penal/serv-penal.component';
-import { ServCivilComponent } from './components/serv-civil/serv-civil.component';
-import { ServInmoComponent } from './components/serv-inmo/serv-inmo.component';
-import { ServEmpComponent } from './components/serv-emp/serv-emp.component';
-import { ServProIntComponent } from './components/serv-pro-int/serv-pro-int.component';
-import { ServAduExtComponent } from './components/serv-adu-ext/serv-adu-ext.component';
+import { AgentsComponent } from './components/agents/agents.component';
+import { PropertiesComponent } from './components/properties/properties.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -42,12 +39,10 @@ import { ServAduExtComponent } from './components/serv-adu-ext/serv-adu-ext.comp
     FaqComponent,
     ContactComponent,
     ServiceComponent,
-    ServPenalComponent,
-    ServCivilComponent,
-    ServInmoComponent,
-    ServEmpComponent,
-    ServProIntComponent,
-    ServAduExtComponent,
+    AgentsComponent,
+    PropertiesComponent
+  
+    
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

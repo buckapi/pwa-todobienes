@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 import { switchMap } from 'rxjs/operators';
 import { virtualRouter } from './virtualRouter.service';
 import { environment } from '../../environments/environment';
+import { DataApiService } from './data-api-service';
 
 
 // import { Apollo, gql } from 'apollo-angular';
@@ -44,21 +45,18 @@ interface ApiResponse {
 export class GlobalService {
   // pagesArray: number[] = [];
   public urlPrev="";
-  private categoriesUrl = 'http://localhost:8090/api/collections/category/records';
-  private requestUrl = 'https://db.buckapi.com:8090/api/collections/formsLegalesRequests/records';
-
-  private productsUrl = 'https://db.buckapi.com:8090/api/collections/frutmeProducts/records';
+  private categoriesUrl = 'https://db.buckapi.com:8090/api/collections/tdCategories/records';
+  private propertiesUrl = 'https://db.buckapi.com:8090/api/collections/tdProperties/records';
+  /* private requestUrl = 'https://db.buckapi.com:8090/api/collections/formsLegalesRequests/records';
   private doctorsUrl = environment.apiUrl+'/api/collections/doctors/records';
   private specialtiesUrl = environment.apiUrl+'/api/collections/specialties/records';
-
   private toursUrl = 'http://localhost8070/api/collections/tours/records';
-
   private infoUrl = 'http://localhost8095/api/collections/info/records';
-  private assetmentsUrl = 'http://localhost8095/api/collections/assetments/records';
+  private assetmentsUrl = 'http://localhost8095/api/collections/assetments/records'; */
   aside=true;
   request: any;
   selectedTicketsCount=0;
-
+  properties: any[] = [];
   products: any[] = [];
   doctors: any[] = [];
   specialties: any[] = [];
@@ -127,48 +125,42 @@ view:any=true;
     //   public authRESTService: AuthRESTService,
     //   public butler: Butler,
       public http: HttpClient,
-      public virtuallRouter: virtualRouter
-    //   public yeoman: Yeoman,
-    //   public dataApiService: DataApiService
+      public virtuallRouter: virtualRouter,
+      public dataApiService: DataApiService
   ) {
 
-// this.getCategories().subscribe(
-//     response=>{
-//       this.categories=response.items;
-//     }
-// );
-    
-this.getDoctors().subscribe(
-  response=>{
-    this.doctors=response;
-  }
-);
-this.getSpecialties().subscribe(
-  response => {
-    this.specialties = response;
-  }
-);
+    this.getCategories().subscribe(
+        response=>{
+          this.categories=response.items;
+        }
+    );
+        
+      this.getProperties().subscribe(
+        response=>{
+          this.properties=response.items;
+        }
+      );
    }
  
-   getDoctors(): Observable<any[]> {
-    this.urlPrev = this.doctorsUrl;
+  /*  getProperties(): Observable<any[]> {
+    this.urlPrev = this.getPropertiesUrl;
     return this.getAllPages(this.urlPrev).pipe(
-      tap(doctors => {
+      tap(properties => {
         // Extraer todas las categorías encontradas
         const categories: Set<string> = new Set(); // Aquí establecemos explícitamente que el conjunto contendrá cadenas de texto
         
-        doctors.forEach(product => categories.add(product.cat)); // Asumiendo que 'cat' es la propiedad que contiene la categoría de cada producto
+        properties.forEach(product => categories.add(product.cat)); // Asumiendo que 'cat' es la propiedad que contiene la categoría de cada producto
         
         // Ordenar las categorías alfabéticamente
         this.categories = Array.from(categories).sort((a, b) => a.localeCompare(b));
       })
     );
-  }
+  } */
 
 
  
   
-  getSpecialties(): Observable<any[]> {
+ /*  getSpecialties(): Observable<any[]> {
     this.urlPrev = this.specialtiesUrl;
     return this.getAllPages(this.urlPrev).pipe(
       tap(specialties => {
@@ -181,7 +173,7 @@ this.getSpecialties().subscribe(
         this.categories = Array.from(categories).sort((a, b) => a.localeCompare(b));
       })
     );
-  }
+  } */
   
   private getAllPages(url: string, doctors: any[] = []): Observable<any[]> {
     return this.http.get<any>(url).pipe(
@@ -259,13 +251,13 @@ select(i: any) {
   getCategories(): Observable<any> {
     return this.http.get<any>(this.categoriesUrl);
   }
-  getRequest(): Observable<any> {
+ /*  getRequest(): Observable<any> {
     return this.http.get<any>(this.requestUrl);
-  }
-  // getDoctors(): Observable<any> {
-  //   return this.http.get<any>(this.productsUrl);
-  // }
-  getTours(): Observable<any> {
+  } */
+  getProperties(): Observable<any> {
+     return this.http.get<any>(this.propertiesUrl);
+   }
+  /* getTours(): Observable<any> {
     return this.http.get<any>(this.toursUrl);
   }
   getInffo(): Observable<any> {
@@ -273,7 +265,7 @@ select(i: any) {
   }
   getAssetments(): Observable<any> {
     return this.http.get<any>(this.assetmentsUrl);
-  }
+  } */
   get pagesArray(): number[] {
     const totalPages = Math.ceil(this.totalProducts / this.itemsPerPage);
     return new Array(totalPages).fill(0).map((_, index) => index + 1);

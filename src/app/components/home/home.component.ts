@@ -17,6 +17,7 @@ export class HomeComponent  {
   ngFormRequest: FormGroup;
   submitted = false;
   public isError = false;
+  propertys:any;
 constructor(
   public global:GlobalService,
   public yeoman: Yeoman,
@@ -25,7 +26,7 @@ constructor(
 
 ){
   this.ngFormRequest = this.formBuilder.group({
-    email: ['', [Validators.required]],
+   /*  email: ['', [Validators.required]],
     name: ['', [Validators.required]],
     di: ['', [Validators.required]],
     numWhat: ['', [Validators.required]],
@@ -36,49 +37,15 @@ constructor(
     Asesor: ['', [Validators.required]],
     inmobiliaria: ['', [Validators.required]],
     canon: ['', [Validators.required]],
-    terminos: ['', [Validators.required]],
+    terminos: ['', [Validators.required]], */
 
-  });
+  }); 
 }
-saveRequest() {
-  let data: any = {};
-  data = this.ngFormRequest.value;
-/*   console.log("DATA: "+data.email)
- */  // let request = { "name": data };
-  this.dataApiService.saveRequest(data).subscribe(
-    response => {
-      console.log('Solicitud guardada correctamente:', response);
-      // Agregar la marca de la respuesta al array de marcas, si es necesario
-
-      // Limpiar los valores para futuros usos
-      this.global.request = '';
-      this.yeoman.allrequest.push(response);
-      this.yeoman.allrequest = [...this.yeoman.allrequest];
-      this.isError = false;
-
-    },
-    error => this.onIsError()
-   /*  error => {
-      console.error('Error al guardar :', error);
-    } */
-  );
-}
+/*  */
 
 ngOnInit(): void {
   this.ngFormRequest = this.formBuilder.group({
-    email: ['', [Validators.required]],
-    name: ['', [Validators.required]],
-    di: ['', [Validators.required]],
-    numWhat: ['', [Validators.required]],
-    placExpd: ['', [Validators.required]],
-    infLabol: ['', [Validators.required]],    
-    aptoPlace: ['', [Validators.required]],
-    numApto: ['', [Validators.required]],
-    Asesor: ['', [Validators.required]],
-    inmobiliaria: ['', [Validators.required]],
-    canon: ['', [Validators.required]],
-    terminos: ['', [Validators.required]],
-
+  
   });
 }
 get f(): { [key: string]: AbstractControl } {

@@ -1,6 +1,14 @@
 <div>
 <app-header></app-header>
 <app-home [hidden]="virtualRouter.routerActive!=='home'"></app-home>
+<app-about [hidden]="virtualRouter.routerActive!=='about'"></app-about>
+<app-contact [hidden]="virtualRouter.routerActive!=='contact'"></app-contact>
+<app-blog [hidden]="virtualRouter.routerActive!=='blog'"></app-blog>
+<app-faq [hidden]="virtualRouter.routerActive!=='faq'"></app-faq>
+<app-agents [hidden]="virtualRouter.routerActive!=='agents'"></app-agents>
+<app-properties [hidden]="virtualRouter.routerActive!=='properties'"></app-properties>
+
+
 <app-footer></app-footer>
 </div>
 <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
