@@ -20,6 +20,8 @@ import { ServiceComponent } from './components/service/service.component';
 import { AgentsComponent } from './components/agents/agents.component';
 import { PropertiesComponent } from './components/properties/properties.component';
 import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthRESTService } from './services/auth-rest.service';
 
 @Component({
   selector: 'app-root',
@@ -42,7 +44,8 @@ import { PropertyDetailComponent } from './components/property-detail/property-d
     ServiceComponent,
     AgentsComponent,
     PropertiesComponent,
-    PropertyDetailComponent
+    PropertyDetailComponent,
+    DashboardComponent
   
     
   ],
@@ -54,7 +57,8 @@ export class AppComponent {
   constructor(
     public global: GlobalService,
     public script: ScriptService,
-    public virtualRouter: virtualRouter
+    public virtualRouter: virtualRouter,
+    public autRest: AuthRESTService
   ) {
     this.script
       .load(

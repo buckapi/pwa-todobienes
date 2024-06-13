@@ -1,5 +1,5 @@
 <div>
-<app-header></app-header>
+<app-header [hidden]="virtualRouter.routerActive === 'dashboard'"></app-header>
 <app-home [hidden]="virtualRouter.routerActive!=='home'"></app-home>
 <app-about [hidden]="virtualRouter.routerActive!=='about'"></app-about>
 <app-contact [hidden]="virtualRouter.routerActive!=='contact'"></app-contact>
@@ -8,6 +8,7 @@
 <app-agents [hidden]="virtualRouter.routerActive!=='agents'"></app-agents>
 <app-properties [hidden]="virtualRouter.routerActive!=='properties'"></app-properties>
 <app-property-detail [hidden]="virtualRouter.routerActive!=='property-detail'"></app-property-detail>
+<app-dashboard [hidden]="virtualRouter.routerActive!=='dashboard'"></app-dashboard>
 <app-footer></app-footer>
 </div>
 <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
@@ -41,7 +42,9 @@
                                     </fieldset> 
 <!--                                     <div class="title-forgot"><a class="fs-13" >Forgot password</a> </div>                                    
  -->                                    <button class="sc-button"  name="submit" type="submit">
+                                        <a (click)="global.setRoute('dashboard')" >
                                         <span>Ingresar</span>
+                                    </a>
                                     </button>
                                 </form>
                             </div>
@@ -114,7 +117,9 @@
 <!--                                         <img class="img-icon" src="assets/todobienes/images/icon/icon-password.svg" alt="images">
  -->                                    </fieldset>                                   
                                     <button class="sc-button"  name="submit" type="submit">
+                                        <a (click)="global.setRoute('dashboard')">
                                         <span>Registrarme</span>
+                                    </a>
                                     </button>
                                 </form>
                             </div>

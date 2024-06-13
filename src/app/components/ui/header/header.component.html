@@ -7,7 +7,7 @@
                    <div class="inner-container flex justify-space align-center">
                        <!-- Logo Box -->
                        <div class="logo-box flex">
-                           <div class="logo"><a href="index.html"><img src="assets/todobienes/assets/images/logo/logo@2x.png" alt="" width="197" height="48"></a></div>
+                           <div class="logo"><a ><img src="assets/todobienes/assets/images/logo/logo@2x.png" alt="" width="197" height="48"></a></div>
                        </div>
                        <div class="nav-outer flex align-center">
                            <!-- Main Menu -->
@@ -16,37 +16,8 @@
                                    <ul class="navigation clearfix">
                                        <li><a (click)="global.setRoute('home')">Inicio</a>
                                        </li>
-                                       <li class="dropdown2"><a (click)="global.setRoute('properties')">Propiedades</a>
-                                          <!--  <ul>
-                                               <li class="dropdown2"><a href="#">Property List</a>
-                                                   <ul>
-                                                       <li><a href="properties-list.html">Property List</a></li>
-                                                       <li><a href="properties-list-sidebar-v1.html">Property List Sidebar V1</a></li>
-                                                       <li><a href="properties-list-sidebar-v2.html">Property List Sidebar V2</a></li>
-                                                   </ul>
-                                               </li>
-                                               <li class="dropdown2"><a href="#">Property Grid</a>
-                                                   <ul>
-                                                       <li><a href="properties-grid.html">Property Grid</a></li>
-                                                       <li><a href="properties-grid-sidebar-v1.html">Property Grid Sidebar V1</a></li>
-                                                       <li><a href="properties-grid-sidebar-v2.html">Property Grid Sidebar V2</a></li>
-                                                   </ul>
-                                               </li>
-                                               <li class="dropdown2"><a href="#">Property Detail</a>
-                                                   <ul>
-                                                       <li><a href="#">Property Detail V1</a></li>
-                                                       <li><a href="property-detail-v2.html">Property Detail V2</a></li>
-                                                       <li><a href="property-detail-v3.html">Property Detail V3</a></li>
-                                                   </ul>
-                                               </li>
-                                               <li class="dropdown2"><a href="#">Property Map</a>
-                                                   <ul>
-                                                       <li><a href="#">Property Half Map V1</a></li>
-                                                       <li><a href="properties-map-v2.html">Property Half Map V2</a></li>
-                                                       <li><a href="properties-map-v3.html">Property Half Map V3</a></li>
-                                                   </ul>
-                                               </li>
-                                           </ul> -->
+                                       <li ><a (click)="global.setRoute('properties')">Propiedades</a>
+                                         
                                        </li>
                                        <li class="dropdown2"><a href="#">Nosotros</a>
                                            <ul>
@@ -58,11 +29,11 @@
                                                
                                            </ul>
                                        </li>
-                                       <li class="dropdown2"><a (click)="global.setRoute('blog')">Novedades</a>
+                                       <li ><a (click)="global.setRoute('blog')">Novedades</a>
                                          
                                        </li>
                                        
-                                       <li><a (click)="global.setRoute('contact')">Contacto</a></li>
+                                       <li><a (click)="global.setRoute('dashboard')">Contacto</a></li>
                                    </ul>
                                </div>
                            </nav>
@@ -84,12 +55,12 @@
                                </ul>
                            </div>
                            <div class="flat-bt-top sc-btn-top ">
-                               <a class="sc-button btn-icon " href="#">
+                               <a class="sc-button btn-icon " (click)="global.setRoute('properties')">
                                    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                        <path d="M13.25 15.75V15H11.375C10.7547 15 10.25 14.4953 10.25 13.875V12.375C10.25 11.7547 10.7547 11.25 11.375 11.25H11.75V10.5H13.25V11.25H14C14.1989 11.25 14.3897 11.329 14.5303 11.4697C14.671 11.6103 14.75 11.8011 14.75 12C14.75 12.1989 14.671 12.3897 14.5303 12.5303C14.3897 12.671 14.1989 12.75 14 12.75H11.75V13.5H13.625C14.2453 13.5 14.75 14.0047 14.75 14.625V16.125C14.75 16.7453 14.2453 17.25 13.625 17.25H13.25V18H11.75V17.25H11C10.8011 17.25 10.6103 17.171 10.4697 17.0303C10.329 16.8897 10.25 16.6989 10.25 16.5C10.25 16.3011 10.329 16.1103 10.4697 15.9697C10.6103 15.829 10.8011 15.75 11 15.75H13.25Z" fill="white"/>
                                        <path d="M22.469 10.6447L14.315 2.96925C13.8234 2.50736 13.1742 2.25024 12.4996 2.25024C11.825 2.25024 11.1759 2.50736 10.6842 2.96925L8.74998 4.791V3C8.74998 2.80109 8.67096 2.61032 8.53031 2.46967C8.38966 2.32902 8.19889 2.25 7.99998 2.25H4.99998C4.80107 2.25 4.6103 2.32902 4.46965 2.46967C4.329 2.61032 4.24998 2.80109 4.24998 3V9.027L2.55273 10.6252C2.03748 11.0722 1.86348 11.784 2.10798 12.4387C2.34873 13.0837 2.93823 13.5 3.60948 13.5H4.24998V21C4.24998 21.1989 4.329 21.3897 4.46965 21.5303C4.6103 21.671 4.80107 21.75 4.99998 21.75H20C20.1989 21.75 20.3897 21.671 20.5303 21.5303C20.671 21.3897 20.75 21.1989 20.75 21V13.5H21.389C22.061 13.5 22.6512 13.083 22.892 12.438C23.1357 11.7832 22.961 11.0715 22.469 10.6447ZM5.74998 3.75H7.24998V6.2025L5.74998 7.61475V3.75ZM21.4865 11.9138C21.4542 12 21.4047 12 21.389 12H20C19.8011 12 19.6103 12.079 19.4697 12.2197C19.329 12.3603 19.25 12.5511 19.25 12.75V20.25H5.74998V12.75C5.74998 12.5511 5.67096 12.3603 5.53031 12.2197C5.38966 12.079 5.19889 12 4.99998 12H3.60948C3.59373 12 3.54498 12 3.51273 11.9138C3.50022 11.8834 3.49792 11.8498 3.50617 11.818C3.51442 11.7862 3.53278 11.7579 3.55848 11.7375L11.7125 4.062C11.9257 3.86178 12.2071 3.75032 12.4996 3.75032C12.7921 3.75032 13.0735 3.86178 13.2867 4.062L21.4625 11.7578C21.5187 11.8058 21.4977 11.883 21.4865 11.9138Z" fill="white"/>
                                    </svg>
-                                   <span>Vender propiedad</span>
+                                   <span>Propiedades</span>
                                </a>
                            </div>  
                        </div>

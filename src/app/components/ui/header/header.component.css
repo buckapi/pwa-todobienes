@@ -1,0 +1,15 @@
+/* Estilo para el header fijo */
+.header-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+    background-color: #fff; /* Color de fondo del header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra opcional para el header */
+  }
+  
+  /* Agrega un relleno superior al cuerpo para evitar que el contenido quede oculto detrás del header */
+  body {
+    padding-top: 70px; /* Ajusta este valor según la altura de tu header */
+  }
+  

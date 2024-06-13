@@ -47,13 +47,14 @@ export class GlobalService {
   public urlPrev="";
   private categoriesUrl = 'https://db.buckapi.com:8090/api/collections/tdCategories/records';
   private propertiesUrl = 'https://db.buckapi.com:8090/api/collections/tdProperties/records';
-  /* private requestUrl = 'https://db.buckapi.com:8090/api/collections/formsLegalesRequests/records';
+  private requestUrl = 'https://db.buckapi.com:8090/api/collections/formsLegalesRequests/records';
   private doctorsUrl = environment.apiUrl+'/api/collections/doctors/records';
   private specialtiesUrl = environment.apiUrl+'/api/collections/specialties/records';
   private toursUrl = 'http://localhost8070/api/collections/tours/records';
   private infoUrl = 'http://localhost8095/api/collections/info/records';
-  private assetmentsUrl = 'http://localhost8095/api/collections/assetments/records'; */
+  private assetmentsUrl = 'http://localhost8095/api/collections/assetments/records';
   aside=true;
+  allLoaded=false;
   request: any;
   selectedTicketsCount=0;
   properties: any[] = [];
@@ -296,6 +297,23 @@ this.categoryPrev=item;
     //     this.ordersSize = this.yeoman.myOrders.length;
     //   })
     }
+  }
+  getSpecialties(): Observable<any[]> {
+    this.urlPrev = this.specialtiesUrl;
+    return this.getAllPages(this.urlPrev).pipe(
+      tap((specialties) => {
+        // Extraer todas las categorías encontradas
+        const categories: Set<string> = new Set(); // Aquí establecemos explícitamente que el conjunto contendrá cadenas de texto
+
+        specialties.forEach((product) => categories.add(product.cat)); // Asumiendo que 'cat' es la propiedad que contiene la categoría de cada producto
+
+        // Ordenar las categorías alfabéticamente
+        this.specialties = Array.from(categories).sort((a, b) =>
+          a.localeCompare(b)
+        );
+        this.specialties = [...this.specialties];
+      })
+    );
   }
   setRoute(route:string){
     this.virtuallRouter.routerActive=route;

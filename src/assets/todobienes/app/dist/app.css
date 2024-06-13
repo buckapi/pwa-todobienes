@@ -6227,6 +6227,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  top: 50px;
 }
 .slider .img-slider img {
   position: absolute;
@@ -6240,11 +6241,11 @@
   position: relative;
 }
 .slider .slider-item .content {
-  padding: 210px 0px 163px 6px;
+  padding: 238px 0px 163px 6px;
 }
 .slider .slider-item .content .heading {
   margin-bottom: 60px;
-  width: 44.1%;
+  width: 55.1%;
 }
 .slider .slider-item .content .sub-title {
   background: #5C28CA;
@@ -8830,7 +8831,7 @@ h6 {
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 58px;
   line-height: 72px;
   font-weight: 700;
 }
