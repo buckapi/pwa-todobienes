@@ -1,0 +1,30 @@
+ 
+ .dashboard__content {
+    margin-left: 289px;
+    transition: all 0.2s ease-out;
+}
+.dashboard.show-job .dashboard__content {
+    margin-left: 70px;
+    transition: all 0.2s ease-out;
+}
+.main-header .header-lower .nav-outer {
+    position: relative;
+}
+.align-items-center {
+    -webkit-box-align: center !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+.justify-content-between {
+    -webkit-box-pack: justify !important;
+    -webkit-justify-content: space-between !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+}
+.d-flex {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}

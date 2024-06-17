@@ -18,8 +18,11 @@ export const ScriptStore: Scripts[] = [
   { name: 'shortcodes', src: 'assets/todobienes/app/js/shortcodes.js' },
   { name: 'main', src: 'assets/todobienes/app/js/main.js' },
   { name: 'curved', src: 'assets/todobienes/app/js/curved.js' },
-  { name: 'priceRanger', src: 'assets/todobienes/app/js/price-ranger.js' }
+  { name: 'priceRanger', src: 'assets/todobienes/app/js/price-ranger.js' },
+  { name: 'apexcharts', src: 'assets/todobienes/app/js/apexcharts.js' },
+  { name: 'jqueryCookie', src: 'assets/todobienes/app/js/jquery.cookie.js' },
+  { name: 'dashboardMenuMin', src: 'assets/todobienes/app/js/dashboard-menu.min.js' },
+  { name: 'dashboardMenu', src: 'assets/todobienes/app/js/dashboard-menu.js' }
+
   
-
-
 ];

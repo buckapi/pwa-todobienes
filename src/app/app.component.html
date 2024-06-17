@@ -1,5 +1,6 @@
 <div>
 <app-header [hidden]="virtualRouter.routerActive === 'dashboard'"></app-header>
+<app-header-dashboard [hidden]="virtualRouter.routerActive !== 'dashboard'"></app-header-dashboard>
 <app-home [hidden]="virtualRouter.routerActive!=='home'"></app-home>
 <app-about [hidden]="virtualRouter.routerActive!=='about'"></app-about>
 <app-contact [hidden]="virtualRouter.routerActive!=='contact'"></app-contact>
@@ -9,7 +10,9 @@
 <app-properties [hidden]="virtualRouter.routerActive!=='properties'"></app-properties>
 <app-property-detail [hidden]="virtualRouter.routerActive!=='property-detail'"></app-property-detail>
 <app-dashboard [hidden]="virtualRouter.routerActive!=='dashboard'"></app-dashboard>
-<app-footer></app-footer>
+
+<app-footer [hidden]="virtualRouter.routerActive === 'dashboard'"></app-footer>
+
 </div>
 <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -20,9 +23,9 @@
             <div class="modal-body space-y-20 pd-40">
                 <div class="wrap-modal flex">
                     <div class="images flex-none">
-                        <!-- <img src="assets/todobienes/images/section/bg-login.jpg" alt="images"> -->
+                        <img src="assets/todobienes/assets/images/section/bg-login.jpg" alt="images"> 
                         <div class="mark-logo">
-                         <!--    <img src="assets/todobienes/images/logo/logo2.png" alt="images"> -->
+                             <img src="assets/todobienes/assets/images/logo/logo@2x.png" alt="images">
                         </div>
                     </div>
                     <div class="content">
@@ -33,12 +36,12 @@
                                     <fieldset class="">
                                         <label class="fw-6">Cuenta</label>
                                         <input type="email" id="email" class="tb-my-input" name="email" placeholder="ingrese su correo" >
-                                      <!--   <img class="img-icon img-email" src="assets/todobienes/images/icon/icon-gmail.svg" alt="images"> -->
+                                        <img class="img-icon img-email" src="assets/todobienes/assets/images/icon/icon-gmail.svg" alt="images"> 
                                     </fieldset>   
                                     <fieldset class="style-wrap">
                                         <label class="fw-6">Contraseña</label>
                                         <input type="password" class="input-form password-input" placeholder="ingrese su clave" >
-                                        <!-- <img class="img-icon" src="assets/todobienes/images/icon/icon-password.svg" alt="images"> -->
+                                         <img class="img-icon" src="assets/todobienes/assets/images/icon/icon-password.svg" alt="images"> 
                                     </fieldset> 
 <!--                                     <div class="title-forgot"><a class="fs-13" >Forgot password</a> </div>                                    
  -->                                    <button class="sc-button"  name="submit" type="submit">
@@ -84,10 +87,10 @@
             </button>
             <div class="modal-body space-y-20 pd-40 style2">
                 <div class="wrap-modal flex">
-                    <div class="images flex-none relative">
-                        <!-- <img src="assets/todobienes/images/section/bg-register.jpg" alt="images"> -->
+                    <div class="images  relative">
+                         <img src="assets/todobienes/assets/images/section/bg-register.jpg" alt="images"> 
                         <div class="mark-logo">
-                      <!--       <img src="assets/todobienes/images/logo/logo2.png" alt="images"> -->
+                             <img src="assets/todobienes/assets/images/logo/logo@2x.png" alt="images"> 
                         </div>
                     </div>
                     <div class="content">
@@ -99,23 +102,23 @@
                                     <fieldset class="">
                                         <label class="fw-6">Nombres</label>
                                         <input type="text" class="tb-my-input" name="text" placeholder="nombre completo" >
-<!--                                         <img class="img-icon img-name" src="assets/todobienes/images/icon/login-user.svg" alt="images">
- -->                                    </fieldset>   
+                                        <img class="img-icon img-name" src="assets/todobienes/assets/images/icon/login-user.svg" alt="images">
+                                     </fieldset>   
                                     <fieldset class="t">
                                         <label class="fw-6">Email</label>
                                         <input type="email"  class="tb-my-input" name="email" placeholder="Email" >
-<!--                                         <img class="img-icon" src="assets/todobienes/images/icon/icon-gmail.svg" alt="images">
- -->                                    </fieldset> 
+                                        <img class="img-icon" src="assets/todobienes/assets/images/icon/icon-gmail.svg" alt="images">
+                                     </fieldset> 
                                     <fieldset class="">
                                         <label class="fw-6">Contraseña</label>
                                         <input type="password" class="input-form password-input" placeholder="contraseña " >
-<!--                                         <img class="img-icon" src="assets/todobienes/images/icon/icon-password.svg" alt="images">
- -->                                    </fieldset> 
+                                        <img class="img-icon" src="assets/todobienes/assets/images/icon/icon-password.svg" alt="images">
+                                     </fieldset> 
                                     <fieldset class="">
                                         <label class="fw-6">Confirmas contraseña</label>
                                         <input type="password" class="input-form password-input" placeholder="Confirmar contraseña" >
-<!--                                         <img class="img-icon" src="assets/todobienes/images/icon/icon-password.svg" alt="images">
- -->                                    </fieldset>                                   
+                                        <img class="img-icon" src="assets/todobienes/assets/images/icon/icon-password.svg" alt="images">
+                                     </fieldset>                                   
                                     <button class="sc-button"  name="submit" type="submit">
                                         <a (click)="global.setRoute('dashboard')">
                                         <span>Registrarme</span>

@@ -45,7 +45,8 @@ import { AuthRESTService } from './services/auth-rest.service';
     AgentsComponent,
     PropertiesComponent,
     PropertyDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderDashboardComponent
   
     
   ],
@@ -72,10 +73,14 @@ export class AppComponent {
         'jqueryValidate',
         'countto',
         'plugin',
-        'shortcodes',
-        'main',
+/*         'shortcodes',
+ */        'main',
         'curved',
-        'priceRanger'
+        'priceRanger',
+        'apexcharts',
+        'jqueryCookie',
+        'dashboardMenuMin',
+        'dashboardMenu'
       )
       .then(() => {
         console.log('Todos los scripts se cargaron correctamente');

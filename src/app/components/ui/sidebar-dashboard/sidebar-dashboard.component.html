@@ -1,160 +1,139 @@
-<div class="sidebar-header">
-    <a (click)="global.setRoute('home')" class="sidebar-brand">
-        <!-- <img class="sidebar-brand_icon" src="assets/camiwa-dash/dist/img/mini-logo.png" alt=""> -->
-        <span class="sidebar-brand_text">Camiwa<span></span></span>
-    </a>
-</div>
-<!--/.sidebar header-->
-<div class="sidebar-body">
-    <nav class="sidebar-nav">
-        <ul class="metismenu">
-            <li class="nav-label">
-                <span class="nav-label_text">Partner menu</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-three-dots nav-label_ellipsis m-auto" viewBox="0 0 16 16">
-                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                </svg>
-            </li>
+<div class="left-menu">
+    <!--- Sidemenu -->
+    <div id="sidebar-menu">
+        <!-- Logo Box -->
+        <div class="logo-box d-flex">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/todobienes/assets/images/logo/logo3@2x.png" alt="" width="197" height="48" class="img-logo">
+                    <img src="assets/todobienes/assets/images/logo/toggle-logo@2x.png" alt="" width="46" height="48" class="toggle-logo">
+                </a>
+            </div>
+        </div>
+       <!--  <div class="profile-box">
+            <div class="title-1 fw-6">Profile</div>
+            <div class="avatar-box flex align-center">
+                <div class="avatar flex-none">
+                    <img src="assets/todobienes/assets/images/author/avatar.png" alt="" title="">
+                </div>
+                <div class="content">
+                    <div class="sub-title fs-12 lh-18">Account</div>
+                    <div class="titles fw-6"><a href="dashboard.html#">...</a> </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="title-2 fw-6">Menu</div>
+        <ul class="downmenu list-unstyled" id="side-menu">
             <li>
-                <a href="dashboard.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
-                        <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z" />
-                        <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z" />
+                <a (click)="global.setRoute('dashboard')" class="tf-effect">
+                <span class="icon-dash dash-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                        <path d="M6.75682 9.35156V15.64" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11.0342 6.34253V15.64" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15.2412 12.6746V15.64" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.2939 1.83331H6.70346C3.70902 1.83331 1.83203 3.95272 1.83203 6.95304V15.0469C1.83203 18.0472 3.70029 20.1666 6.70346 20.1666H15.2939C18.2971 20.1666 20.1654 18.0472 20.1654 15.0469V6.95304C20.1654 3.95272 18.2971 1.83331 15.2939 1.83331Z" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
                     </svg>
-                    <span class="ms-2">Mi camiwa</span>
-                </a>
-            </li>
-            <li>
-                <a href="dashboard.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-bookmark-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z" />
-                        <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
-                        <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
-                    </svg>
-                    <span class="ms-2">Reservas</span>
-                </a>
-            </li>
-            <li class="mm-active">
-                <a href="dashboard.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
-                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
-                    </svg>
-                    <span class="ms-2">Mensajes</span>
-                </a>
-            </li>
-           
-            <!-- <li>
-                <a href="dashboard.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
-                        <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z" />
-                        <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z" />
-                    </svg>
-                    <span class="ms-2">Dashboard</span>
+                </span>
+                <span class="dash-titles">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="add-listing.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-add" viewBox="0 0 16 16">
-                        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h4a.5.5 0 1 0 0-1h-4a.5.5 0 0 1-.5-.5V7.207l5-5 6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
-                        <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 1 0 1 0v-1h1a.5.5 0 1 0 0-1h-1v-1a.5.5 0 0 0-.5-.5" />
+                <a (click)="global.setRoute('agentes')" class="has-arrow tf-effect">
+                <span class="icon-dash dash-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.987 14.0674C7.44168 14.0674 4.41406 14.6034 4.41406 16.7502C4.41406 18.8969 7.42247 19.4521 10.987 19.4521C14.5323 19.4521 17.5591 18.9152 17.5591 16.7694C17.5591 14.6235 14.5515 14.0674 10.987 14.0674Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9866 11.0054C13.3132 11.0054 15.1989 9.11885 15.1989 6.79226C15.1989 4.46567 13.3132 2.57996 10.9866 2.57996C8.66005 2.57996 6.77346 4.46567 6.77346 6.79226C6.7656 9.11099 8.6391 10.9976 10.957 11.0054H10.9866Z" stroke="white" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="ms-2">Add listing</span>
+                </span>
+                <span class="dash-titles">Agentes</span>
+                </a>
+            </li>
+       
+            <li>
+                <a (click)="global.setRoute('propertiesDash')" class="tf-effect">
+                <span class="icon-applicant dash-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.533 2.55658H7.10561C4.28686 2.55658 2.51953 4.55216 2.51953 7.37733V14.9985C2.51953 17.8237 4.27861 19.8192 7.10561 19.8192H15.1943C18.0222 19.8192 19.7813 17.8237 19.7813 14.9985V11.3062" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.09012 10.0108L14.9404 3.16055C15.7938 2.30805 17.177 2.30805 18.0305 3.16055L19.146 4.27614C19.9995 5.12955 19.9995 6.51372 19.146 7.36622L12.2628 14.2495C11.8897 14.6226 11.3837 14.8325 10.8557 14.8325H7.42188L7.50804 11.3675C7.52087 10.8578 7.72896 10.372 8.09012 10.0108Z" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.8984 4.21893L18.0839 8.40443" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg> 
+                </span>
+                <span class="dash-titles">Propiedades</span>
+                </a>
+            </li>
+           <!--  <li>
+                <a href="dashboard.html#" class=" tf-effect">
+                <span class="icon-submit dash-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.4808 17.4807C14.6793 20.2825 10.531 20.8878 7.13625 19.3178C6.6351 19.1161 6.22423 18.953 5.83362 18.953C4.74565 18.9594 3.39143 20.0144 2.68761 19.3114C1.98379 18.6075 3.03952 17.2522 3.03952 16.1577C3.03952 15.767 2.88291 15.3635 2.68116 14.8613C1.11046 11.4671 1.71663 7.31744 4.5181 4.51659C8.09433 0.939042 13.9045 0.939042 17.4808 4.51566C21.0635 8.09874 21.057 13.9041 17.4808 17.4807Z" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.6105 11.3786H14.6187" stroke="#F1FAEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.9347 11.3786H10.9429" stroke="#F1FAEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.2589 11.3786H7.26715" stroke="#F1FAEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span class="dash-titles">Message</span>
+                </a>
+            </li> 
+            <li>
+                <a href="dashboard.html#" class="tf-effect">
+                <span class="icon-save-candidate dash-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.63385 10.6318C1.65026 7.56096 2.79976 4.05104 6.02368 3.01246C7.71951 2.46521 9.59135 2.78788 11.0012 3.84846C12.3349 2.81721 14.2755 2.46888 15.9695 3.01246C19.1934 4.05104 20.3503 7.56096 19.3676 10.6318C17.8368 15.4993 11.0012 19.2485 11.0012 19.2485C11.0012 19.2485 4.21601 15.5561 2.63385 10.6318Z" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.668 6.14166C15.6488 6.45883 16.3418 7.33425 16.4252 8.36183" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span class="dash-titles">My favorite</span>
                 </a>
             </li>
             <li>
-                <a href="wallet.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
-                        <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z" />
+                <a href="dashboard.html#" class="tf-effect">
+                <span class="icon-bell1 dash-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10.7864" cy="10.786" r="8.23951" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.5156 16.9447L19.746 20.1667" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="ms-2">Wallet</span>
-                </a>
-            </li>
-            <li class="mm-active">
-                <a href="">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
-                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
-                    </svg>
-                    <span class="ms-2">Message</span>
-                    <span class="badge rounded-pill bg-success">2</span>
-                </a>
-            </li> -->
-            <li class="nav-label">
-                <span class="nav-label_text">Customer menu</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-three-dots nav-label_ellipsis m-auto" viewBox="0 0 16 16">
-                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                </svg>
-            </li>
-            <li>
-                <a href="dashboard.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
-                        <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z" />
-                        <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z" />
-                    </svg>
-                    <span class="ms-2">Mi camiwa</span>
+                </span>
+                <span class="dash-titles">Save search</span>
                 </a>
             </li>
             <li>
-                <a href="dashboard.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-bookmark-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z" />
-                        <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
-                        <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
-                    </svg>
-                    <span class="ms-2">Reservas</span>
+                <a href="dashboard.html#" class="tf-effect">
+                <span class="icon-change-passwords dash-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.9935 15.287V12.9614" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6729 4.88599C18.222 4.88599 19.4687 6.14182 19.4687 7.69099V10.8443C17.2137 12.1643 14.2345 12.9618 10.9895 12.9618C7.74453 12.9618 4.77453 12.1643 2.51953 10.8443V7.68182C2.51953 6.13265 3.77536 4.88599 5.32453 4.88599H16.6729Z" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.2018 4.88196V4.54646C14.2018 3.42813 13.2943 2.52063 12.176 2.52063H9.81099C8.69266 2.52063 7.78516 3.42813 7.78516 4.54646V4.88196" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2.54297 14.1927L2.71622 16.4927C2.83355 18.0427 4.12514 19.2408 5.67889 19.2408H16.3113C17.8651 19.2408 19.1566 18.0427 19.274 16.4927L19.4472 14.1927" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                 
+                </span>
+                <span class="dash-titles">My package</span>
                 </a>
             </li>
             <li>
-                <a href="dashboard.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
-                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
-                    </svg>
-                    <span class="ms-2">Mensajes</span>
+                <a href="dashboard.html#" class="tf-effect">
+                    <span class="icon-change-passwords dash-icon">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.0713 6.98821L18.5008 5.99813C18.0181 5.16037 16.9484 4.87136 16.1095 5.35206V5.35206C15.7101 5.5873 15.2336 5.65404 14.785 5.53756C14.3364 5.42108 13.9526 5.13096 13.7182 4.73116C13.5673 4.47703 13.4863 4.18759 13.4832 3.8921V3.8921C13.4968 3.41835 13.3181 2.95927 12.9877 2.61943C12.6574 2.27959 12.2035 2.08794 11.7296 2.08813H10.5801C10.1158 2.08813 9.67059 2.27315 9.34306 2.60226C9.01552 2.93138 8.83263 3.37744 8.83486 3.84176V3.84176C8.8211 4.80041 8.03999 5.57031 7.08124 5.57021C6.78575 5.56714 6.49631 5.4861 6.24219 5.33527V5.33527C5.40328 4.85458 4.33358 5.14359 3.85088 5.98135L3.23837 6.98821C2.75626 7.82493 3.04134 8.89395 3.87605 9.37952V9.37952C4.41863 9.69277 4.75288 10.2717 4.75288 10.8982C4.75288 11.5247 4.41863 12.1036 3.87605 12.4169V12.4169C3.0424 12.8992 2.75701 13.9656 3.23837 14.7998V14.7998L3.81732 15.7983C4.04348 16.2064 4.42294 16.5075 4.87173 16.6351C5.32052 16.7626 5.80164 16.7061 6.20862 16.4779V16.4779C6.60871 16.2445 7.08548 16.1805 7.53295 16.3002C7.98042 16.42 8.36152 16.7135 8.59154 17.1156C8.74236 17.3697 8.8234 17.6592 8.82647 17.9546V17.9546C8.82647 18.9231 9.6116 19.7083 10.5801 19.7083H11.7296C12.6948 19.7083 13.4786 18.9283 13.4832 17.963V17.963C13.481 17.4973 13.665 17.0499 13.9944 16.7206C14.3237 16.3912 14.7711 16.2072 15.2368 16.2094C15.5316 16.2173 15.8199 16.298 16.0759 16.4444V16.4444C16.9126 16.9265 17.9816 16.6414 18.4672 15.8067V15.8067L19.0713 14.7998C19.3052 14.3984 19.3693 13.9204 19.2497 13.4716C19.13 13.0227 18.8363 12.6401 18.4336 12.4085V12.4085C18.031 12.1769 17.7373 11.7943 17.6176 11.3454C17.4979 10.8966 17.5621 10.4186 17.796 10.0172C17.948 9.75171 18.1682 9.53158 18.4336 9.37952V9.37952C19.2634 8.89422 19.5478 7.83143 19.0713 6.9966V6.9966V6.98821Z" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <ellipse cx="11.1587" cy="10.8982" rx="2.41648" ry="2.41648" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                    
+                    </span>
+                    <span class="dash-titles">Change password</span>
                 </a>
-            </li>
-            <li class="nav-label">
-                <span class="nav-label_text">Admin menu</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-three-dots nav-label_ellipsis m-auto" viewBox="0 0 16 16">
-                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                </svg>
-            </li>
+            </li>-->
             <li>
-                <a href="dashboard.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
-                        <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z" />
-                        <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z" />
+                <a href="index.html" class="tf-effect">
+                <span class="icon-log-out dash-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.7627 6.77369V5.91844C13.7627 4.05303 12.2502 2.54053 10.3848 2.54053H5.91606C4.05156 2.54053 2.53906 4.05303 2.53906 5.91844V16.1209C2.53906 17.9864 4.05156 19.4989 5.91606 19.4989H10.394C12.2539 19.4989 13.7627 17.9909 13.7627 16.131V15.2666" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19.9907 11.0196H8.95312" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.3047 8.34741L19.9887 11.0195L17.3047 13.6925" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="ms-2">Mi camiwa</span>
-                </a>
-            </li>
-            <li>
-                <a href="dashboard.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-bookmark-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z" />
-                        <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
-                        <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
-                    </svg>
-                    <span class="ms-2">Reservas</span>
-                </a>
-            </li>
-            <li>
-                <a href="dashboard.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
-                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
-                    </svg>
-                    <span class="ms-2">Mensajes</span>
+                </span>
+                <span class="dash-titles">Salir</span>
                 </a>
             </li>
         </ul>
-    </nav>
-    <!-- <div class="card p-4 shadow-none m-4 help-box alert" role="alert">
-        <button type="button" class="btn-close end-0 me-3 mt-3 position-absolute top-0" data-bs-dismiss="alert" aria-label="Close"></button>
-        <div class="text-center"><img src="assets/camiwa-dash/dist/img/predictive_analytics.png" alt="" height="120" class="mb-3">
-            <h6 class="mb-1">Monthly Sales Report</h6>
-            <p class="fs-12">Your monthly sales report is ready for download!</p>
-            <div class="d-grid"><a class="btn btn-primary" href="#" target="_blank">Purchase</a></div>
-        </div>
-    </div> -->
-</div><!-- sidebar-body -->
+    </div>
+  </div>
