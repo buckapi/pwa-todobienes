@@ -3875,7 +3875,7 @@
   margin-right: 20px;
 }
 .group-button-view a span::after {
-  background-color: rgba(255, 169, 32, 0.2);
+  background-color: rgba(255, 169, 32);
 }
 
 .wg-tabs .flat-tabs {

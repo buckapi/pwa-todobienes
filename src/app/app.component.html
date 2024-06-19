@@ -32,16 +32,22 @@
                         <div class="title-login fs-30 fw-7 lh-45">Ingresar</div>
                         <div class="comments">
                             <div class="respond-comment">
-                                <form method="post" class="comment-form form-submit" action="#" accept-charset="utf-8">
+                                <form method="post" class="comment-form form-submit" action="#" accept-charset="utf-8" [formGroup]="ngFormLogin" (ngSubmit)="onLogin()">
                                     <fieldset class="">
                                         <label class="fw-6">Cuenta</label>
-                                        <input type="email" id="email" class="tb-my-input" name="email" placeholder="ingrese su correo" >
+                                        <input type="text" id="email" class="form-control" name="email" placeholder="ingrese su correo" formControlName="email" required [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
                                         <img class="img-icon img-email" src="assets/todobienes/assets/images/icon/icon-gmail.svg" alt="images"> 
+                                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['email'].errors['required']">El email es requerido</div>
+                                        </div>
                                     </fieldset>   
                                     <fieldset class="style-wrap">
                                         <label class="fw-6">Contraseña</label>
-                                        <input type="password" class="input-form password-input" placeholder="ingrese su clave" >
-                                         <img class="img-icon" src="assets/todobienes/assets/images/icon/icon-password.svg" alt="images"> 
+                                        <input type="password" class="form-control" id="password" placeholder="*******" formControlName="password" required [ngClass]="{ 'is-invalid': submitted && f['password'].errors}">
+                                        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['password'].errors['required']">La contraseña es requerida</div>
+                                        </div> 
+                                        <img class="img-icon" src="assets/todobienes/assets/images/icon/icon-password.svg" alt="images"> 
                                     </fieldset> 
 <!--                                     <div class="title-forgot"><a class="fs-13" >Forgot password</a> </div>                                    
  -->                                    <button class="sc-button"  name="submit" type="submit">
