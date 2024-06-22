@@ -39,14 +39,15 @@ this.global.getSpecialties();
     }
   }
 
-  registerUser(email: string, password: string, type: string, name: string): Observable<any> {
+  registerUser(email: string, password: string, type: string, name: string,  ): Observable<any> {
     const userData = {
       "email": email,
       "password": password,
       "passwordConfirm": password,
       "type": type,
       "username": name,
-      "name": name
+      "name": name,
+      
     };
 
     // Crear usuario y luego crear el registro en camiwaTravelers
@@ -59,7 +60,7 @@ this.global.getSpecialties();
         "status": "pending", // Opcional, establece el estado del cliente
         "images": {} // Agrega los campos correspondientes aquí
       };
-      return this.pb.collection('camiwaTravelers').create(data);
+      return this.pb.collection('todobienesClients').create(data);
     }));
   }
 

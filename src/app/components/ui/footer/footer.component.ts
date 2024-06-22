@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GlobalService } from '../../../services/global.service';
+import { virtualRouter } from '../../../services/virtualRouter.service';
 
 @Component({
   selector: 'app-footer',
@@ -10,6 +11,7 @@ import { GlobalService } from '../../../services/global.service';
 })
 export class FooterComponent {
 constructor (
-  public global: GlobalService
+  public global: GlobalService,
+  public virtualRouter: virtualRouter
 ){}
 }

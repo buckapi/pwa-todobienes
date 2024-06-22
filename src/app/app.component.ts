@@ -23,8 +23,9 @@ import { PropertyDetailComponent } from './components/property-detail/property-d
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthRESTService } from './services/auth-rest.service';
 import { PocketAuthService } from './services/pocket-auth.service';
-import { FormBuilder, ReactiveFormsModule, AbstractControl,  FormGroup, Validators, } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, AbstractControl,  FormGroup, Validators, FormsModule,  } from '@angular/forms';
 import PocketBase from 'pocketbase';
+import { BrowserModule } from '@angular/platform-browser';
  
 @Component({
   selector: 'app-root',
@@ -51,6 +52,7 @@ import PocketBase from 'pocketbase';
     DashboardComponent,
     HeaderDashboardComponent,
     ReactiveFormsModule,
+    FormsModule
 
   
     
@@ -60,19 +62,23 @@ import PocketBase from 'pocketbase';
 })
 export class AppComponent {
   title = 'camiwa';
+  
   ngFormLogin: FormGroup;
   submitted = false;
   public isError = false;
   returnUrl: any;
   public isLogged = false;
   message: any = 'Error en datos de acceso';
+  ngFormRegister: FormGroup = new FormGroup({});
+  errorMessage = '';
   constructor(
     public global: GlobalService,
     public script: ScriptService,
     public virtualRouter: virtualRouter,
     public autRest: AuthRESTService,
     public pocketAuthService: PocketAuthService, 
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+
   ) {
     this.ngFormLogin = this.formBuilder.group({
       email: ['', [Validators.required]],
@@ -110,10 +116,18 @@ export class AppComponent {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
+    this.ngFormRegister = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      passwordConfirm: ['', Validators.required],
+      name: ['', Validators.required],
+      phone: ['', Validators.required],
+    });
   }
-
+ 
   get f(): { [key: string]: AbstractControl } {
-    return this.ngFormLogin.controls;
+    return this.ngFormLogin.controls; 
+    return this.ngFormRegister.controls;
   }
 
   onIsError(): void {
@@ -147,7 +161,7 @@ export class AppComponent {
             case 'admin':
               this.virtualRouter.routerActive = 'dashboard';
               break;
-            case 'traveler':
+            case 'client':
               // Si el tipo de usuario es 'cliente', hacer la solicitud al API
             /*   this.renderer.setAttribute(
                 document.body,
@@ -174,7 +188,7 @@ export class AppComponent {
     const pb = new PocketBase('https://db.buckapi.com:8090');
 
     // Hacer la solicitud para obtener los datos del cliente
-    pb.collection('camiwaTravelers')
+    pb.collection('todobienesClients')
       .getList(1, 1, {
         userId: userId,
       })
@@ -198,5 +212,50 @@ export class AppComponent {
         // Redirigir al usuario al home
         this.virtualRouter.routerActive = 'user-home';
       });
+  }
+  onRegister() {
+    this.submitted = true;
+    if (this.f['password'].value !== this.f['passwordConfirm'].value) {
+      this.errorMessage = 'Las contraseñas no coinciden';
+      this.isError = true;
+      return;
+    }
+
+    let email = this.ngFormRegister.value.email;
+    let password = this.ngFormRegister.value.password;
+    let type = 'cliente'; // Esto debería ser 'employee' si es un empleado
+    let name = this.ngFormRegister.value.name;
+
+    this.pocketAuthService.registerUser(email, password, type,name).subscribe(
+      (data) => {
+        // Registro exitoso, puedes redirigir al usuario a una página de inicio de sesión o mostrar un mensaje de éxito
+       /*  this.spinner.hide(); */
+        console.log('Registro exitoso', data);
+        // Setear el usuario y el token
+        this.pocketAuthService.setUser(data);
+        this.pocketAuthService.setToken(data.token);
+        // Establecer que el usuario ha iniciado sesión
+        localStorage.setItem('isLoggedin', 'true');
+        // Establecer el tipo de usuario
+        localStorage.setItem('type', type);
+        // Redirigir al usuario según el tipo de usuario registrado
+        switch (type) {
+          case 'admin':
+            this.virtualRouter.routerActive = 'admin-home';
+            break;
+          case 'cliente':
+            this.virtualRouter.routerActive = 'user-home';
+            break;
+          default:
+            console.error('Tipo de usuario no reconocido');
+        }
+        this.global.setRoute('home')
+      },
+      (error) => {
+       /*  this.spinner.hide(); */
+        this.errorMessage = 'Error al registrar usuario';
+        this.isError = true;
+      }
+    );
   }
 }
