@@ -62,7 +62,6 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'camiwa';
-  
   ngFormLogin: FormGroup;
   submitted = false;
   public isError = false;
@@ -123,11 +122,11 @@ export class AppComponent {
       name: ['', Validators.required],
       phone: ['', Validators.required],
     });
+    this.restoreSession();
   }
- 
+   
   get f(): { [key: string]: AbstractControl } {
-    return this.ngFormLogin.controls; 
-    return this.ngFormRegister.controls;
+    return this.ngFormLogin.controls;
   }
 
   onIsError(): void {
@@ -139,48 +138,62 @@ export class AppComponent {
 
   onLogin(): void {
     this.submitted = true;
-    // if (this.ngFormLogin.invalid) {
-    //   return;
-    // }
+    if (this.ngFormLogin.invalid) {
+      return;
+    }
 
-    // Iniciar sesión utilizando el servicio PocketAuthService
-    this.pocketAuthService
-      .loginUser(this.ngFormLogin.value.email, this.ngFormLogin.value.password)
-      .subscribe(
-        (data) => {
-          // Manejar la respuesta del servicio de autenticación
-          this.pocketAuthService.setUser(data.record);
-          const { username, email, id, type } = data.record;
-          this.global.currentUser = { username, email, id, type };
+    this.pocketAuthService.loginUser(
+      this.ngFormLogin.value.email,
+      this.ngFormLogin.value.password
+    ).subscribe(
+      data => {
+        this.pocketAuthService.setUser(data.record);
+        const { username, email, id, type } = data.record;
+        this.global.currentUser = { username, email, id, type };
 
-          // Establecer el tipo de usuario en localStorage
-          localStorage.setItem('type', type);
+        localStorage.setItem('type', type);
+        localStorage.setItem('currentUser', JSON.stringify({ username, email, id, type }));
 
-          // Redirigir al usuario según el tipo de usuario registrado
-          switch (type) {
-            case 'admin':
-              this.virtualRouter.routerActive = 'dashboard';
-              break;
-            case 'client':
-              // Si el tipo de usuario es 'cliente', hacer la solicitud al API
-            /*   this.renderer.setAttribute(
-                document.body,
-                'class',
-                'fixed sidebar-mini sidebar-collapse'
-              ); */
-              this.fetchClientData(id); // Pasar el ID del cliente al método
-              break;
-            default:
-              this.virtualRouter.routerActive = 'dashboard';
-              break;
-          }
-          // Marcar al usuario como logueado en localStorage
-          localStorage.setItem('isLoggedin', 'true');
-          // Actualizar los datos del cliente en la aplicación
-          this.global.ClientFicha();
-        },
-        (error) => this.onIsError()
-      );
+        switch (type) {
+          case 'admin':
+            this.virtualRouter.routerActive = "dashboard";
+            break;
+          case 'cliente':
+            this.fetchClientData(id);
+            break;
+          default:
+            this.virtualRouter.routerActive = "user-home";
+            break;
+        }
+
+        localStorage.setItem('isLoggedin', 'true');
+        this.global.ClientFicha();
+      },
+      error => this.onIsError()
+    );
+  }
+
+  restoreSession(): void {
+    const isLoggedin = localStorage.getItem('isLoggedin');
+    const currentUser = localStorage.getItem('currentUser');
+    const userType = localStorage.getItem('type');
+
+    if (isLoggedin && currentUser && userType) {
+      const user = JSON.parse(currentUser);
+      this.global.currentUser = user;
+
+      switch (userType) {
+        case 'admin':
+          this.virtualRouter.routerActive = "dashboard";
+          break;
+        case 'cliente':
+          this.fetchClientData(user.id);
+          break;
+        default:
+          this.virtualRouter.routerActive = "user-home";
+          break;
+      }
+    }
   }
 
   fetchClientData(userId: string): void {
