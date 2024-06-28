@@ -7676,7 +7676,7 @@
 
 #sidebar-menu ul .ff-active a,
 #sidebar-menu ul li a:hover {
-  color: #0b0d0e;
+  color: #4363bc;
 }
 #sidebar-menu ul .ff-active a ellipse,
 #sidebar-menu ul .ff-active a circle,
@@ -8740,7 +8740,7 @@ input[type=color] {
   padding: 13px 15px 13px 27px;
   width: 100%;
   background: #F6F6F6;
-  color: #fff;
+  color: #120a21;
 }
 
 textarea::placeholder,

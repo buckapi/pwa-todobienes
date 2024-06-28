@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class Yeoman {
+  allProperties:any=[];
  allrequest:any=[];
   allcategory:any=[];
   allbrands:any=[];

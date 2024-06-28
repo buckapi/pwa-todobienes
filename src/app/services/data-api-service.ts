@@ -5,7 +5,9 @@ import { map,mergeMap } from 'rxjs/operators';
 import { Yeoman } from './yeoman.service';
 /* import { AuthRESTService } from "./auth-rest.service";
  */import { CategoryInterface } from './global.service';
-export interface RequestInterface{
+ export interface PropertiesInterface{
+}
+ export interface RequestInterface{
 }
 export interface UserInterface {
 }
@@ -75,11 +77,8 @@ export class DataApiService {
 		const url_api = this.yeoman.origin.restUrl + '/api/collections/tdCategories/records';
 		return this.http.get(url_api);
 	  }
-	  getAllBrand(){
-		const url_api = this.yeoman.origin.restUrl + '/api/collections/svbBrands/records';
-		return this.http.get(url_api);
-	  }	  
-	getAllProducts(){
+	
+	getAllProperties(){
 		const url_api = this.yeoman.origin.restUrl+'/api/collections/tdProperties/records';
 		return this.http.get(url_api);
 	}
@@ -166,6 +165,12 @@ export class DataApiService {
       saveRequest( request: RequestInterface) {
 		const url_api = this.yeoman.origin.restUrl + '/api/collections/formsLegalesRequests/records';
 		return this.http.post<RequestInterface>(url_api, request).pipe(
+		  map(data => data)
+		);
+	  }
+	  saveProperties( request: PropertiesInterface) {
+		const url_api = this.yeoman.origin.restUrl + '/api/collections/tdProperties/records';
+		return this.http.post<PropertiesInterface>(url_api, request).pipe(
 		  map(data => data)
 		);
 	  }

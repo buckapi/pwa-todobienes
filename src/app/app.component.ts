@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GlobalService } from './services/global.service';
 import { CommonModule } from '@angular/common';
@@ -26,6 +26,7 @@ import { PocketAuthService } from './services/pocket-auth.service';
 import { FormBuilder, ReactiveFormsModule, AbstractControl,  FormGroup, Validators, FormsModule,  } from '@angular/forms';
 import PocketBase from 'pocketbase';
 import { BrowserModule } from '@angular/platform-browser';
+import { DashboardAddPropertiesComponent } from './components/dashboard-add-properties/dashboard-add-properties.component';
  
 @Component({
   selector: 'app-root',
@@ -52,7 +53,8 @@ import { BrowserModule } from '@angular/platform-browser';
     DashboardComponent,
     HeaderDashboardComponent,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DashboardAddPropertiesComponent
 
   
     
@@ -71,6 +73,7 @@ export class AppComponent {
   ngFormRegister: FormGroup = new FormGroup({});
   errorMessage = '';
   constructor(
+    private renderer: Renderer2,
     public global: GlobalService,
     public script: ScriptService,
     public virtualRouter: virtualRouter,
@@ -115,14 +118,14 @@ export class AppComponent {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
-    this.ngFormRegister = this.formBuilder.group({
+   /*  this.ngFormRegister = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       passwordConfirm: ['', Validators.required],
       name: ['', Validators.required],
       phone: ['', Validators.required],
     });
-    this.restoreSession();
+    this.restoreSession(); */
   }
    
   get f(): { [key: string]: AbstractControl } {
@@ -141,39 +144,48 @@ export class AppComponent {
     if (this.ngFormLogin.invalid) {
       return;
     }
-
-    this.pocketAuthService.loginUser(
-      this.ngFormLogin.value.email,
-      this.ngFormLogin.value.password
-    ).subscribe(
-      data => {
-        this.pocketAuthService.setUser(data.record);
-        const { username, email, id, type } = data.record;
-        this.global.currentUser = { username, email, id, type };
-
-        localStorage.setItem('type', type);
-        localStorage.setItem('currentUser', JSON.stringify({ username, email, id, type }));
-
-        switch (type) {
-          case 'admin':
-            this.virtualRouter.routerActive = "dashboard";
-            break;
-          case 'cliente':
-            this.fetchClientData(id);
-            break;
-          default:
-            this.virtualRouter.routerActive = "user-home";
-            break;
-        }
-
-        localStorage.setItem('isLoggedin', 'true');
-        this.global.ClientFicha();
-      },
-      error => this.onIsError()
-    );
+  
+    // Iniciar sesión utilizando el servicio PocketAuthService
+    this.pocketAuthService
+      .loginUser(this.ngFormLogin.value.email, this.ngFormLogin.value.password)
+      .subscribe(
+        (data) => {
+          // Manejar la respuesta del servicio de autenticación
+          this.pocketAuthService.setUser(data.record);
+          const { username, email, id, type } = data.record;
+          this.global.currentUser = { username, email, id, type };
+  
+          // Establecer el tipo de usuario en localStorage
+          localStorage.setItem('type', type);
+  
+          // Redirigir al usuario según el tipo de usuario registrado
+          switch (type) {
+            case 'admin':
+              this.virtualRouter.routerActive = 'dashboard';
+              break;
+            case 'traveler':
+              // Si el tipo de usuario es 'cliente', hacer la solicitud al API
+              this.renderer.setAttribute(
+                document.body,
+                'class',
+                'fixed sidebar-mini sidebar-collapse'
+              );
+               // Pasar el ID del cliente al método
+              return; // Salir del switch para evitar redirigir a 'request'
+            default:
+              this.virtualRouter.routerActive = 'home';
+              break;
+          }
+  
+          // Marcar al usuario como logueado en localStorage
+          localStorage.setItem('isLoggedin', 'true');
+          // Actualizar los datos del cliente en la aplicación
+          this.global.ClientFicha();
+        },
+        (error) => this.onIsError()
+      );
   }
-
-  restoreSession(): void {
+ /*  restoreSession(): void {
     const isLoggedin = localStorage.getItem('isLoggedin');
     const currentUser = localStorage.getItem('currentUser');
     const userType = localStorage.getItem('type');
@@ -185,17 +197,25 @@ export class AppComponent {
       switch (userType) {
         case 'admin':
           this.virtualRouter.routerActive = "dashboard";
+          this.virtualRouter.routerActive = "dashboard-add-properties";
+          this.virtualRouter.routerActive = "dashboard";
+          this.virtualRouter.routerActive = "agentes";
+          this.virtualRouter.routerActive = "properties";
           break;
         case 'cliente':
           this.fetchClientData(user.id);
           break;
         default:
-          this.virtualRouter.routerActive = "user-home";
+          this.virtualRouter.routerActive = "dashboard-add-properties";
+          this.virtualRouter.routerActive = "dashboard";
+          this.virtualRouter.routerActive = "agentes";
+          this.virtualRouter.routerActive = "properties";
+
+
           break;
       }
     }
-  }
-
+  } */
   fetchClientData(userId: string): void {
     // Crear una instancia de PocketBase
     const pb = new PocketBase('https://db.buckapi.com:8090');

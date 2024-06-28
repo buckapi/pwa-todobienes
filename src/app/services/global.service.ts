@@ -57,7 +57,7 @@ export class GlobalService {
   allLoaded=false;
   request: any;
   selectedTicketsCount=0;
-  properties: any[] = [];
+  properties: any;
   products: any[] = [];
   doctors: any[] = [];
   specialties: any[] = [];

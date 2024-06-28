@@ -10,6 +10,8 @@
 <app-properties [hidden]="virtualRouter.routerActive!=='properties'"></app-properties>
 <app-property-detail [hidden]="virtualRouter.routerActive!=='property-detail'"></app-property-detail>
 <app-dashboard [hidden]="virtualRouter.routerActive!=='dashboard'"></app-dashboard>
+<app-dashboard-add-properties [hidden]="virtualRouter.routerActive!=='dashboard-add-properties'"></app-dashboard-add-properties>
+
 
 <app-footer [hidden]="virtualRouter.routerActive === 'dashboard'"></app-footer>
 
@@ -51,15 +53,15 @@
                                     </fieldset> 
 <!--                                     <div class="title-forgot"><a class="fs-13" >Forgot password</a> </div>                                    
  -->                                    <button class="sc-button"  name="submit" type="submit">
-                                        <a (click)="global.setRoute('dashboard')" >
+                                        <a>
                                         <span>Ingresar</span>
                                     </a>
                                     </button>
                                 </form>
                             </div>
                         </div>
-                        <div class="text-box text-center fs-13">NO tienes cuenta?  <a class="font-2 fw-7 fs-13 color-popup text-color-3" data-toggle="modal" data-target="#popup_bid2" data-dismiss="modal" aria-label="Close">Register</a></div>
-
+<!--                         <div class="text-box text-center fs-13">NO tienes cuenta?  <a class="font-2 fw-7 fs-13 color-popup text-color-3" data-toggle="modal" data-target="#popup_bid2" data-dismiss="modal" aria-label="Close">Register</a></div>
+ -->
                     </div>
                 </div>
             </div>     

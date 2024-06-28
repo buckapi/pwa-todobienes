@@ -232,22 +232,22 @@
                                     <thead>
                                     <tr>
                                         <th class="fw-6">Propiedades</th>
-                                        <th class="fw-6">Status</th>
+                                        <th class="fw-6">Estado</th>
                                         <th class="fw-6">Acción</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <!-- col 1 -->
-                                    <tr class="file-delete">
+                                    <tr class="file-delete" *ngFor="let property of global.properties">
                                         <td>
                                         <div class="candidates-wrap flex">
                                             <div class="images">
-                                                <img src="assets/todobienes/assets/images/house/dashboard-house-1.jpg" alt="images">
+                                                <img src="{{property.images[0]}}">
                                             </div>
                                             <div class="content">
-                                                <h4 class="link-style-1"><a href="property-detail-v1.html">Gorgeous Apartment Building</a> </h4>
-                                                <div class="text-date"><p class="p-12 text-color-2 lh-18">Posting date: March 22, 2023</p></div>
-                                                <div class="money fs-16 fw-6 text-color-3">$7,500</div> 
+                                                <h4 class="link-style-1"><a >{{property.title}}</a> </h4>
+                                                <div class="text-date"><p class="p-12 text-color-2 lh-18">{{property.direccion}}</p></div>
+                                                <div class="money fs-16 fw-6 text-color-3">${{property.canon}}</div> 
                                             </div>
                                         </div>
                                         </td>
@@ -259,125 +259,9 @@
                                         <td>
                                             <div class="icon-wrap">
                                                 <ul class="">
-                                                <li class=""><a class="fw-6"><i class="far fa-pen"></i>Edit</a></li>
-                                                <li class="" ><a class="fw-6"><i class="fal fa-ban"></i>Sold</a></li>
-                                                <li class="" ><a class="remove-file fw-6"><i class="fal fa-trash-alt"></i>Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- col 2 -->
-                                    <tr class="file-delete">
-                                        <td>
-                                        <div class="candidates-wrap flex">
-                                            <div class="images">
-                                                <img src="assets/todobienes/assets/images/house/dashboard-house-2.jpg" alt="images">
-                                            </div>
-                                            <div class="content">
-                                                <h4 class="link-style-1"><a href="property-detail-v1.html">Gorgeous Apartment Building</a> </h4>
-                                                <div class="text-date"><p class="p-12 text-color-2 lh-18">Posting date: March 22, 2023</p></div>
-                                                <div class="money fs-16 fw-6 text-color-3">$7,500</div> 
-                                            </div>
-                                        </div>
-                                        </td>
-                                        <td>
-                                        <div class="status-wrap">
-                                            <div class="button-status fs-12 fw-6 lh-18"> Approved</div>
-                                        </div>
-                                        </td>
-                                        <td>
-                                            <div class="icon-wrap">
-                                                <ul class="">
-                                                <li class=""><a class="fw-6"><i class="far fa-pen"></i>Edit</a></li>
-                                                <li class="" ><a class="fw-6"><i class="fal fa-ban"></i>Sold</a></li>
-                                                <li class="" ><a class="remove-file fw-6"><i class="fal fa-trash-alt"></i>Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- col 3 -->
-                                    <tr class="file-delete">
-                                        <td>
-                                        <div class="candidates-wrap flex">
-                                            <div class="images">
-                                                <img src="assets/todobienes/assets/images/house/dashboard-house-3.jpg" alt="images">
-                                            </div>
-                                            <div class="content">
-                                                <h4 class="link-style-1"><a href="property-detail-v1.html">Gorgeous Apartment Building</a> </h4>
-                                                <div class="text-date"><p class="p-12 text-color-2 lh-18">Posting date: March 22, 2023</p></div>
-                                                <div class="money fs-16 fw-6 text-color-3">$7,500</div> 
-                                            </div>
-                                        </div>
-                                        </td>
-                                        <td>
-                                        <div class="status-wrap">
-                                            <div class="button-status fs-12 fw-6 lh-18 style-1"> Pending</div>
-                                        </div>
-                                        </td>
-                                        <td>
-                                            <div class="icon-wrap">
-                                                <ul class="">
-                                                <li class=""><a class="fw-6"><i class="far fa-pen"></i>Edit</a></li>
-                                                <li class="" ><a class="fw-6"><i class="fal fa-ban"></i>Sold</a></li>
-                                                <li class="" ><a class="remove-file fw-6"><i class="fal fa-trash-alt"></i>Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- col 4 -->
-                                    <tr class="file-delete">
-                                        <td>
-                                        <div class="candidates-wrap flex">
-                                            <div class="images">
-                                                <img src="assets/todobienes/assets/images/house/dashboard-house-4.jpg" alt="images">
-                                            </div>
-                                            <div class="content">
-                                                <h4 class="link-style-1"><a href="property-detail-v1.html">Gorgeous Apartment Building</a> </h4>
-                                                <div class="text-date"><p class="p-12 text-color-2 lh-18">Posting date: March 22, 2023</p></div>
-                                                <div class="money fs-16 fw-6 text-color-3">$7,500</div> 
-                                            </div>
-                                        </div>
-                                        </td>
-                                        <td>
-                                        <div class="status-wrap">
-                                            <div class="button-status fs-12 fw-6 lh-18 style-2"> Sold</div>
-                                        </div>
-                                        </td>
-                                        <td>
-                                            <div class="icon-wrap">
-                                                <ul class="">
-                                                <li class=""><a class="fw-6"><i class="far fa-pen"></i>Edit</a></li>
-                                                <li class="" ><a class="fw-6"><i class="fal fa-ban"></i>Sold</a></li>
-                                                <li class="" ><a class="remove-file fw-6"><i class="fal fa-trash-alt"></i>Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- col 5 -->
-                                    <tr class="file-delete">
-                                        <td>
-                                        <div class="candidates-wrap flex">
-                                            <div class="images">
-                                                <img src="assets/todobienes/assets/images/house/dashboard-house-5.jpg" alt="images">
-                                            </div>
-                                            <div class="content">
-                                                <h4 class="link-style-1"><a href="property-detail-v1.html">Gorgeous Apartment Building</a> </h4>
-                                                <div class="text-date"><p class="p-12 text-color-2 lh-18">Posting date: March 22, 2023</p></div>
-                                                <div class="money fs-16 fw-6 text-color-3">$7,500</div> 
-                                            </div>
-                                        </div>
-                                        </td>
-                                        <td>
-                                        <div class="status-wrap">
-                                            <div class="button-status fs-12 fw-6 lh-18 style-1"> Pending</div>
-                                        </div>
-                                        </td>
-                                        <td>
-                                            <div class="icon-wrap">
-                                                <ul class="">
-                                                <li class=""><a class="fw-6"><i class="far fa-pen"></i>Edit</a></li>
-                                                <li class="" ><a class="fw-6"><i class="fal fa-ban"></i>Sold</a></li>
-                                                <li class="" ><a class="remove-file fw-6"><i class="fal fa-trash-alt"></i>Delete</a></li>
+                                                <li class=""><a class="fw-6"><i class="far fa-pen"></i>Editar</a></li>
+<!--                                                 <li class="" ><a class="fw-6"><i class="fal fa-ban"></i></a></li>
+ -->                                                <li class="" ><a class="remove-file fw-6"><i class="fal fa-trash-alt"></i>Eliminar</a></li>
                                                 </ul>
                                             </div>
                                         </td>
