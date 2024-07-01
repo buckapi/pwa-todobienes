@@ -56,7 +56,10 @@ constructor(
 ){
   this.addProperties = this.formBuilder.group({
     municipio: ['', Validators.required],
+    codigo: ['', Validators.required],
+    title: ['', Validators.required],
     direccion: ['', Validators.required],
+    status: ['', Validators.required],
     descripcion: ['', Validators.required],
     typeProperty: ['', Validators.required],
     habitaciones: ['', Validators.required],
@@ -130,7 +133,10 @@ saveProperties() {
 ngOnInit(): void {
   this.addProperties = this.formBuilder.group({
     municipio: ['', Validators.required],
+    codigo: ['', Validators.required],
+    title: ['', Validators.required],
     direccion: ['', Validators.required],
+    status: ['', Validators.required],
     descripcion: ['', Validators.required],
     typeProperty: ['', Validators.required],
     habitaciones: ['', Validators.required],
