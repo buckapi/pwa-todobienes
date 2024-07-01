@@ -16,4 +16,9 @@ constructor (
   public global: GlobalService,
   public virtualRouter: virtualRouter
 ) {}
+
+view(detail:any){
+  this.global.previewCard=detail;
+  this.global.setRoute('property-detail');
+}
 }
