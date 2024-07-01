@@ -41,7 +41,11 @@ constructor(
 
   }); 
 }
-/*  */
+view(property:any){
+  this.global.previewCard=property;
+  this.global.setRoute('property-detail');
+  
+}
 
 ngOnInit(): void {
   this.ngFormRequest = this.formBuilder.group({

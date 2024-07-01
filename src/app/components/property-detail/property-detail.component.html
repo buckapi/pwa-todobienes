@@ -18,25 +18,11 @@
                 <div class="swiper-container thumbs-swiper-column">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="image-detail">
-                               <img src="assets/todobienes/assets/images/slider/slider-detail-1.jpg" alt="images">
+                            <div class="image-detail"> 
+                               <img src="{{global.previewCard.images[0]}}" alt="images">
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="image-detail">
-                               <img src="assets/todobienes/assets/images/slider/slider-detail-12.jpg" alt="images">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image-detail">
-                               <img src="assets/todobienes/assets/images/slider/slider-detail-13.jpg" alt="images">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image-detail">
-                               <img src="assets/todobienes/assets/images/slider/slider-detail-14.jpg" alt="images">
-                            </div>
-                        </div>
+                       
                     </div>
                     <div class="button-custom-slider">
                         <div class="swiper-button-next5"><i class="far fa-chevron-down"></i></div>
@@ -79,53 +65,40 @@
             <div class="col-lg-12">
                 <div class="wrap-house wg-dream flex bg-white">
                     <div class="box-1">
-                        <div class="title-heading fs-30 fw-7 lh-45">{{global.previewCard.title}}</div>
+                        <div class="title-heading fs-30 fw-7 lh-45"> {{global.previewCard.title}}</div>
                         <div class="inner flex">
                             <div class="sales fs-12 fw-7 font-2 text-color-1">For sale</div>
-                            <div class="text-address"><p>58 Hullbrook Road, Billesley, B13 0LA</p></div>
+                            <div class="text-address"><p>{{global.previewCard.direccion}}</p></div>
                             <div class="icon-inner flex">
                                 <div class="years-icon flex align-center">
-                                    <i class="fal fa-calendar"></i>
-                                    <p class="text-color-2">2 years ago</p>
+                                    <i class="fal fa-address-card-o"></i>
+                                    <p class="text-color-2">{{global.previewCard.municipio}}</p>
                                 </div>
-                                <div class="view-icon flex align-center">
+                                <!-- <div class="view-icon flex align-center">
                                     <i class="far fa-eye"></i>
                                     <p class="text-color-2">4.529 Views</p>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         
                         <div class="icon-box flex">
-                            <div class="icons icon-1 flex"><span>Beds: </span><span class="fw-6">4</span></div>
-                            <div class="icons icon-2 flex"><span>Baths: </span><span class="fw-6">2</span></div>
-                            <div class="icons icon-3 flex"><span>Sqft: </span><span class="fw-6">1150</span></div>
+                            <div class="icons icon-1 flex"><span>Habitaciones </span><span class="fw-6">{{global.previewCard.habitaciones}}</span></div>
+                            <div class="icons icon-2 flex"><span>Baños: </span><span class="fw-6">{{global.previewCard.bathroom}}</span></div>
+                            <div class="icons icon-3 flex"><span>Parqueadero: </span><span class="fw-6">{{global.previewCard.parqueadero}}</span></div>
                         </div> 
                     </div>
                     <div class="box-2 text-end">
                         <div class="icon-boxs flex">
-                            <a href="#">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15.75 6.1875C15.75 4.32375 14.1758 2.8125 12.234 2.8125C10.7828 2.8125 9.53625 3.657 9 4.86225C8.46375 3.657 7.21725 2.8125 5.76525 2.8125C3.825 2.8125 2.25 4.32375 2.25 6.1875C2.25 11.6025 9 15.1875 9 15.1875C9 15.1875 15.75 11.6025 15.75 6.1875Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.625 15.75L2.25 12.375M2.25 12.375L5.625 9M2.25 12.375H12.375M12.375 2.25L15.75 5.625M15.75 5.625L12.375 9M15.75 5.625H5.625" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
-                            <a href="#">
+                           
+                            <a >
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5.41251 8.18025C5.23091 7.85348 4.94594 7.59627 4.60234 7.44899C4.25874 7.3017 3.87596 7.27268 3.51408 7.36648C3.1522 7.46029 2.83171 7.6716 2.60293 7.96725C2.37414 8.2629 2.25 8.62616 2.25 9C2.25 9.37384 2.37414 9.73709 2.60293 10.0327C2.83171 10.3284 3.1522 10.5397 3.51408 10.6335C3.87596 10.7273 4.25874 10.6983 4.60234 10.551C4.94594 10.4037 5.23091 10.1465 5.41251 9.81975M5.41251 8.18025C5.54751 8.42325 5.62476 8.70225 5.62476 9C5.62476 9.29775 5.54751 9.5775 5.41251 9.81975M5.41251 8.18025L12.587 4.19475M5.41251 9.81975L12.587 13.8052M12.587 4.19475C12.6922 4.39285 12.8358 4.568 13.0095 4.70995C13.1832 4.85189 13.3834 4.95779 13.5985 5.02146C13.8135 5.08512 14.0392 5.10527 14.2621 5.08072C14.4851 5.05617 14.7009 4.98742 14.897 4.87849C15.093 4.76957 15.2654 4.62264 15.404 4.44631C15.5427 4.26998 15.6448 4.06778 15.7043 3.85154C15.7639 3.63529 15.7798 3.40934 15.751 3.18689C15.7222 2.96445 15.6494 2.74997 15.5368 2.556C15.3148 2.17375 14.9518 1.89385 14.5256 1.77646C14.0995 1.65907 13.6443 1.71356 13.2579 1.92821C12.8715 2.14287 12.5848 2.50056 12.4593 2.92439C12.3339 3.34823 12.3797 3.80436 12.587 4.19475ZM12.587 13.8052C12.4794 13.999 12.4109 14.2121 12.3856 14.4323C12.3603 14.6526 12.3787 14.8756 12.4396 15.0888C12.5005 15.3019 12.6028 15.501 12.7406 15.6746C12.8784 15.8482 13.0491 15.993 13.2429 16.1006C13.4367 16.2083 13.6498 16.2767 13.87 16.302C14.0902 16.3273 14.3133 16.309 14.5264 16.2481C14.7396 16.1872 14.9386 16.0849 15.1122 15.947C15.2858 15.8092 15.4306 15.6385 15.5383 15.4447C15.7557 15.0534 15.8087 14.5917 15.6857 14.1612C15.5627 13.7308 15.2737 13.3668 14.8824 13.1494C14.491 12.932 14.0293 12.8789 13.5989 13.0019C13.1684 13.1249 12.8044 13.4139 12.587 13.8052Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </a>
-                            <a href="#">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.04 10.3718C4.86 10.3943 4.68 10.4183 4.5 10.4438M5.04 10.3718C7.66969 10.0418 10.3303 10.0418 12.96 10.3718M5.04 10.3718L4.755 13.5M12.96 10.3718C13.14 10.3943 13.32 10.4183 13.5 10.4438M12.96 10.3718L13.245 13.5L13.4167 15.3923C13.4274 15.509 13.4136 15.6267 13.3762 15.7378C13.3388 15.8489 13.2787 15.951 13.1996 16.0376C13.1206 16.1242 13.0244 16.1933 12.9172 16.2407C12.8099 16.288 12.694 16.3125 12.5767 16.3125H5.42325C4.92675 16.3125 4.53825 15.8865 4.58325 15.3923L4.755 13.5M4.755 13.5H3.9375C3.48995 13.5 3.06072 13.3222 2.74426 13.0057C2.42779 12.6893 2.25 12.2601 2.25 11.8125V7.092C2.25 6.28125 2.826 5.58075 3.62775 5.46075C4.10471 5.3894 4.58306 5.32764 5.0625 5.2755M13.2435 13.5H14.0618C14.2834 13.5001 14.5029 13.4565 14.7078 13.3718C14.9126 13.287 15.0987 13.1627 15.2555 13.006C15.4123 12.8493 15.5366 12.6632 15.6215 12.4585C15.7063 12.2537 15.75 12.0342 15.75 11.8125V7.092C15.75 6.28125 15.174 5.58075 14.3723 5.46075C13.8953 5.38941 13.4169 5.32764 12.9375 5.2755M12.9375 5.2755C10.3202 4.99073 7.67978 4.99073 5.0625 5.2755M12.9375 5.2755V2.53125C12.9375 2.0655 12.5595 1.6875 12.0938 1.6875H5.90625C5.4405 1.6875 5.0625 2.0655 5.0625 2.53125V5.2755M13.5 7.875H13.506V7.881H13.5V7.875ZM11.25 7.875H11.256V7.881H11.25V7.875Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
+                           
                         </div>
                         <div class="moneys fs-30 fw-7 lh-45 text-color-3">$ {{global.previewCard.canon}}</div>
-                        <div class="text-sq fs-12 lh-16">1964 Sq Ft</div>
+                        <div class="text-sq fs-12 lh-16">{{global.previewCard.area}} m2</div>
                     </div>
                 </div>
             </div> 
@@ -137,8 +110,34 @@
             <div class="col-lg-8">
                 <div class="post">
                     <div class="wrap-overview wrap-style">
-                        <h3 class="titles">Overview</h3>
+                        <h3 class="titles">Caracteristicas</h3>
                         <div class="icon-wrap flex">
+                            <div class="box-icon">
+                                <div class="inner flex">
+                                  
+                                    <div class="icon">
+                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.1805 7.67821V3.22946C14.1805 2.32484 13.4445 1.58887 12.5399 1.58887H3.46003C2.55541 1.58887 1.8195 2.32484 1.8195 3.22946V7.67821C0.777125 7.92896 0 8.86855 0 9.98677V13.305C0 13.5682 0.213406 13.7816 0.476656 13.7816H1.81947V14.9345C1.81947 15.1977 2.03288 15.4111 2.29612 15.4111C2.55937 15.4111 2.77278 15.1977 2.77278 14.9345V13.7816H13.2272V14.9345C13.2272 15.1977 13.4406 15.4111 13.7038 15.4111C13.9671 15.4111 14.1805 15.1977 14.1805 14.9345V13.7816H15.5233C15.7865 13.7816 15.9999 13.5682 15.9999 13.305V9.98677C16 8.86855 15.2229 7.92896 14.1805 7.67821ZM2.77281 3.22946C2.77281 2.85052 3.08113 2.54221 3.46003 2.54221H12.5399C12.9189 2.54221 13.2272 2.85052 13.2272 3.22946V7.61202H11.652V6.86002C11.652 5.61409 10.6384 4.60046 9.39247 4.60046H6.60759C5.36166 4.60046 4.34803 5.61412 4.34803 6.86002V7.61199H2.77281V3.22946ZM10.6987 6.86002V7.61199H5.30128V6.86002C5.30128 6.13974 5.88725 5.55377 6.60753 5.55377H9.39244C10.1127 5.55374 10.6987 6.13977 10.6987 6.86002ZM0.953313 12.8283V9.98677C0.953313 9.20299 1.59097 8.56534 2.37475 8.56534H13.6252C14.409 8.56534 15.0466 9.20299 15.0466 9.98677V12.8283H0.953313Z" fill="#8E8E93"/>
+                                        </svg>  
+                                    </div>
+                                    <div class="content">
+                                        <div class="font-2">Habitaciones</div>
+                                        <div class="font-2 fw-7">{{global.previewCard.habitaciones}}</div>
+                                    </div>
+                                </div>
+                                <div class="inner flex">
+                                    <div class="icon">
+                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 7.625C16 7.23078 15.8392 6.85947 15.5471 6.5795C15.2624 6.30659 14.8905 6.15625 14.5 6.15625H2.96875V3.55687C2.96875 3.0915 3.133 2.65594 3.43116 2.33053C3.71894 2.01662 4.09853 1.84375 4.5 1.84375C5.23531 1.84375 5.78959 2.26266 5.96909 2.90625H5.75C5.49113 2.90625 5.28125 3.11613 5.28125 3.375C5.28125 3.63387 5.49113 3.84375 5.75 3.84375H7.25C7.50887 3.84375 7.71875 3.63387 7.71875 3.375C7.71875 3.11613 7.50887 2.90625 7.25 2.90625H6.928C6.83856 2.394 6.60231 1.93581 6.23981 1.58588C5.78581 1.14763 5.16794 0.90625 4.5 0.90625C3.83262 0.90625 3.20762 1.18706 2.74003 1.69712C2.28297 2.19597 2.03125 2.85644 2.03125 3.55687V6.15625H1.5C1.1095 6.15625 0.737625 6.30659 0.452875 6.5795C0.160812 6.85947 0 7.23078 0 7.625C0 8.01922 0.160812 8.39053 0.452875 8.6705C0.620188 8.83084 0.817688 8.9485 1.03125 9.01859V11.7831C1.03125 13.138 1.85678 14.3037 3.03125 14.8038V15.625C3.03125 15.8839 3.24113 16.0938 3.5 16.0938C3.75887 16.0938 3.96875 15.8839 3.96875 15.625V15.0463C4.08175 15.0582 4.19641 15.0643 4.3125 15.0643H11.6875C11.8036 15.0643 11.9183 15.0582 12.0312 15.0463V15.625C12.0312 15.8839 12.2411 16.0938 12.5 16.0938C12.7589 16.0938 12.9688 15.8839 12.9688 15.625V14.8038C14.1432 14.3037 14.9688 13.138 14.9688 11.7831V9.01859C15.1823 8.9485 15.3798 8.83087 15.5471 8.6705C15.8392 8.39053 16 8.01922 16 7.625ZM14.0312 11.7831C14.0312 13.0754 12.9798 14.1268 11.6875 14.1268H4.3125C3.02016 14.1268 1.96875 13.0754 1.96875 11.7831V9.09375H14.0312V11.7831ZM14.5 8.15625H1.5C1.20034 8.15625 0.9375 7.908 0.9375 7.625C0.9375 7.342 1.20034 7.09375 1.5 7.09375H14.5C14.7997 7.09375 15.0625 7.342 15.0625 7.625C15.0625 7.908 14.7997 8.15625 14.5 8.15625Z" fill="#8E8E93"/>
+                                        </svg>                                                          
+                                    </div>
+                                    
+                                    <div class="content">
+                                        <div class="font-2 ">Baños:</div>
+                                        <div class="font-2 fw-7">{{global.previewCard.bathroom}}</div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="box-icon">
                                 <div class="inner flex">
                                     <div class="icon">
@@ -148,33 +147,8 @@
                                         </svg>   
                                     </div>
                                     <div class="content">
-                                        <div class="font-2">Rooms</div>
-                                        <div class="font-2 fw-7">8</div>
-                                    </div>
-                                </div>
-                                <div class="inner flex">
-                                    <div class="icon">
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M15.125 2.25H14.375V1H13.125V2.25H4.875V1H3.625V2.25H2.875C1.84113 2.25 1 3.09113 1 4.125V15.125C1 16.1589 1.84113 17 2.875 17H15.125C16.1589 17 17 16.1589 17 15.125V4.125C17 3.09113 16.1589 2.25 15.125 2.25ZM15.75 15.125C15.75 15.4696 15.4696 15.75 15.125 15.75H2.875C2.53038 15.75 2.25 15.4696 2.25 15.125V6.875H15.75V15.125ZM15.75 5.625H2.25V4.125C2.25 3.78038 2.53038 3.5 2.875 3.5H3.625V4.75H4.875V3.5H13.125V4.75H14.375V3.5H15.125C15.4696 3.5 15.75 3.78038 15.75 4.125V5.625Z" fill="#8E8E93" stroke="white" stroke-width="0.2"/>
-                                            <path d="M3.375 8.1875H4.625V9.4375H3.375V8.1875ZM5.875 8.1875H7.125V9.4375H5.875V8.1875ZM8.375 8.1875H9.625V9.4375H8.375V8.1875ZM10.875 8.1875H12.125V9.4375H10.875V8.1875ZM13.375 8.1875H14.625V9.4375H13.375V8.1875ZM3.375 10.6875H4.625V11.9375H3.375V10.6875ZM5.875 10.6875H7.125V11.9375H5.875V10.6875ZM8.375 10.6875H9.625V11.9375H8.375V10.6875ZM10.875 10.6875H12.125V11.9375H10.875V10.6875ZM3.375 13.1875H4.625V14.4375H3.375V13.1875ZM5.875 13.1875H7.125V14.4375H5.875V13.1875ZM8.375 13.1875H9.625V14.4375H8.375V13.1875ZM10.875 13.1875H12.125V14.4375H10.875V13.1875ZM13.375 10.6875H14.625V11.9375H13.375V10.6875Z" fill="#8E8E93" stroke="white" stroke-width="0.2"/>
-                                        </svg>  
-                                    </div>
-                                    <div class="content">
-                                        <div class="font-2 ">Year built:</div>
-                                        <div class="font-2 fw-7">2023</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-icon">
-                                <div class="inner flex">
-                                    <div class="icon">
-                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M16 7.625C16 7.23078 15.8392 6.85947 15.5471 6.5795C15.2624 6.30659 14.8905 6.15625 14.5 6.15625H2.96875V3.55687C2.96875 3.0915 3.133 2.65594 3.43116 2.33053C3.71894 2.01662 4.09853 1.84375 4.5 1.84375C5.23531 1.84375 5.78959 2.26266 5.96909 2.90625H5.75C5.49113 2.90625 5.28125 3.11613 5.28125 3.375C5.28125 3.63387 5.49113 3.84375 5.75 3.84375H7.25C7.50887 3.84375 7.71875 3.63387 7.71875 3.375C7.71875 3.11613 7.50887 2.90625 7.25 2.90625H6.928C6.83856 2.394 6.60231 1.93581 6.23981 1.58588C5.78581 1.14763 5.16794 0.90625 4.5 0.90625C3.83262 0.90625 3.20762 1.18706 2.74003 1.69712C2.28297 2.19597 2.03125 2.85644 2.03125 3.55687V6.15625H1.5C1.1095 6.15625 0.737625 6.30659 0.452875 6.5795C0.160812 6.85947 0 7.23078 0 7.625C0 8.01922 0.160812 8.39053 0.452875 8.6705C0.620188 8.83084 0.817688 8.9485 1.03125 9.01859V11.7831C1.03125 13.138 1.85678 14.3037 3.03125 14.8038V15.625C3.03125 15.8839 3.24113 16.0938 3.5 16.0938C3.75887 16.0938 3.96875 15.8839 3.96875 15.625V15.0463C4.08175 15.0582 4.19641 15.0643 4.3125 15.0643H11.6875C11.8036 15.0643 11.9183 15.0582 12.0312 15.0463V15.625C12.0312 15.8839 12.2411 16.0938 12.5 16.0938C12.7589 16.0938 12.9688 15.8839 12.9688 15.625V14.8038C14.1432 14.3037 14.9688 13.138 14.9688 11.7831V9.01859C15.1823 8.9485 15.3798 8.83087 15.5471 8.6705C15.8392 8.39053 16 8.01922 16 7.625ZM14.0312 11.7831C14.0312 13.0754 12.9798 14.1268 11.6875 14.1268H4.3125C3.02016 14.1268 1.96875 13.0754 1.96875 11.7831V9.09375H14.0312V11.7831ZM14.5 8.15625H1.5C1.20034 8.15625 0.9375 7.908 0.9375 7.625C0.9375 7.342 1.20034 7.09375 1.5 7.09375H14.5C14.7997 7.09375 15.0625 7.342 15.0625 7.625C15.0625 7.908 14.7997 8.15625 14.5 8.15625Z" fill="#8E8E93"/>
-                                        </svg>                                                          
-                                    </div>
-                                    <div class="content">
-                                        <div class="font-2">Baths:</div>
-                                        <div class="font-2 fw-7">4</div>
+                                        <div class="font-2">Cocina:</div>
+                                        <div class="font-2 fw-7">{{global.previewCard.cocina}}</div>
                                     </div>
                                 </div>
                                 <div class="inner flex">
@@ -184,21 +158,22 @@
                                         </svg>                                                          
                                     </div>
                                     <div class="content">
-                                        <div class="font-2">Property type:</div>
-                                        <div class="font-2 fw-7">Villa</div>
+                                        <div class="font-2">Sala:</div>
+                                        <div class="font-2 fw-7">{{global.previewCard.sala}}</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="box-icon">
                                 <div class="inner flex">
                                     <div class="icon">
-                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M14.1805 7.67821V3.22946C14.1805 2.32484 13.4445 1.58887 12.5399 1.58887H3.46003C2.55541 1.58887 1.8195 2.32484 1.8195 3.22946V7.67821C0.777125 7.92896 0 8.86855 0 9.98677V13.305C0 13.5682 0.213406 13.7816 0.476656 13.7816H1.81947V14.9345C1.81947 15.1977 2.03288 15.4111 2.29612 15.4111C2.55937 15.4111 2.77278 15.1977 2.77278 14.9345V13.7816H13.2272V14.9345C13.2272 15.1977 13.4406 15.4111 13.7038 15.4111C13.9671 15.4111 14.1805 15.1977 14.1805 14.9345V13.7816H15.5233C15.7865 13.7816 15.9999 13.5682 15.9999 13.305V9.98677C16 8.86855 15.2229 7.92896 14.1805 7.67821ZM2.77281 3.22946C2.77281 2.85052 3.08113 2.54221 3.46003 2.54221H12.5399C12.9189 2.54221 13.2272 2.85052 13.2272 3.22946V7.61202H11.652V6.86002C11.652 5.61409 10.6384 4.60046 9.39247 4.60046H6.60759C5.36166 4.60046 4.34803 5.61412 4.34803 6.86002V7.61199H2.77281V3.22946ZM10.6987 6.86002V7.61199H5.30128V6.86002C5.30128 6.13974 5.88725 5.55377 6.60753 5.55377H9.39244C10.1127 5.55374 10.6987 6.13977 10.6987 6.86002ZM0.953313 12.8283V9.98677C0.953313 9.20299 1.59097 8.56534 2.37475 8.56534H13.6252C14.409 8.56534 15.0466 9.20299 15.0466 9.98677V12.8283H0.953313Z" fill="#8E8E93"/>
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15.125 2.25H14.375V1H13.125V2.25H4.875V1H3.625V2.25H2.875C1.84113 2.25 1 3.09113 1 4.125V15.125C1 16.1589 1.84113 17 2.875 17H15.125C16.1589 17 17 16.1589 17 15.125V4.125C17 3.09113 16.1589 2.25 15.125 2.25ZM15.75 15.125C15.75 15.4696 15.4696 15.75 15.125 15.75H2.875C2.53038 15.75 2.25 15.4696 2.25 15.125V6.875H15.75V15.125ZM15.75 5.625H2.25V4.125C2.25 3.78038 2.53038 3.5 2.875 3.5H3.625V4.75H4.875V3.5H13.125V4.75H14.375V3.5H15.125C15.4696 3.5 15.75 3.78038 15.75 4.125V5.625Z" fill="#8E8E93" stroke="white" stroke-width="0.2"/>
+                                            <path d="M3.375 8.1875H4.625V9.4375H3.375V8.1875ZM5.875 8.1875H7.125V9.4375H5.875V8.1875ZM8.375 8.1875H9.625V9.4375H8.375V8.1875ZM10.875 8.1875H12.125V9.4375H10.875V8.1875ZM13.375 8.1875H14.625V9.4375H13.375V8.1875ZM3.375 10.6875H4.625V11.9375H3.375V10.6875ZM5.875 10.6875H7.125V11.9375H5.875V10.6875ZM8.375 10.6875H9.625V11.9375H8.375V10.6875ZM10.875 10.6875H12.125V11.9375H10.875V10.6875ZM3.375 13.1875H4.625V14.4375H3.375V13.1875ZM5.875 13.1875H7.125V14.4375H5.875V13.1875ZM8.375 13.1875H9.625V14.4375H8.375V13.1875ZM10.875 13.1875H12.125V14.4375H10.875V13.1875ZM13.375 10.6875H14.625V11.9375H13.375V10.6875Z" fill="#8E8E93" stroke="white" stroke-width="0.2"/>
                                         </svg>  
                                     </div>
                                     <div class="content">
-                                        <div class="font-2">Bed:</div>
-                                        <div class="font-2 fw-7">4</div>
+                                        <div class="font-2">Tipo de propiedad:</div>
+                                        <div class="font-2 fw-7">{{global.previewCard.typeProperty}}</div>
                                     </div>
                                 </div>
                                 <div class="inner flex">
@@ -209,8 +184,8 @@
                                         </svg>                                                           
                                     </div>
                                     <div class="content">
-                                        <div class="font-2">Garage:</div>
-                                        <div class="font-2 fw-7">1</div>
+                                        <div class="font-2">Parqueadero:</div>
+                                        <div class="font-2 fw-7">{{global.previewCard.parqueadero}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -223,8 +198,8 @@
                                         </svg> 
                                     </div>
                                     <div class="content">
-                                        <div class="font-2">Size:</div>
-                                        <div class="font-2 fw-7">572 Sq Ft</div>
+                                        <div class="font-2">Area:</div>
+                                        <div class="font-2 fw-7">{{global.previewCard.area}} M2</div>
                                     </div>
                                 </div>
                             </div>
@@ -232,31 +207,13 @@
                         
                     </div>
                     <div class="wrap-text wrap-style">
-                        <h3 class="titles">Property description</h3>
-                        <p class="text-1 text-color-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam risus leo, blandit vitae diam a, vestibulum viverra nisi. Vestibulum ullamcorper velit eget mattis aliquam. Proin dapibus luctus pulvinar. Integer et libero ut purus bibendum gravida non ac tellus. Proin sed tellus porttitor, varius mauris vitae, tincidunt augue. Sed consectetur magna elit, sit amet faucibus tortor sodales vitae. Maecenas quis arcu est. Nam sit amet neque vestibulum, fringilla elit sit amet, volutpat nunc.</p>
-                        <p class="text-2 text-color-2">Aliquam non lorem consequat, luctus dui et, auctor nisi. Aenean placerat sapien at augue lacinia, non semper urna tempor. Mauris sit amet elit orci.</p>
-                        <a href="#" class="fw-6">Show more</a>
+                        <h3 class="titles">Descripción general</h3>
+                        <p class="text-1 text-color-2">{{global.previewCard.descripcion}}</p>
+                        <!-- <p class="text-2 text-color-2">Aliquam non lorem consequat, luctus dui et, auctor nisi. Aenean placerat sapien at augue lacinia, non semper urna tempor. Mauris sit amet elit orci.</p>
+                        <a href="#" class="fw-6">Show more</a> -->
                     </div>
-                    <div class="wrap-property wrap-style">
-                        <h3 class="titles">Property details</h3>
-                        <div class="box flex">
-                            <ul>
-                                <li class="flex"><span class="one fw-6">ID</span><span class="two">#1234</span></li>
-                                <li class="flex"><span class="one fw-6">Price</span><span class="two">$7,500</span></li>
-                                <li class="flex"><span class="one fw-6">Size</span><span class="two">150 sqft</span></li>
-                                <li class="flex"><span class="one fw-6">Rooms</span><span class="two">9</span></li>
-                                <li class="flex"><span class="one fw-6">Baths</span><span class="two">3</span></li>
-                            </ul>
-                            <ul>
-                                <li class="flex"><span class="one fw-6">Beds</span><span class="two">7.328</span></li>
-                                <li class="flex"><span class="one fw-6">Year buit</span><span class="two">2022</span></li>
-                                <li class="flex"><span class="one fw-6">Type</span><span class="two">Villa</span></li>
-                                <li class="flex"><span class="one fw-6">Status</span><span class="two">For sale</span></li>
-                                <li class="flex"><span class="one fw-6">Garage</span><span class="two">1</span></li>
-                            </ul>
-                        </div>                              
-                    </div>
-                    <div class="wrap-featured wrap-style tf-amenities">
+               
+                   <!--  <div class="wrap-featured wrap-style tf-amenities">
                         <h3 class="titles">Featured</h3>
                         <div class="box-featured flex">
                             <div class="inner-1">
@@ -306,7 +263,7 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="wrap-map wrap-property wrap-style">
                         <h3 class="titles">Map location</h3>
                         <div class="box flex">
@@ -394,7 +351,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="wrap-video wrap-style">
+                    <!-- <div class="wrap-video wrap-style">
                         <h3 class="titles">Video</h3>
                         <div class="video-box center ">
                             <div class="post-video flex align-center justify-center  relative">      
@@ -407,7 +364,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="wrap-virtual wrap-style">
                         <h3 class="titles">360 Virtual Tour</h3>
                         <div class="virtual-box relative flex align-center justify-center">
@@ -474,7 +431,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="wrap-nearby wrap-style">
+                  <!--   <div class="wrap-nearby wrap-style">
                         <h3 class="titles">What's nearby?</h3>
                         <div class="box-nearby box-1 flex">
                             <div class="icon flex-none">
@@ -566,7 +523,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                   <!--   <div class="wrap-form wrap-style">
                         <h3 class="titles">Loan caculator</h3>
                         <div class="comments">
@@ -618,7 +575,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="wrap-review wrap-style">
+                  <!--   <div class="wrap-review wrap-style">
                         <div class="box-title titles flex align-center justify-space">
                             <div class="inner flex align-center ">
                                 <div class="star flex">
@@ -789,7 +746,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-lg-4">
@@ -897,16 +854,16 @@
                         </div> -->
                         <div class="widget-rent style">
                             <h3 class="widget-title title-contact">
-                                Contact seller
+                                Contáctar
                             </h3>
                             <div class="author-box flex align-center">
                                 <div class="image-author flex-none">
                                     <img src="assets/todobienes/assets/images/author/author-footer.jpg" alt="images">
                                 </div>
                                 <div class="content">
-                                    <p class="text-color-2">Cameron Williamson</p>
-                                    <h5 class="link-style-1"><a href="tel:0123456789">(405) 555-000-999</a></h5>
-                                    <a class="fs-12 lh-18" href="mailto:...">...</a>
+                                    <p class="text-color-2">Agente inmobiliario</p>
+                                    <h5 class="link-style-1"><a href="tel:301 5605187">301 5605187</a></h5>
+                                 
                                 </div>
                             </div>
                             <div class="comments">
@@ -914,27 +871,27 @@
                                     <form method="post">
                                         <div class="wd-find-select ">
                                             <fieldset class="">
-                                                <input type="text" class="" name="text" placeholder="Full name *" required="">
+                                                <input type="text" class="" name="text" placeholder="Nombre completo *" required="">
                                             </fieldset>
                                             <fieldset class="">
-                                                <input type="tel" class="" name="tel" placeholder="Phone number *" required="">
+                                                <input type="tel" class="" name="tel" placeholder="Numero de teléfono *" required="">
                                             </fieldset>
                                             <fieldset class="">
-                                                <input type="email" class="" name="email" placeholder="Email address" required="">
+                                                <input type="email" class="" name="email" placeholder="Correo" required="">
                                             </fieldset>
-                                            <fieldset class="message-wrap">
+                                           <!--  <fieldset class="message-wrap">
                                                 <textarea name="message" rows="4" tabindex="4" placeholder="Your mesage *"></textarea>
-                                            </fieldset> 
+                                            </fieldset>  -->
                                             <div class="button-box sc-btn-top center flex justify-space">
                                                 <button class="sc-button btn-svg">
-                                                    <span>Send message</span>
+                                                    <span>Enviar mensaje</span>
                                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M1.125 6.5025V12.9375C1.125 13.5342 1.36205 14.1065 1.78401 14.5285C2.20597 14.9504 2.77826 15.1875 3.375 15.1875H14.625C15.2217 15.1875 15.794 14.9504 16.216 14.5285C16.6379 14.1065 16.875 13.5342 16.875 12.9375V6.5025L10.179 10.6223C9.82443 10.8404 9.4163 10.9559 9 10.9559C8.5837 10.9559 8.17557 10.8404 7.821 10.6223L1.125 6.5025Z" fill="white"/>
                                                         <path d="M16.875 5.181V5.0625C16.875 4.46576 16.6379 3.89347 16.216 3.47151C15.794 3.04955 15.2217 2.8125 14.625 2.8125H3.375C2.77826 2.8125 2.20597 3.04955 1.78401 3.47151C1.36205 3.89347 1.125 4.46576 1.125 5.0625V5.181L8.4105 9.6645C8.58778 9.77357 8.79185 9.83132 9 9.83132C9.20815 9.83132 9.41222 9.77357 9.5895 9.6645L16.875 5.181Z" fill="white"/>
                                                     </svg>
                                                 </button>
                                                 <a class="sc-button btn-1 btn-svg" href="tel:012345678">
-                                                    <span>Call</span>
+                                                    <span>Llamar</span>
                                                     <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M15.125 7.31249C15.125 7.46168 15.0657 7.60475 14.9602 7.71024C14.8548 7.81573 14.7117 7.87499 14.5625 7.87499H11.1875C11.0383 7.87499 10.8952 7.81573 10.7898 7.71024C10.6843 7.60475 10.625 7.46168 10.625 7.31249V3.93749C10.625 3.78831 10.6843 3.64523 10.7898 3.53975C10.8952 3.43426 11.0383 3.37499 11.1875 3.37499C11.3367 3.37499 11.4798 3.43426 11.5852 3.53975C11.6907 3.64523 11.75 3.78831 11.75 3.93749V5.95499L15.29 2.41499C15.3415 2.35973 15.4036 2.3154 15.4726 2.28466C15.5416 2.25391 15.6161 2.23738 15.6916 2.23605C15.7671 2.23472 15.8422 2.24861 15.9122 2.2769C15.9822 2.30519 16.0459 2.3473 16.0993 2.40071C16.1527 2.45413 16.1948 2.51775 16.2231 2.5878C16.2514 2.65784 16.2653 2.73286 16.2639 2.80839C16.2626 2.88391 16.2461 2.9584 16.2153 3.0274C16.1846 3.0964 16.1403 3.1585 16.085 3.20999L12.545 6.74999H14.5625C14.7117 6.74999 14.8548 6.80926 14.9602 6.91475C15.0657 7.02024 15.125 7.16331 15.125 7.31249Z" fill="#1C1C1E"/>
                                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M1.625 3.375C1.625 2.77826 1.86205 2.20597 2.28401 1.78401C2.70597 1.36205 3.27826 1.125 3.875 1.125H4.904C5.549 1.125 6.1115 1.5645 6.26825 2.19L7.097 5.50725C7.16416 5.77575 7.15059 6.05809 7.058 6.31892C6.96542 6.57974 6.79792 6.80744 6.5765 6.9735L5.60675 7.701C5.5055 7.77675 5.48375 7.88775 5.51225 7.965C5.93553 9.11614 6.60395 10.1615 7.47121 11.0288C8.33847 11.8961 9.38386 12.5645 10.535 12.9877C10.6123 13.0162 10.7225 12.9945 10.799 12.8932L11.5265 11.9235C11.6926 11.7021 11.9203 11.5346 12.1811 11.442C12.4419 11.3494 12.7243 11.3358 12.9928 11.403L16.31 12.2318C16.9355 12.3885 17.375 12.951 17.375 13.5968V14.625C17.375 15.2217 17.1379 15.794 16.716 16.216C16.294 16.6379 15.7217 16.875 15.125 16.875H13.4375C6.914 16.875 1.625 11.586 1.625 5.0625V3.375Z" fill="#1C1C1E"/>
@@ -1039,361 +996,29 @@
                                 </li>
                             </ul>
                         </div>  -->
-                        <div class="widget widget-ads">  
-                            <div class="box-ads">
-                                <div class="content relative z-2">
-                                    <h3 class="link-style-3"><a href="#">Gorgeous Apartment Building</a> </h3>
-                                    <div class="text-addres "><p class="p-12 text-color-1 icon-p">58 Hullbrook Road, Billesley, B13 0LA</p></div>
-                                    <div class="star flex">
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<polygon points="512,197.816 325.961,185.585 255.898,9.569 185.835,185.585 0,197.816 142.534,318.842 95.762,502.431 			255.898,401.21 416.035,502.431 369.263,318.842 		"></polygon>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<polygon points="512,197.816 325.961,185.585 255.898,9.569 185.835,185.585 0,197.816 142.534,318.842 95.762,502.431 			255.898,401.21 416.035,502.431 369.263,318.842 		"></polygon>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<polygon points="512,197.816 325.961,185.585 255.898,9.569 185.835,185.585 0,197.816 142.534,318.842 95.762,502.431 			255.898,401.21 416.035,502.431 369.263,318.842 		"></polygon>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<polygon points="512,197.816 325.961,185.585 255.898,9.569 185.835,185.585 0,197.816 142.534,318.842 95.762,502.431 			255.898,401.21 416.035,502.431 369.263,318.842 		"></polygon>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<polygon points="512,197.816 325.961,185.585 255.898,9.569 185.835,185.585 0,197.816 142.534,318.842 95.762,502.431 			255.898,401.21 416.035,502.431 369.263,318.842 		"></polygon>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>                                               
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
+                       
                     </div>
                 </aside>
             </div>
         </div>
     </div>
+    <!-- <div class="container">
+        <div class="button-box sc-btn-top center flex justify-space">
+            <button class="sc-button btn-svg">
+                <span>Enviar mensaje</span>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.125 6.5025V12.9375C1.125 13.5342 1.36205 14.1065 1.78401 14.5285C2.20597 14.9504 2.77826 15.1875 3.375 15.1875H14.625C15.2217 15.1875 15.794 14.9504 16.216 14.5285C16.6379 14.1065 16.875 13.5342 16.875 12.9375V6.5025L10.179 10.6223C9.82443 10.8404 9.4163 10.9559 9 10.9559C8.5837 10.9559 8.17557 10.8404 7.821 10.6223L1.125 6.5025Z" fill="white"/>
+                    <path d="M16.875 5.181V5.0625C16.875 4.46576 16.6379 3.89347 16.216 3.47151C15.794 3.04955 15.2217 2.8125 14.625 2.8125H3.375C2.77826 2.8125 2.20597 3.04955 1.78401 3.47151C1.36205 3.89347 1.125 4.46576 1.125 5.0625V5.181L8.4105 9.6645C8.58778 9.77357 8.79185 9.83132 9 9.83132C9.20815 9.83132 9.41222 9.77357 9.5895 9.6645L16.875 5.181Z" fill="white"/>
+                </svg>
+            </button>
+            <a class="sc-button btn-1 btn-svg" href="tel:012345678">
+                <span>Llamar</span>
+                <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.125 7.31249C15.125 7.46168 15.0657 7.60475 14.9602 7.71024C14.8548 7.81573 14.7117 7.87499 14.5625 7.87499H11.1875C11.0383 7.87499 10.8952 7.81573 10.7898 7.71024C10.6843 7.60475 10.625 7.46168 10.625 7.31249V3.93749C10.625 3.78831 10.6843 3.64523 10.7898 3.53975C10.8952 3.43426 11.0383 3.37499 11.1875 3.37499C11.3367 3.37499 11.4798 3.43426 11.5852 3.53975C11.6907 3.64523 11.75 3.78831 11.75 3.93749V5.95499L15.29 2.41499C15.3415 2.35973 15.4036 2.3154 15.4726 2.28466C15.5416 2.25391 15.6161 2.23738 15.6916 2.23605C15.7671 2.23472 15.8422 2.24861 15.9122 2.2769C15.9822 2.30519 16.0459 2.3473 16.0993 2.40071C16.1527 2.45413 16.1948 2.51775 16.2231 2.5878C16.2514 2.65784 16.2653 2.73286 16.2639 2.80839C16.2626 2.88391 16.2461 2.9584 16.2153 3.0274C16.1846 3.0964 16.1403 3.1585 16.085 3.20999L12.545 6.74999H14.5625C14.7117 6.74999 14.8548 6.80926 14.9602 6.91475C15.0657 7.02024 15.125 7.16331 15.125 7.31249Z" fill="#1C1C1E"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.625 3.375C1.625 2.77826 1.86205 2.20597 2.28401 1.78401C2.70597 1.36205 3.27826 1.125 3.875 1.125H4.904C5.549 1.125 6.1115 1.5645 6.26825 2.19L7.097 5.50725C7.16416 5.77575 7.15059 6.05809 7.058 6.31892C6.96542 6.57974 6.79792 6.80744 6.5765 6.9735L5.60675 7.701C5.5055 7.77675 5.48375 7.88775 5.51225 7.965C5.93553 9.11614 6.60395 10.1615 7.47121 11.0288C8.33847 11.8961 9.38386 12.5645 10.535 12.9877C10.6123 13.0162 10.7225 12.9945 10.799 12.8932L11.5265 11.9235C11.6926 11.7021 11.9203 11.5346 12.1811 11.442C12.4419 11.3494 12.7243 11.3358 12.9928 11.403L16.31 12.2318C16.9355 12.3885 17.375 12.951 17.375 13.5968V14.625C17.375 15.2217 17.1379 15.794 16.716 16.216C16.294 16.6379 15.7217 16.875 15.125 16.875H13.4375C6.914 16.875 1.625 11.586 1.625 5.0625V3.375Z" fill="#1C1C1E"/>
+                </svg>
+            </a>
+        </div>
+    </div> -->
 </section>
 
-<section class="flat-sale-detail flat-sale wg-dream wg-dots tf-section" >
-    <div class="container">
-        <div class="row">                      
-            <div class="col-lg-12">
-                <div class="heading-section ">
-                   <div class="title-heading fs-30 lh-45 fw-7">Featured properties</div>
-                    <p class="text-color-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel lobortis justo</p>
-                </div>
-                <div class="swiper-container2" >    
-                    <div class="one-carousel owl-carousel owl-theme">
-                        <div class="slide-item">
-                            <div class="box box-dream hv-one">
-                                <div class="image-group relative ">
-                                    <span class="featured fs-12 fw-6">Featured</span>    
-                                    <span class="featured style fs-12 fw-6">For sale</span>  
-                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
-                                    <div class="swiper-container noo carousel-2 img-style" >    
-                                        <a href="#" class="icon-plus"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
-                                        <div class="swiper-wrapper ">
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-21.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div>
-                                        </div>
-                                        <div class="pagi2"><div class="swiper-pagination2" >  </div> </div>
-                                        <div class="swiper-button-next2 " ><i class="fal fa-arrow-right"></i></div>
-                                        <div class="swiper-button-prev2 " ><i class="fal fa-arrow-left"></i> </div>                                        
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h3 class="link-style-1"><a href="#">Gorgeous Apartment Building</a> </h3>
-                                    <div class="text-address"><p class="p-12">58 Hullbrook Road, Billesley, B13 0LA</p></div>
-                                    <div class="money fs-18 fw-6 text-color-3"><a href="#">$7,500</a></div>  
-                                    <div class="icon-box flex">
-                                        <div class="icons icon-1 flex text-color-4"><span>Beds: </span><span class="fw-6">4</span></div>
-                                        <div class="icons icon-2 flex"><span>Baths: </span><span class="fw-6">2</span></div>
-                                        <div class="icons icon-3 flex"><span>Sqft: </span><span class="fw-6">1150</span></div>
-                                    </div>   
-                                    <div class="days-box flex justify-space align-center">
-                                        <a class="compare flex align-center fw-6" href="#">Compare</a>
-                                        <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img src="assets/todobienes/assets/images/author/author-1.jpg" alt="images"></div>
-                                        <div class="days">3 years ago</div>
-                                    </div>                                           
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide-item">
-                            <div class="box box-dream hv-one">
-                                <div class="image-group relative ">
-                                    <span class="featured fs-12 fw-6">Featured</span>   
-                                    <span class="featured style fs-12 fw-6">For sale</span>   
-                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
-                                    <div class="swiper-container noo carousel-2 img-style" >    
-                                        <a href="#" class="icon-plus"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
-                                        <div class="swiper-wrapper ">
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-22.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div>
-                                        </div>
-                                        <div class="pagi2"><div class="swiper-pagination2" >  </div> </div>
-                                        <div class="swiper-button-next2 " ><i class="fal fa-arrow-right"></i></div>
-                                        <div class="swiper-button-prev2 " ><i class="fal fa-arrow-left"></i> </div>                                        
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h3 class="link-style-1"><a href="#">Gorgeous Apartment Building</a> </h3>
-                                    <div class="text-address"><p class="p-12">58 Hullbrook Road, Billesley, B13 0LA</p></div>
-                                    <div class="money fs-18 fw-6 text-color-3"><a href="#">$7,500</a></div>  
-                                    <div class="icon-box flex">
-                                        <div class="icons icon-1 flex text-color-4"><span>Beds: </span><span class="fw-6">4</span></div>
-                                        <div class="icons icon-2 flex"><span>Baths: </span><span class="fw-6">2</span></div>
-                                        <div class="icons icon-3 flex"><span>Sqft: </span><span class="fw-6">1150</span></div>
-                                    </div>   
-                                    <div class="days-box flex justify-space align-center">
-                                        <a class="compare flex align-center fw-6" href="#">Compare</a>
-                                        <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img src="assets/todobienes/assets/images/author/author-2.jpg" alt="images"></div>
-                                        <div class="days">3 years ago</div>
-                                    </div>                                           
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" >
-                            <div class="box box-dream hv-one">
-                                <div class="image-group relative ">
-                                    <span class="featured fs-12 fw-6">Featured</span> 
-                                    <span class="featured style fs-12 fw-6">For sale</span>     
-                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
-                                    <div class="swiper-container noo carousel-2 img-style"  >    
-                                        <a href="#" class="icon-plus"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
-                                        <div class="swiper-wrapper ">
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-23.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div>
-                                        </div>
-                                        <div class="pagi2"><div class="swiper-pagination2" >  </div> </div>
-                                        <div class="swiper-button-next2 "><i class="fal fa-arrow-right"></i></div>
-                                        <div class="swiper-button-prev2 "><i class="fal fa-arrow-left"></i> </div>                                        
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h3 class="link-style-1"><a href="#">Gorgeous Apartment Building</a> </h3>
-                                    <div class="text-address"><p class="p-12">58 Hullbrook Road, Billesley, B13 0LA</p></div>
-                                    <div class="money fs-18 fw-6 text-color-3"><a href="#">$7,500</a></div>  
-                                    <div class="icon-box flex">
-                                        <div class="icons icon-1 flex text-color-4"><span>Beds: </span><span class="fw-6">4</span></div>
-                                        <div class="icons icon-2 flex"><span>Baths: </span><span class="fw-6">2</span></div>
-                                        <div class="icons icon-3 flex"><span>Sqft: </span><span class="fw-6">1150</span></div>
-                                    </div>   
-                                    <div class="days-box flex justify-space align-center">
-                                        <a class="compare flex align-center fw-6" href="#">Compare</a>
-                                        <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img src="assets/todobienes/assets/images/author/author-3.jpg" alt="images"></div>
-                                        <div class="days">3 years ago</div>
-                                    </div>                                           
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide ">
-                            <div class="box box-dream hv-one">
-                                <div class="image-group relative ">
-                                    <span class="featured fs-12 fw-6">Featured</span>  
-                                    <span class="featured style fs-12 fw-6">For sale</span>    
-                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
-                                    <div class="swiper-container noo carousel-2 img-style" >    
-                                        <a href="#" class="icon-plus"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
-                                        <div class="swiper-wrapper ">
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-8.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div>
-                                        </div>
-                                        <div class="pagi2"><div class="swiper-pagination2" >  </div> </div>
-                                        <div class="swiper-button-next2 " ><i class="fal fa-arrow-right"></i></div>
-                                        <div class="swiper-button-prev2 " ><i class="fal fa-arrow-left"></i> </div>                                        
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h3 class="link-style-1"><a href="#">Gorgeous Apartment Building</a> </h3>
-                                    <div class="text-address"><p class="p-12">58 Hullbrook Road, Billesley, B13 0LA</p></div>
-                                    <div class="money fs-18 fw-6 text-color-3"><a href="#">$7,500</a></div>  
-                                    <div class="icon-box flex">
-                                        <div class="icons icon-1 flex text-color-4"><span>Beds: </span><span class="fw-6">4</span></div>
-                                        <div class="icons icon-2 flex"><span>Baths: </span><span class="fw-6">2</span></div>
-                                        <div class="icons icon-3 flex"><span>Sqft: </span><span class="fw-6">1150</span></div>
-                                    </div>   
-                                    <div class="days-box flex justify-space align-center">
-                                        <a class="compare flex align-center fw-6" href="#">Compare</a>
-                                        <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img src="assets/todobienes/assets/images/author/author-4.jpg" alt="images"></div>
-                                        <div class="days">3 years ago</div>
-                                    </div>                                           
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide-item">
-                            <div class="box box-dream hv-one">
-                                <div class="image-group relative ">
-                                    <span class="featured fs-12 fw-6">Featured</span>    
-                                    <span class="featured style fs-12 fw-6">For sale</span>  
-                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
-                                    <div class="swiper-container noo carousel-2 img-style" >    
-                                        <a href="#" class="icon-plus"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
-                                        <div class="swiper-wrapper ">
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-21.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div>
-                                        </div>
-                                        <div class="pagi2"><div class="swiper-pagination2" >  </div> </div>
-                                        <div class="swiper-button-next2 " ><i class="fal fa-arrow-right"></i></div>
-                                        <div class="swiper-button-prev2 " ><i class="fal fa-arrow-left"></i> </div>                                        
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h3 class="link-style-1"><a href="#">Gorgeous Apartment Building</a> </h3>
-                                    <div class="text-address"><p class="p-12">58 Hullbrook Road, Billesley, B13 0LA</p></div>
-                                    <div class="money fs-18 fw-6 text-color-3"><a href="#">$7,500</a></div>  
-                                    <div class="icon-box flex">
-                                        <div class="icons icon-1 flex text-color-4"><span>Beds: </span><span class="fw-6">4</span></div>
-                                        <div class="icons icon-2 flex"><span>Baths: </span><span class="fw-6">2</span></div>
-                                        <div class="icons icon-3 flex"><span>Sqft: </span><span class="fw-6">1150</span></div>
-                                    </div>   
-                                    <div class="days-box flex justify-space align-center">
-                                        <a class="compare flex align-center fw-6" href="#">Compare</a>
-                                        <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img src="assets/todobienes/assets/images/author/author-1.jpg" alt="images"></div>
-                                        <div class="days">3 years ago</div>
-                                    </div>                                           
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide-item">
-                            <div class="box box-dream hv-one">
-                                <div class="image-group relative ">
-                                    <span class="featured fs-12 fw-6">Featured</span>   
-                                    <span class="featured style fs-12 fw-6">For sale</span>   
-                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
-                                    <div class="swiper-container noo carousel-2 img-style" >    
-                                        <a href="#" class="icon-plus"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
-                                        <div class="swiper-wrapper ">
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-22.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div>
-                                        </div>
-                                        <div class="pagi2"><div class="swiper-pagination2" >  </div> </div>
-                                        <div class="swiper-button-next2 " ><i class="fal fa-arrow-right"></i></div>
-                                        <div class="swiper-button-prev2 " ><i class="fal fa-arrow-left"></i> </div>                                        
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h3 class="link-style-1"><a href="#">Gorgeous Apartment Building</a> </h3>
-                                    <div class="text-address"><p class="p-12">58 Hullbrook Road, Billesley, B13 0LA</p></div>
-                                    <div class="money fs-18 fw-6 text-color-3"><a href="#">$7,500</a></div>  
-                                    <div class="icon-box flex">
-                                        <div class="icons icon-1 flex text-color-4"><span>Beds: </span><span class="fw-6">4</span></div>
-                                        <div class="icons icon-2 flex"><span>Baths: </span><span class="fw-6">2</span></div>
-                                        <div class="icons icon-3 flex"><span>Sqft: </span><span class="fw-6">1150</span></div>
-                                    </div>   
-                                    <div class="days-box flex justify-space align-center">
-                                        <a class="compare flex align-center fw-6" href="#">Compare</a>
-                                        <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img src="assets/todobienes/assets/images/author/author-2.jpg" alt="images"></div>
-                                        <div class="days">3 years ago</div>
-                                    </div>                                           
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" >
-                            <div class="box box-dream hv-one">
-                                <div class="image-group relative ">
-                                    <span class="featured fs-12 fw-6">Featured</span> 
-                                    <span class="featured style fs-12 fw-6">For sale</span>     
-                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
-                                    <div class="swiper-container noo carousel-2 img-style"  >    
-                                        <a href="#" class="icon-plus"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
-                                        <div class="swiper-wrapper ">
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-23.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div>
-                                        </div>
-                                        <div class="pagi2"><div class="swiper-pagination2" >  </div> </div>
-                                        <div class="swiper-button-next2 "><i class="fal fa-arrow-right"></i></div>
-                                        <div class="swiper-button-prev2 "><i class="fal fa-arrow-left"></i> </div>                                        
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h3 class="link-style-1"><a href="#">Gorgeous Apartment Building</a> </h3>
-                                    <div class="text-address"><p class="p-12">58 Hullbrook Road, Billesley, B13 0LA</p></div>
-                                    <div class="money fs-18 fw-6 text-color-3"><a href="#">$7,500</a></div>  
-                                    <div class="icon-box flex">
-                                        <div class="icons icon-1 flex text-color-4"><span>Beds: </span><span class="fw-6">4</span></div>
-                                        <div class="icons icon-2 flex"><span>Baths: </span><span class="fw-6">2</span></div>
-                                        <div class="icons icon-3 flex"><span>Sqft: </span><span class="fw-6">1150</span></div>
-                                    </div>   
-                                    <div class="days-box flex justify-space align-center">
-                                        <a class="compare flex align-center fw-6" href="#">Compare</a>
-                                        <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img src="assets/todobienes/assets/images/author/author-3.jpg" alt="images"></div>
-                                        <div class="days">3 years ago</div>
-                                    </div>                                           
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide ">
-                            <div class="box box-dream hv-one">
-                                <div class="image-group relative ">
-                                    <span class="featured fs-12 fw-6">Featured</span>  
-                                    <span class="featured style fs-12 fw-6">For sale</span>    
-                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
-                                    <div class="swiper-container noo carousel-2 img-style" >    
-                                        <a href="#" class="icon-plus"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
-                                        <div class="swiper-wrapper ">
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-8.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
-                                            <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div>
-                                        </div>
-                                        <div class="pagi2"><div class="swiper-pagination2" >  </div> </div>
-                                        <div class="swiper-button-next2 " ><i class="fal fa-arrow-right"></i></div>
-                                        <div class="swiper-button-prev2 " ><i class="fal fa-arrow-left"></i> </div>                                        
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h3 class="link-style-1"><a href="#">Gorgeous Apartment Building</a> </h3>
-                                    <div class="text-address"><p class="p-12">58 Hullbrook Road, Billesley, B13 0LA</p></div>
-                                    <div class="money fs-18 fw-6 text-color-3"><a href="#">$7,500</a></div>  
-                                    <div class="icon-box flex">
-                                        <div class="icons icon-1 flex text-color-4"><span>Beds: </span><span class="fw-6">4</span></div>
-                                        <div class="icons icon-2 flex"><span>Baths: </span><span class="fw-6">2</span></div>
-                                        <div class="icons icon-3 flex"><span>Sqft: </span><span class="fw-6">1150</span></div>
-                                    </div>   
-                                    <div class="days-box flex justify-space align-center">
-                                        <a class="compare flex align-center fw-6" href="#">Compare</a>
-                                        <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img src="assets/todobienes/assets/images/author/author-4.jpg" alt="images"></div>
-                                        <div class="days">3 years ago</div>
-                                    </div>                                           
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- <section class="flat-contact2 relative" >
-    <div class="container">
-        <div class="row">                      
-            <div class="col-lg-12">
-                <div class="heading-section">
-                    <h2>Find for your dream home and increase your investment opportunities</h2>
-                    <p class="text-color-2 font-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed tristique metus proin id lorem odio</p>
-                    <div class="button-footer">
-                        <a class="sc-button center btn-icon" href="contact.html">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2.25 6.75C2.25 15.034 8.966 21.75 17.25 21.75H19.5C20.0967 21.75 20.669 21.5129 21.091 21.091C21.5129 20.669 21.75 20.0967 21.75 19.5V18.128C21.75 17.612 21.399 17.162 20.898 17.037L16.475 15.931C16.035 15.821 15.573 15.986 15.302 16.348L14.332 17.641C14.05 18.017 13.563 18.183 13.122 18.021C11.4849 17.4191 9.99815 16.4686 8.76478 15.2352C7.53141 14.0018 6.58087 12.5151 5.979 10.878C5.817 10.437 5.983 9.95 6.359 9.668L7.652 8.698C8.015 8.427 8.179 7.964 8.069 7.525L6.963 3.102C6.90214 2.85869 6.76172 2.6427 6.56405 2.48834C6.36638 2.33397 6.1228 2.25008 5.872 2.25H4.5C3.90326 2.25 3.33097 2.48705 2.90901 2.90901C2.48705 3.33097 2.25 3.90326 2.25 4.5V6.75Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>                               
-                            <span>Contact Seller</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="mark-img">
-                    <img src="assets/todobienes/assets/images/mark/mark-contact2.png" alt="images">
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
