@@ -168,13 +168,13 @@ export class DataApiService {
 		  map(data => data)
 		);
 	  }
-	  saveProperties( request: PropertiesInterface) {
-		const url_api = this.yeoman.origin.restUrl + '/api/collections/tdProperties/records/:id';
-		return this.http.post<PropertiesInterface>(url_api, request).pipe(
+	  saveProperties( properties: PropertiesInterface) {
+		const url_api = this.yeoman.origin.restUrl + '/api/collections/tdProperties/records';
+		return this.http.post<PropertiesInterface>(url_api, properties).pipe(
 		  map(data => data)
 		);
 	  }
-	  propertiesUpdate(clientData: any, id: string): Observable<any> {
+	  updateProperties(clientData: any, id: string): Observable<any> {
 		// Construir la URL de la solicitud
 		const url = `https://db.buckapi.com:8090/api/collections/tdProperties/records/${id}`;
 	
@@ -210,10 +210,12 @@ export class DataApiService {
 		.pipe(map(data => data));
 	}
 	
-	deleteProperty(id: string) {
-		const url_api = `${this.yeoman.origin.restUrl}/api/collections/tdProperties/records${id}`;
+
+	  deleteProperty(id: string) {
+		const url_api = `${this.yeoman.origin.restUrl}/api/collections/tdProperties/records/${id}`;
 		return this.http.delete<PropertiesInterface>(url_api).pipe(map((data) => data));
 	  }
+	  
 	
 	updateRubro(car :RubroInterfaces,  id: string){
 		// let token = this.authService.getToken();

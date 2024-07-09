@@ -83,7 +83,7 @@ constructor(
         : this.global.previewCard.images;
 
     this.dataApiService
-      .propertiesUpdate(this.data, this.global.previewCard.id)
+      .updateProperties(this.data, this.global.previewCard.id)
       .subscribe((response) => {
         console.log(response);
         this.global.loadProperties();

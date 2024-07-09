@@ -106,8 +106,8 @@ saveProperties() {
       }).then(() => {
         // Limpiar los valores para futuros usos
         this.global.properties = '';
-        this.yeoman.allrequest.push(response);
-        this.yeoman.allrequest = [...this.yeoman.allrequest];
+        this.global.allProperties.push(response);
+        this.global.allProperties = [...this.global.allProperties];
         this.isError = false;
         
         // Reiniciar el formulario

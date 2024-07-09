@@ -30,12 +30,10 @@ export class DashboardComponent {
     public yeoman: Yeoman
   ){}
   
-  // Método para cambiar a la vista de grid
   showGridView() {
   this.isGridView = true;
   }
 
-  // Método para cambiar a la vista de lista
   showListView() {
     this.isGridView = false;
   }
@@ -63,11 +61,11 @@ export class DashboardComponent {
   }
  
   delete() {
-  this.dataApiService.deleteProperty(this.yeoman.preview.id).subscribe(
+  this.dataApiService.deleteProperty(this.global.previewCard.id).subscribe(
     response => {
       this.dataApiService.getAllProperties().subscribe(
         response => {
-          this.yeoman.allProperties = response;
+          this.global.allProperties = response;
         },
         error => {
           console.error("Error al obtener todas las propiedades:", error);

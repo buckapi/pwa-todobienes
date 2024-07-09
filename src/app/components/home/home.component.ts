@@ -14,7 +14,6 @@ import { FormGroup, Validators } from '@angular/forms';
   styleUrl: './home.component.css'
 })
 export class HomeComponent  {
-  ngFormRequest: FormGroup;
   submitted = false;
   public isError = false;
   propertys:any;
@@ -25,21 +24,7 @@ constructor(
   private formBuilder: FormBuilder,
 
 ){
-  this.ngFormRequest = this.formBuilder.group({
-   /*  email: ['', [Validators.required]],
-    name: ['', [Validators.required]],
-    di: ['', [Validators.required]],
-    numWhat: ['', [Validators.required]],
-    placExpd: ['', [Validators.required]],
-    infLabol: ['', [Validators.required]],
-    aptoPlace: ['', [Validators.required]],
-    numApto: ['', [Validators.required]],
-    Asesor: ['', [Validators.required]],
-    inmobiliaria: ['', [Validators.required]],
-    canon: ['', [Validators.required]],
-    terminos: ['', [Validators.required]], */
-
-  }); 
+ 
 }
 view(property:any){
   this.global.previewCard=property;
@@ -48,13 +33,8 @@ view(property:any){
 }
 
 ngOnInit(): void {
-  this.ngFormRequest = this.formBuilder.group({
-  
-  });
 }
-get f(): { [key: string]: AbstractControl } {
-  return this.ngFormRequest.controls;
-}
+
 onIsError(): void {
   // this.ngxService.stop("loader-02");
 this.isError = true;
