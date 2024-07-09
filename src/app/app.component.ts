@@ -27,6 +27,8 @@ import { FormBuilder, ReactiveFormsModule, AbstractControl,  FormGroup, Validato
 import PocketBase from 'pocketbase';
 import { BrowserModule } from '@angular/platform-browser';
 import { DashboardAddPropertiesComponent } from './components/dashboard-add-properties/dashboard-add-properties.component';
+import { DashboardDetailPropertiesComponent } from './components/dashboard-detail-properties/dashboard-detail-properties.component';
+import { DashboardEditPropertiesComponent } from './components/dashboard-edit-properties/dashboard-edit-properties.component';
  
 @Component({
   selector: 'app-root',
@@ -54,7 +56,9 @@ import { DashboardAddPropertiesComponent } from './components/dashboard-add-prop
     HeaderDashboardComponent,
     ReactiveFormsModule,
     FormsModule,
-    DashboardAddPropertiesComponent
+    DashboardAddPropertiesComponent,
+    DashboardDetailPropertiesComponent,
+    DashboardEditPropertiesComponent
 
   
     

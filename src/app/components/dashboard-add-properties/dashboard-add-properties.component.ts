@@ -55,23 +55,24 @@ constructor(
   public yeoman: Yeoman
 ){
   this.addProperties = this.formBuilder.group({
-    municipio: ['', Validators.required],
-    codigo: ['', Validators.required],
+    municipality: ['', Validators.required],
+    code: ['', Validators.required],
     title: ['', Validators.required],
-    direccion: ['', Validators.required],
+    address: ['', Validators.required],
     status: ['', Validators.required],
-    descripcion: ['', Validators.required],
+    description: ['', Validators.required],
     typeProperty: ['', Validators.required],
-    habitaciones: ['', Validators.required],
-    sala: ['', Validators.required],
-    cocina: ['', Validators.required],
+    bedrooms: ['', Validators.required],
+    livinromm: ['', Validators.required],
+    kitchen: ['', Validators.required],
     bathroom: ['', Validators.required],
-    parqueadero: ['', Validators.required],
-    estrato: ['', Validators.required],
+    parking: ['', Validators.required],
+    stratum: ['', Validators.required],
     area: ['', Validators.required],
     canon: ['', Validators.required],
-    telefono: ['', Validators.required],
+    phone: ['', Validators.required],
     images: [null, Validators.required]
+    
   });
 }
 get f(): { [key: string]: AbstractControl } {
@@ -132,19 +133,19 @@ saveProperties() {
 }
 ngOnInit(): void {
   this.addProperties = this.formBuilder.group({
-    municipio: ['', Validators.required],
-    codigo: ['', Validators.required],
+    municipality: ['', Validators.required],
+    code: ['', Validators.required],
     title: ['', Validators.required],
-    direccion: ['', Validators.required],
+    address: ['', Validators.required],
     status: ['', Validators.required],
-    descripcion: ['', Validators.required],
+    description: ['', Validators.required],
     typeProperty: ['', Validators.required],
-    habitaciones: ['', Validators.required],
-    sala: ['', Validators.required],
-    cocina: ['', Validators.required],
+    bedrooms: ['', Validators.required],
+    livinromm: ['', Validators.required],
+    kitchen: ['', Validators.required],
     bathroom: ['', Validators.required],
-    parqueadero: ['', Validators.required],
-    estrato: ['', Validators.required],
+    parking: ['', Validators.required],
+    stratum: ['', Validators.required],
     area: ['', Validators.required],
     canon: ['', Validators.required],
     phone: ['', Validators.required],

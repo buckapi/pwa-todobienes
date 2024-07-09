@@ -73,7 +73,7 @@ this.global.getSpecialties();
   
     if (this.isLoggedIn) {
       // Opción a: Si está logueado
-      this.global.setRoute('request');
+      this.global.setRoute('dashboard');
       console.log("El usuario está logueado.");
       // Aquí puedes añadir más lógica específica para cuando el usuario esté logueado
     } else {
