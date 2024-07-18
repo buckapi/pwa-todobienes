@@ -10,51 +10,30 @@
     </div>
 </section>
 
-
-<section class="flat-slider01" >
-    <div class="container-full">
+<section class="flat-slider01 style" >
+    <div class="container">
         <div class="row">                      
-            <div class="col-lg-12">
-                <div class="swiper-container thumbs-swiper-column">
+            <!-- <div class="col-lg-12">
+                <div class="swiper-container thumbs-swiper-row">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="image-detail"> 
-                               <img src="{{global.previewCard.images[0]}}" alt="images">
+                            <div class="image-detail" *ngFor="let image of global.previewCard.images">
+                                <img src="{{image}}" alt="images">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div thumbsSlider="" class="swiper-container thumbs-swiper-row1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="image-detail" *ngFor="let image of global.previewCard.images">
+                                <img src="{{image}}" alt="images">
                             </div>
                         </div>
                        
                     </div>
-                    <div class="button-custom-slider">
-                        <div class="swiper-button-next5"><i class="far fa-chevron-down"></i></div>
-                        <div class="swiper-button-prev5"><i class="far fa-chevron-up"></i></div>
-                    </div>  
                 </div>
-                <div thumbsSlider="" class="swiper-container thumbs-swiper-column1 swiper-pagination5">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="image-detail">
-                                <img src="assets/todobienes/assets/images/slider/slider-pagi-4.jpg" alt="images">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image-detail">
-                                <img src="assets/todobienes/assets/images/slider/slider-pagi-1.jpg" alt="images">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image-detail">
-                                <img src="assets/todobienes/assets/images/slider/slider-pagi-2.jpg" alt="images">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image-detail">
-                                <img src="assets/todobienes/assets/images/slider/slider-pagi-3.jpg" alt="images">
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -67,7 +46,7 @@
                     <div class="box-1">
                         <div class="title-heading fs-30 fw-7 lh-45"> {{global.previewCard.title}}</div>
                         <div class="inner flex">
-                            <div class="sales fs-12 fw-7 font-2 text-color-1">For sale</div>
+                            <div class="sales fs-12 fw-7 font-2 text-color-1">{{global.previewCard.status}}</div>
                             <div class="text-address"><p>{{global.previewCard.address}}</p></div>
                             <div class="icon-inner flex">
                                 <div class="years-icon flex align-center">

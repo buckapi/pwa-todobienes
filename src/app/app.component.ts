@@ -58,7 +58,7 @@ import { DashboardEditPropertiesComponent } from './components/dashboard-edit-pr
     FormsModule,
     DashboardAddPropertiesComponent,
     DashboardDetailPropertiesComponent,
-    DashboardEditPropertiesComponent
+    DashboardEditPropertiesComponent,
 
   
     
@@ -106,8 +106,8 @@ export class AppComponent {
          'main',
         'curved',
         'priceRanger',
-        'apexcharts',
-        'jqueryCookie',
+/*         'apexcharts',
+ */        'jqueryCookie',
         'dashboardMenuMin',
         'dashboardMenu'
       )
@@ -167,7 +167,7 @@ export class AppComponent {
             case 'admin':
               this.virtualRouter.routerActive = 'dashboard';
               break;
-            case 'traveler':
+            case '':
               // Si el tipo de usuario es 'cliente', hacer la solicitud al API
               this.renderer.setAttribute(
                 document.body,
@@ -220,7 +220,7 @@ export class AppComponent {
       }
     }
   } */
-  fetchClientData(userId: string): void {
+  /* fetchClientData(userId: string): void {
     // Crear una instancia de PocketBase
     const pb = new PocketBase('https://db.buckapi.com:8090');
 
@@ -249,7 +249,7 @@ export class AppComponent {
         // Redirigir al usuario al home
         this.virtualRouter.routerActive = 'user-home';
       });
-  }
+  } */
   onRegister() {
     this.submitted = true;
     if (this.f['password'].value !== this.f['passwordConfirm'].value) {

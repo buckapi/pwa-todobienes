@@ -296,7 +296,7 @@ select(i: any) {
     return this.http.delete<RubroInterface>(url_api).pipe(map((data) => data));
   }
   deleteProperty(id: string) {
-		const url_api = `${this.yeoman.origin.restUrl}/api/collections/tdProperties/records${id}`;
+    const url_api = `${this.yeoman.origin.restUrl}/api/collections/tdProperties/records/${id}`;
 		return this.http.delete<PropertiesInterface>(url_api).pipe(map((data) => data));
 	  }
 

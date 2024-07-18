@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { DataApiService } from '../../services/data-api-service';
 import { Yeoman } from '../../services/yeoman.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class DashboardComponent {
     public global:GlobalService,
     public vitualRouter: virtualRouter,
     public dataApiService: DataApiService,
-    public yeoman: Yeoman
+    public yeoman: Yeoman,
+    public http: HttpClient
   ){}
   
   showGridView() {
@@ -40,6 +42,11 @@ export class DashboardComponent {
   view(property:any){
     this.global.previewCard=property;
     this.global.setRoute('dashboard-detail-properties');
+  }
+
+  edit(property:any){
+    this.global.previewCard=property;
+    this.global.setRoute('dashboard-edit-properties');
   }
 
   beforeDelete() {
@@ -65,7 +72,7 @@ export class DashboardComponent {
     response => {
       this.dataApiService.getAllProperties().subscribe(
         response => {
-          this.global.allProperties = response;
+          this.yeoman.allProperties = response;
         },
         error => {
           console.error("Error al obtener todas las propiedades:", error);
@@ -78,6 +85,7 @@ export class DashboardComponent {
     }
   );
 } 
+
   
   deleteSelectedImages(){
     

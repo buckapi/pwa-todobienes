@@ -6,7 +6,7 @@ import { virtualRouter } from '../../services/virtualRouter.service';
 @Component({
   selector: 'app-properties',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './properties.component.html',
   styleUrl: './properties.component.css'

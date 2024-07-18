@@ -44,7 +44,7 @@ export interface CardInterface {
 export class DataApiService {
 	//ticket: Observable<any>;
 	private baseUrl = 'https://db.buckapi.com:8090/api';
-
+	private restUrl = 'https://db.buckapi.com:8090/api/collections/tdProperties/records'; // Asegúrate de que esta URL esté configurada correctamente
 	url:any;
 	cards:any;
 	orders:any;
@@ -174,12 +174,12 @@ export class DataApiService {
 		  map(data => data)
 		);
 	  }
-	  updateProperties(clientData: any, id: string): Observable<any> {
+	  updateProperties(properties: any, id: string): Observable<any> {
 		// Construir la URL de la solicitud
 		const url = `https://db.buckapi.com:8090/api/collections/tdProperties/records/${id}`;
 	
 		// Realizar la solicitud PATCH para actualizar el registro
-		return this.http.patch(url, clientData).pipe(
+		return this.http.patch(url, properties).pipe(
 		  map(response => response)
 		);
 	  }
@@ -211,11 +211,18 @@ export class DataApiService {
 	}
 	
 
-	  deleteProperty(id: string) {
+	deleteProperty(id: string) {
 		const url_api = `${this.yeoman.origin.restUrl}/api/collections/tdProperties/records/${id}`;
-		return this.http.delete<PropertiesInterface>(url_api).pipe(map((data) => data));
-	  }
+			return this.http.delete<PropertiesInterface>(url_api).pipe(map((data) => data));
+		  }
 	  
+		 /*  deleteProperty(id: string): Observable<PropertiesInterface> {
+			const url_api = `${this.restUrl}/${id}`;
+			console.log('DELETE URL:', url_api); // Log para verificar la URL completa
+			return this.http.delete<PropertiesInterface>(url_api).pipe(
+			  map(data => data)
+			);
+		  } */
 	
 	updateRubro(car :RubroInterfaces,  id: string){
 		// let token = this.authService.getToken();
@@ -287,101 +294,4 @@ export class DataApiService {
 		.pipe(map(data => data));
 	}
 
-///click///
-	  getAllData(url: any): Observable<any[]> {
-		return forkJoin([
-		  this.getArticulos(url),
-		  this.getCategories(url),
-		  this.getClientes(url)
-		]);
-	  }
-	  getArticulos(url: any): Observable<any[]> {
-		return this.http.get<any[]>(url + 'webapi/articulos/getlista');
-	  }
-	
-	  getCategories(url: any): Observable<any[]> {
-		return this.http.get<any[]>(url + 'webapi/familia/all');
-	  }
-	
-	  getClientes(url: any): Observable<any[]> {
-		return this.http.get<any[]>(url + 'webapi/clientes/getall');
-	  }
-	  getCatalogo(url: any): Observable<any[]> {
-		return this.http.get<any[]>(url );
-	  }
-	  getCliente(url: string, clcodigo: any): Observable<any[]> {
-		// Concatena el valor de clcodigo en la URL
-		const apiUrl = url + 'webapi/clientes/getcliente?clcodigo=' + clcodigo;
-		
-		return this.http.get<any[]>(apiUrl);
-	  }
-	  getDistByIdDist(ref: string) {
-		const url_api = this.yeoman.origin.restUrl + `/api/dists?filter[where][ref]=${ref}`;
-		this.dists = this.http.get(url_api);
-		return (this.http.get(url_api));
-	}
-	getDistBy(idUser: string) {
-		const url_api = this.yeoman.origin.restUrl + `/api/dists?filter[where][idUser]=${idUser}`;
-		this.dists = this.http.get(url_api);
-		return (this.http.get(url_api));
-	}
-	getOrdersByClient(idClient: string) {
-		const url_api = this.yeoman.origin.restUrl + `/api/orders?filter[where][idClient]=${idClient}`;
-		this.orders = this.http.get(url_api);
-		return (this.http.get(url_api));
-	}
-	getOrdersByDist(idDist: string){
-		const url_api = this.yeoman.origin.restUrl+`/api/orders?filter[where][idDist]=${idDist}`;
-		this.orders = this.http.get(url_api);
-		return ( this.http.get(url_api));		
-	}
-	getClientBy(idUser: string){
-		const url_api = this.yeoman.origin.restUrl+`/api/clients?filter[where][idUser]=c${idUser}`;
-		this.clients = this.http.get(url_api);
-		return ( this.http.get(url_api));		
-	}
-	changePassword(userId: string, newPassword: string): Observable<any> {
-		const url = `${this.yeoman.origin.restUrl}/api/UserPasswords/changePassword`;
-		const data = { userId, newPassword };
-		return this.http.post(url, data);
-	  }
-	/*   deleteOrder(orderId: string): Observable<void> {
-		const token = this.AuthRESTService.getToken();
-		const url_api = `${this.yeoman.origin.restUrl}/api/orders/${orderId}/?access_token=${token}`;
-
-		return this.http.delete<void>(url_api, { headers: this.headers });
-	}
-	deleteClient(clientId: string): Observable<void> {
-		const token = this.AuthRESTService.getToken();
-		const url_api = `${this.yeoman.origin.restUrl}/api/clients/${clientId}/?access_token=${token}`;
-		return this.http.delete<void>(url_api, { headers: this.headers });
-	}	 */
-	saveOrder(order :OrderInterface){
-		const url_api=	this.yeoman.origin.restUrl+'/api/orders';
-		return this.http
-		.post<CardInterface>(url_api, order)
-		.pipe(map(data => data));
-	}
-	/* deleteMember(id: string){
-		const token = this.AuthRESTService.getToken();
-		const url_api=	this.yeoman.origin.restUrl+`/api/cards/${id}/?access_token$={token}`;
-		return this.http
-		.delete<MemberInterface>(url_api, {headers: this.headers})
-		.pipe(map(data => data));
-	}
-	userUpdate(id: string, userUpdate: UserInterface) {
-		const token = this.AuthRESTService.getToken();
-		// const url_api = `${this.yeoman.origin.restUrl}/api/Users/${id}/?access_token=${token}`;
-		const url_api = `${this.yeoman.origin.restUrl}/api/Users/${id}?access_token=${token}`;
-
-		return this.http
-		  .put<UserInterface>(url_api, userUpdate, { headers: this.headers })
-		  .pipe(map(data => data));
-	  } */
-	
-	
-	
-	
-	
-	
 }

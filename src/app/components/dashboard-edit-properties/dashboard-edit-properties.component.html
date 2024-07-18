@@ -1,0 +1,224 @@
+<div class="dashboard__content">
+    <section class="flat-title2">
+        <div class="container7">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-group fs-30 lh-45 fw-7">Agregar propiedad</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="flat-upload-photo" style="padding-bottom: 20px;">
+        <div class="container7">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tf-upload">
+                        <h3 class="titles">Cargar imagenes</h3>
+                         <div class="row">
+                           <!--  <div class="col-md-6 mb-3">
+                                <ngx-awesome-uploader [adapter]="adapter" [captions]="captions"
+                                    (change)="onFileChange($event)">
+                                </ngx-awesome-uploader>
+                                
+                            </div> -->
+                           <!--  <div *ngFor="let image of yeoman.preview.images; let i = index"
+                            (mouseenter)="toggleDeleteButton(i, true)"
+                            (mouseleave)="toggleDeleteButton(i, false)" class="preview col-md-6">
+                            <img class="img-fluid" [src]="image" alt=""
+                                style="border-radius: 10px; margin: 5px;">
+                            <button class="delete-button" (click)="delete(i)"
+                                *ngIf="showDeleteButton[i]">Eliminar</button> 
+                                <h4>Vista previa:</h4>
+                                <img [src]="uploadedImage" alt="Imagen cargada" class="img-fluid"
+                                    style="max-width: 60%;">
+                                    
+                            </div> -->
+                        </div> 
+                    </div>
+                    <form>
+                        <div class="tf-infomation bg-white">
+                            <h3 class="titles">Infomación</h3>
+                            <div class="info-box info-wg">
+                                <div class="inner-1 select-group">
+                                    <div class="wg-box2 select-group">
+                                        <fieldset>
+                                            <label class="title-user fw-6">Nombre de la propiedad</label>
+                                            <input class="form-control" placeholder="nombre" type="text"
+                                            [(ngModel)]="global.previewCard.title" name="title" required
+                                            [ngModelOptions]="{standalone: true}">
+                                        
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row info-box info-wg">
+                               <!--  <div class="inner-2 select-group col-6" id="municipality" name="municipality">
+                                    <label class="title-user fw-6">Seleccione municipio *</label>
+                                    <select class="form-control" formControlName="municipality" [ngClass]="{ 'is-invalid': submitted && f['municipality'].errors }">
+                                      <option value="">Seleccione el municipio</option>
+                                      <option value="Medellin">Medellín</option>
+                                      <option value="Sabaneta">Sabaneta</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['municipality'].errors" class="invalid-feedback">
+                                      <div *ngIf="f['municipality'].errors['required']">Municipio es obligatorio.</div>
+                                    </div>
+                                </div> -->
+                                  
+                                <div class="inner-1 col-6">
+                                    <div class="wg-box2 select-group">
+                                        <fieldset>
+                                            <label class="title-user fw-6">Dirección aproximada *</label>
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
+                                                [(ngModel)]="global.previewCard.address" name="address" required
+                                                [ngModelOptions]="{standalone: true}">
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                     <div class="tf-rent tf-infomation bg-white">
+                            <h3 class="titles">Información de la propiedad</h3>
+                            <div class="row">
+                               <!--  <div class="inner-2 select-group col-4" id="stratum" name="stratum">
+                                    <label class="title-user fw-6">Seleccione el estrato *</label>
+                                    <select class="form-control" formControlName="stratum" [ngClass]="{ 'is-invalid': submitted && f['stratum'].errors }">
+                                    <option value="">Seleccione</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['stratum'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['stratum'].errors['required']">Estrato es obligatorio.</div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="inner-2 select-group col-4" id="status" name="status">
+                                    <label class="title-user fw-6">Seleccione el estado*</label>
+                                    <select class="form-control" formControlName="status" [ngClass]="{ 'is-invalid': submitted && f['status'].errors }">
+                                    <option value="">Seleccione</option>
+                                    <option value="Renta">renta</option>
+                                    <option value="venta">venta</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['status'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['status'].errors['required']">Estrato es obligatorio.</div>
+                                    </div>
+                                </div>
+                                <div class="inner-2 select-group col-4" id="typeProperty" name="typeProperty">
+                                    <label class="title-user fw-6">Tipo de propiedad *</label>
+                                    <select class="form-control" formControlName="typeProperty" [ngClass]="{ 'is-invalid': submitted && f['typeProperty'].errors }">
+                                    <option value=""></option>
+                                    <option value="casa">Casa</option>
+                                    <option value="apartamento">Apartamento</option>
+                                    <option value="oficina">Oficina</option>
+                                    <option value="lote">Lote</option>
+                                    <option value="finca">Finca</option>
+                                    <option value="proyecto">Proyecto en construcción</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['typeProperty'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['typeProperty'].errors['required']">Tipo de propiedad es obligatorio.</div>
+                                    </div>
+                                </div> -->
+                                <div class="info-box info-wg">
+                                    <div class="inner-1 form-wg flex ">
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Código</label>
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
+                                                [(ngModel)]="global.previewCard.code" name="code" required
+                                                [ngModelOptions]="{standalone: true}">
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Habitaciones</label>
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
+                                                [(ngModel)]="global.previewCard.bedrooms" name="bedrooms" required
+                                                [ngModelOptions]="{standalone: true}">
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Cocina</label>
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
+                                                [(ngModel)]="global.previewCard.kitchen" name="kitchen" required
+                                                [ngModelOptions]="{standalone: true}">
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Sala</label>
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
+                                                [(ngModel)]="global.previewCard.livinromm" name="livinromm" required
+                                                [ngModelOptions]="{standalone: true}">
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Baños </label>
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
+                                                [(ngModel)]="global.previewCard.bathroom" name="bathroom" required
+                                                [ngModelOptions]="{standalone: true}">
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Parqueadero</label>
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
+                                                [(ngModel)]="global.previewCard.parking" name="parking" required
+                                                [ngModelOptions]="{standalone: true}">
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="inner-4 form-wg flex ">
+                                       
+                                        
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Area de la propiedad (mts2)</label>
+                                                <input type="text" placeholder="150*200" class="input-form"
+                                                id="area" name="area" type="text"
+                                                [(ngModel)]="global.previewCard.area" name="area" required
+                                                [ngModelOptions]="{standalone: true}">
+                                            </fieldset>
+                                        </div>
+                                    
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Numero de teléfono *</label>
+                                                <input type="text" placeholder="57 302 123 1212" class="input-form"
+                                                id="phone" name="phone" class="form-control"  type="text"
+                                                [(ngModel)]="global.previewCard.phone" name="phone" required
+                                                [ngModelOptions]="{standalone: true}">
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Valor de canon *</label>
+                                                <input type="text" placeholder="3500000" class="input-form"
+                                                id="canon" name="canon" class="form-control" 
+                                                [(ngModel)]="global.previewCard.canon" name="canon" required
+                                                [ngModelOptions]="{standalone: true}">
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="tf-save">
+                            <div class="wrap-button flex justify-center">
+                                <button class="sc-button btn-1" name="submit" type="button" (click)="cancelarUpdate()">
+                                    <span>Cancelar</span>
+                                </button>
+                                <button class="sc-button btn-2" name="submit" type="button" (click)="onSubmit()">
+                                    <span>Guardar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

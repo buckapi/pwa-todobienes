@@ -31,16 +31,11 @@ view(property:any){
   this.global.setRoute('property-detail');
   
 }
+/* onIsError(): void {
+  this.isError = true;
+  setTimeout(() => {
+    this.isError = false;
+  }, 4000);
+} */
 
-ngOnInit(): void {
-}
-
-onIsError(): void {
-  // this.ngxService.stop("loader-02");
-this.isError = true;
-// this.ngxService.stop("loader-02");
-setTimeout(() => {
-  this.isError = false;
-}, 4000);
-}
 }
