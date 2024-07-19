@@ -31,7 +31,6 @@ export class DashboardComponent {
     public yeoman: Yeoman,
     public http: HttpClient
   ){}
-  
   showGridView() {
   this.isGridView = true;
   }
@@ -48,51 +47,81 @@ export class DashboardComponent {
     this.global.previewCard=property;
     this.global.setRoute('dashboard-edit-properties');
   }
+  deleteProperty(property:any) {
+    console.log('Intentando eliminar propiedad...');
+    console.log('Preview Card:', this.global.previewCard);
+    const propertyId = property.id;
 
-  beforeDelete() {
+    if (!propertyId) {
+      console.error('No se puede eliminar la propiedad: ID no definido');
+      return;
+    }
+
     Swal.fire({
-      title: "¿Seguro deseas borrar esta propiedad?",
-      text: "¡Esta acción no se podrá revertir!",
-      icon: "warning",
+      title: '¿Estás seguro?',
+      text: '¡Esta acción no se podrá revertir!',
+      icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: "Sí, borrar!",
-      cancelButtonText: "No, mejor no"
+      confirmButtonText: 'Sí, borrar!',
+      cancelButtonText: 'No, cancelar'
     }).then((result) => {
-      if (result.value) {
-        this.delete();  // Llamar al método delete para realizar la acción de borrado
-        Swal.fire("Borrada!", "Propiedad borrada", "success");
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire("Cancelado", "", "error");
+      if (result.isConfirmed) {
+        this.dataApiService.deleteProperty(propertyId).subscribe(
+          response => {
+            console.log('Propiedad eliminada:', response);
+            // Realiza cualquier actualización necesaria en la vista
+            this.global.loadProperties(); // Actualiza la lista de propiedades
+
+            Swal.fire(
+              'Borrado!',
+              'La propiedad ha sido eliminada.',
+              'success'
+            );
+          },
+          error => {
+            Swal.fire(
+              'Error',
+              'Ocurrió un error al eliminar la propiedad. Inténtelo de nuevo más tarde.',
+              'error'
+            );
+            console.error('Error al borrar la propiedad:', error);
+          }
+        );
       }
     });
   }
- 
-  delete() {
-  this.dataApiService.deleteProperty(this.global.previewCard.id).subscribe(
-    response => {
-      this.dataApiService.getAllProperties().subscribe(
-        response => {
-          this.yeoman.allProperties = response;
-        },
-        error => {
-          console.error("Error al obtener todas las propiedades:", error);
-        }
-      );
-    },
-    error => {
-      console.error("Error al borrar la propiedad:", error);
-      Swal.fire("Error", "No se pudo borrar la propiedad. Inténtalo de nuevo más tarde.", "error");
-    }
-  );
-} 
-
   
-  deleteSelectedImages(){
+  
+
+  cancelDelete(){}
+  ngOnInit(): void {
+    this.loadInitialData();
+  }
+
+  loadInitialData(): void {
+    console.log('Cargando datos iniciales...');
+    // Inicializa previewCard con valores predeterminados si es necesario
+    this.global.previewCard = {
+      id: "",
+      municipality: "",
+      code: "",
+      title: "",
+      address: "",
+      status: "",
+      description: "",
+      typeProperty: "",
+      bedrooms: "",
+      livinromm: "",
+      kitchen: "",
+      bathroom: "",
+      parking: "",
+      stratum: "",
+      area: "",
+      canon: "",
+      phone: "",
+      images: []
+    };
     
   }
-  cancelDelete(){}
-    ngOnInit(): void {
-    }
-  
   }
 

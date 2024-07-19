@@ -44,7 +44,7 @@ export interface CardInterface {
 export class DataApiService {
 	//ticket: Observable<any>;
 	private baseUrl = 'https://db.buckapi.com:8090/api';
-	private restUrl = 'https://db.buckapi.com:8090/api/collections/tdProperties/records'; // Asegúrate de que esta URL esté configurada correctamente
+	private apiUrl = 'https://db.buckapi.com:8090/api/collections/tdProperties/records'; // Asegúrate de que esta URL esté configurada correctamente
 	url:any;
 	cards:any;
 	orders:any;
@@ -71,7 +71,19 @@ export class DataApiService {
 		  "Content-Type":"application/json"	
 	});
 
-
+	deleteP(id: string): Observable<any> {
+		const url = `${this.apiUrl}/${id}`;
+		return this.http.delete(url);
+	  }
+	  getProperty(id: string): Observable<any> {
+		const url = `${this.apiUrl}/api/collections/tdProperties/records/${id}`;
+		return this.http.get(url).pipe(
+		  map((data: any) => {
+			console.log('Datos recibidos del servidor:', data);
+			return data;
+		  })
+		);
+	  }
 	 
 	getAllCategory() {
 		const url_api = this.yeoman.origin.restUrl + '/api/collections/tdCategories/records';
