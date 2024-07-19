@@ -197,5 +197,33 @@ cancelarUpdate() {
       }
     );
   }
+  toggleDeleteButton(index: number, isVisible: boolean) {
+    this.showDeleteButton[index] = isVisible;
+}
+delete(indice:any){
+  this.yeoman.preview.images.splice(indice);
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'borrado',
+    showConfirmButton: false,
+    timer: 1500
+    
+  });
+}
+onFileChange(event: any) {
+  const reader = new FileReader();
+  const file = event.target.files[0];
+
+  if (file) {
+    reader.onload = () => {
+      this.uploadedImage = reader.result;
+    };
+    reader.readAsDataURL(file);
+    this.editProperties.patchValue({
+      identityDocument: file
+    });
+  }
+}
  
 }

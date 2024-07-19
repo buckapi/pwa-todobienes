@@ -25,6 +25,7 @@ export class DashboardAddPropertiesComponent {
   addProperties: FormGroup;
   submitted = false;
   public isError = false;
+  showDeleteButton: boolean[] = [];
   uploadedImage: string | ArrayBuffer | null = null;
   adapter = new CustomFilePickerAdapter(this.http, this._butler, this.global);
   imgResult: string = '';
@@ -152,7 +153,7 @@ ngOnInit(): void {
     images: [null, Validators.required]
   });
 }
-onFileChange(event: any) {
+/* onFileChange(event: any) {
   const reader = new FileReader();
   const file = event.target.files[0];
 
@@ -165,6 +166,35 @@ onFileChange(event: any) {
       identityDocument: file
     });
   }
+} */
+onFileChange(event: any): void {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.uploadedImage = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+removeImage(): void {
+  this.uploadedImage = null;
+  // Aquí puedes agregar lógica adicional para eliminar la imagen del formulario si es necesario.
+}
+toggleDeleteButton(index: number, isVisible: boolean) {
+  this.showDeleteButton[index] = isVisible;
+}
+delete(indice:any){
+this.yeoman.preview.images.splice(indice);
+Swal.fire({
+  position: 'center',
+  icon: 'success',
+  title: 'borrado',
+  showConfirmButton: false,
+  timer: 1500
+  
+});
 }
 
 onIsError(): void {
