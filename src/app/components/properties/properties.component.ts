@@ -12,11 +12,19 @@ import { virtualRouter } from '../../services/virtualRouter.service';
   styleUrl: './properties.component.css'
 })
 export class PropertiesComponent {
+  isGridView: boolean = true;
+
 constructor (
   public global: GlobalService,
   public virtualRouter: virtualRouter
 ) {}
+showGridView() {
+  this.isGridView = true;
+  }
 
+  showListView() {
+    this.isGridView = false;
+  }
 view(property:any){
   this.global.previewCard=property;
   this.global.setRoute('property-detail');

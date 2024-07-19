@@ -14,443 +14,212 @@
         </div>
     </div>                    
 </section>
-<div class="top-filters style style2">
-    <div class="container6">
-        <div class="row">                      
-            <div class="col-lg-12">
-                <div class="flat-tabs style2 flex">
-                    <div class="box-tab center">
-                        <ul class="menu-tab tab-title flex">
-                            <li class="item-title active flex align-center">
-                                <i class="far fa-check-circle"></i> <h4 class="inner">Arriendos</h4>
-                            </li>
-                            <li class="item-title style">
-                                <h4 class="inner"> Ventas </h4>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="content-tab">
-                        <div class="content-inner tab-content">
-                            <div class="form-sl">
-                                <form method="post">
-                                    <div class="wd-find-select flex">
-                                        <div class="form-group-1 search-form form-style relative">
-                                            <i class="far fa-search"></i>
-                                            <input type="search" class="search-field" placeholder="Escribe lo que buscas..." value="" name="s" title="Search for" required="">
-                                        </div>                                                  
-                                        <div class="form-group-2 form-style">
-                                            <div class="group-select">
-                                                <div class="nice-select" tabindex="0"><span class="current">Tipo de propiedad</span>
-                                                    <ul class="list">    
-                                                        <li data-value class="option selected">Casa</li>
-                                                        <li data-value="bungalow" class="option">Apartamento</li>
-                                                        <li data-value="apartment" class="option">Oficina</li>
-                                                        <li data-value="house" class="option">Lote</li>
-                                                        <li data-value="smart-home" class="option">Finca</li>                                                      
-                                                        <li data-value="Single family home" class="option">Proyecto en construcción</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group-3 form-style">
-                                            <div class="group-select">
-                                                <div class="nice-select" tabindex="0"><span class="current">Ubicación</span>
-                                                    <ul class="list">  
-                                                        <li data-value class="option selected">Sabaneta</li>                                                        
-                                                        <li data-value="Japan" class="option">Medellín</li>
-                                                    </ul>
-                                                </div>
-                                            </div>                                                    
-                                        </div>
-                                      
-                                        <div class="button-search sc-btn-top">
-                                            <a class="sc-button button-top" href="#">
-                                                <span>Búscar</span>
-                                                <i class="far fa-search"></i>
-                                            </a>
-                                        </div> 
-                                    </div>
-                                    <div class="wd-find-select wd-search-form ">
-                                        <div class="box1 flex flex-wrap form-wg">
-                                            <div class="form-group wg-box3">
-                                                <div class="group-select">
-                                                    <div class="nice-select" tabindex="0"><span class="current">Baths: Any</span>
-                                                        <ul class="list"> 
-                                                            <li data-value class="option selected">Baths: Any</li>                                                         
-                                                            <li data-value="1" class="option">1</li>
-                                                            <li data-value="2" class="option">2</li>
-                                                            <li data-value="3" class="option">3</li>
-                                                            <li data-value="4" class="option">4</li>
-                                                            <li data-value="5" class="option">5</li>
-                                                            <li data-value="6" class="option">6</li>
-                                                            <li data-value="7" class="option">7</li>
-                                                            <li data-value="8" class="option">8</li>
-                                                            <li data-value="9" class="option">9</li>
-                                                            <li data-value="9" class="option">10</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group wg-box3">
-                                                <div class="group-select">
-                                                    <div class="nice-select" tabindex="0"><span class="current">Beds: Any</span>
-                                                        <ul class="list">   
-                                                            <li data-value class="option selected">Beds: Any</li>                                                       
-                                                            <li data-value="1" class="option">1</li>
-                                                            <li data-value="2" class="option">2</li>
-                                                            <li data-value="3" class="option">3</li>
-                                                            <li data-value="4" class="option">4</li>
-                                                            <li data-value="5" class="option">5</li>
-                                                            <li data-value="6" class="option">6</li>
-                                                            <li data-value="7" class="option">7</li>
-                                                            <li data-value="8" class="option">8</li>
-                                                            <li data-value="9" class="option">9</li>
-                                                            <li data-value="9" class="option">10</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group wg-box3">
-                                                <div class="widget widget-price ">
-                                                    <div class="caption flex-two">
-                                                        <div>
-                                                            <span class="fw-6">Form</span>
-                                                            <span id="slider-range-value1"></span>
-                                                            <span id="slider-range-value2"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div id="slider-range"></div>
-                                                    <div class=" slider-labels">
-                                                        <div>
-                                                            <input type="hidden" name="min-value" value="">
-                                                            <input type="hidden" name="max-value" value="">
-                                                        </div>
-                                                    </div>
-                                                </div><!-- /.widget_price -->
-                                            </div>
-                                            <div class="form-group wg-box3">
-                                                <div class="widget widget-price ">
-                                                    <div class="caption flex-two">
-                                                        <div>
-                                                            <span class="fw-6">Size</span>
-                                                            <span id="slider-range-value01"></span>
-                                                            <span id="slider-range-value02"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div id="slider-range2"></div>
-                                                    <div class="slider-labels">
-                                                    <div>
-                                                        <input type="hidden" name="min-value2" value="">
-                                                        <input type="hidden" name="max-value2" value="">
-                                                    </div>
-                                                    </div>
-                                                </div><!-- /.widget_price -->
-                                            </div>
-                                        </div>
-                                        <div class="boder-wg"></div>
-                                        <div class="box2 flex flex-wrap form-wg">
-                                            <div class="form-group wg-box3">
-                                                <div class="tf-amenities bg-white">
-                                                    <label class="flex"><input name="newsletter" type="checkbox"  /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13">Swimming pool</span> 
-                                                    </label>
-                                                    <label class="flex"><input name="newsletter" type="checkbox" /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13">Garage</span> 
-                                                    </label>
-                                                    <label class="flex"><input name="newsletter" type="checkbox"  /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13">Alarm system</span> 
-                                                    </label> 
-                                                </div>                                                  
-                                            </div> 
-                                            <div class="form-group wg-box3">
-                                                <div class="tf-amenities bg-white">
-                                                    <label class="flex"><input name="newsletter" type="checkbox"  /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13">Balcony</span> 
-                                                    </label>
-                                                    <label class="flex"><input name="newsletter" type="checkbox"  /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13">Outdoor area</span> 
-                                                    </label>
-                                                    <label class="flex"><input name="newsletter" type="checkbox" /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13">Broadband</span> 
-                                                    </label>                                   
-                                                </div>                                                  
-                                            </div> 
-                                            <div class="form-group wg-box3">
-                                                <div class="tf-amenities bg-white">
-                                                    <label class="flex"><input name="newsletter" type="checkbox"  /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13">Ensuite</span> 
-                                                    </label>
-                                                    <label class="flex"><input name="newsletter" type="checkbox" /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13">Built in robes</span> 
-                                                    </label>
-                                                    <label class="flex"><input name="newsletter" type="checkbox"  /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13 ">Gym</span> 
-                                                    </label> 
-                                                </div>                                                  
-                                            </div>  
-                                            <div class="form-group wg-box3">
-                                                <div class="tf-amenities bg-white">
-                                                    <label class="flex"><input name="newsletter" type="checkbox"  /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13">Tennis court</span> 
-                                                    </label>
-                                                    <label class="flex"><input name="newsletter" type="checkbox"  /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13">Study</span> 
-                                                    </label>
-                                                    <label class="flex"><input name="newsletter" type="checkbox"  /> 
-                                                        <span class="btn-checkbox"></span><span class="fs-13">Outdoor spa</span> 
-                                                    </label> 
-                                                </div>                                                  
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </form>
-                                <!-- End Job  Search Form-->
-                            </div> 
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<section class="flat-title" >
-    <div class="container6">
-        <div class="row">                      
-            <div class="col-lg-12">
-                <div class="title-inner style">
-                    <div class="title-group fs-12"><a class="home fw-6 text-color-3" >Inicio</a><span> Propiedades</span></div>
-                </div>
-            </div> 
-        </div>
-    </div>
-</section>
 
 
-<section class="flat-featured flat-property flat-property-grid-1 tf-section2 wg-dream style5" >
-    <div class="container6">
+
+<section class=" flat-property flat-property-list2 flat-properties-rent tf-section2 wg-dream " >
+    <div class="container">
         <div class="row flex">                      
-            <div class="properties" >
-                <div class="category-filter flex justify-space align-center">
-                    <div class="box-1 flex align-center">
-                        <div class="heading-listing fs-30 lh-45 fw-7">Propiedades</div><div class=""> 164,814 </div> 
+            <div class="col-lg-12">
+                <div class="posts">
+                    <div class="category-filter flex justify-space top-filters style2">
+                        <div class="box-1 flex align-center">
+                            <div class="heading-listing fs-30 lh-45 fw-7">Propiedades</div>
+                        </div>
+                        <div class="box-2 flex">
+                            <a  class="btn-view grid" [class.active]="isGridView" (click)="showGridView()">
+                                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.04883 6.40508C5.04883 5.6222 5.67272 5 6.41981 5C7.16686 5 7.7908 5.62221 7.7908 6.40508C7.7908 7.18801 7.16722 7.8101 6.41981 7.8101C5.67241 7.8101 5.04883 7.18801 5.04883 6.40508Z" stroke="#8E8E93"/>
+                                    <path d="M11.1045 6.40508C11.1045 5.62221 11.7284 5 12.4755 5C13.2229 5 13.8466 5.6222 13.8466 6.40508C13.8466 7.18789 13.2227 7.8101 12.4755 7.8101C11.7284 7.8101 11.1045 7.18794 11.1045 6.40508Z" stroke="#8E8E93"/>
+                                    <path d="M19.9998 6.40514C19.9998 7.18797 19.3757 7.81016 18.6288 7.81016C17.8818 7.81016 17.2578 7.18794 17.2578 6.40508C17.2578 5.62211 17.8813 5 18.6288 5C19.3763 5 19.9998 5.62215 19.9998 6.40514Z" stroke="#8E8E93"/>
+                                    <path d="M7.74249 12.5097C7.74249 13.2926 7.11849 13.9147 6.37133 13.9147C5.62411 13.9147 5 13.2926 5 12.5097C5 11.7267 5.62419 11.1044 6.37133 11.1044C7.11842 11.1044 7.74249 11.7266 7.74249 12.5097Z" stroke="#8E8E93"/>
+                                    <path d="M13.7976 12.5097C13.7976 13.2927 13.1736 13.9147 12.4266 13.9147C11.6795 13.9147 11.0557 13.2927 11.0557 12.5097C11.0557 11.7265 11.6793 11.1044 12.4266 11.1044C13.1741 11.1044 13.7976 11.7265 13.7976 12.5097Z" stroke="#8E8E93"/>
+                                    <path d="M19.9516 12.5097C19.9516 13.2927 19.328 13.9147 18.5807 13.9147C17.8329 13.9147 17.209 13.2925 17.209 12.5097C17.209 11.7268 17.8332 11.1044 18.5807 11.1044C19.3279 11.1044 19.9516 11.7265 19.9516 12.5097Z" stroke="#8E8E93"/>
+                                    <path d="M5.04297 18.5947C5.04297 17.8118 5.66709 17.1896 6.4143 17.1896C7.16137 17.1896 7.78523 17.8116 7.78523 18.5947C7.78523 19.3778 7.16139 19.9997 6.4143 19.9997C5.66714 19.9997 5.04297 19.3773 5.04297 18.5947Z" stroke="#8E8E93"/>
+                                    <path d="M11.0986 18.5947C11.0986 17.8118 11.7227 17.1896 12.47 17.1896C13.2169 17.1896 13.8409 17.8117 13.8409 18.5947C13.8409 19.3778 13.2169 19.9997 12.47 19.9997C11.7225 19.9997 11.0986 19.3774 11.0986 18.5947Z" stroke="#8E8E93"/>
+                                    <path d="M17.252 18.5947C17.252 17.8117 17.876 17.1896 18.6229 17.1896C19.3699 17.1896 19.9939 17.8117 19.9939 18.5947C19.9939 19.3778 19.3702 19.9997 18.6229 19.9997C17.876 19.9997 17.252 19.3774 17.252 18.5947Z" stroke="#8E8E93"/>
+                                </svg>
+                            </a>
+                            <a  class="btn-view list" [class.active]="!isGridView" (click)="showListView()">
+                                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.7016 18.3317H9.00246C8.5615 18.3317 8.2041 17.9743 8.2041 17.5333C8.2041 17.0923 8.5615 16.7349 9.00246 16.7349H19.7013C20.1423 16.7349 20.4997 17.0923 20.4997 17.5333C20.4997 17.9743 20.1426 18.3317 19.7016 18.3317Z" fill="#8E8E93"/>
+                                    <path d="M19.7016 13.3203H9.00246C8.5615 13.3203 8.2041 12.9629 8.2041 12.5219C8.2041 12.081 8.5615 11.7236 9.00246 11.7236H19.7013C20.1423 11.7236 20.4997 12.081 20.4997 12.5219C20.5 12.9629 20.1426 13.3203 19.7016 13.3203Z" fill="#8E8E93"/>
+                                    <path d="M19.7016 8.30919H9.00246C8.5615 8.30919 8.2041 7.95179 8.2041 7.51083C8.2041 7.06986 8.5615 6.71246 9.00246 6.71246H19.7013C20.1423 6.71246 20.4997 7.06986 20.4997 7.51083C20.4997 7.95179 20.1426 8.30919 19.7016 8.30919Z" fill="#8E8E93"/>
+                                    <path d="M5.5722 8.64465C6.16436 8.64465 6.6444 8.16461 6.6444 7.57245C6.6444 6.98029 6.16436 6.50024 5.5722 6.50024C4.98004 6.50024 4.5 6.98029 4.5 7.57245C4.5 8.16461 4.98004 8.64465 5.5722 8.64465Z" fill="#8E8E93"/>
+                                    <path d="M5.5722 13.5942C6.16436 13.5942 6.6444 13.1141 6.6444 12.522C6.6444 11.9298 6.16436 11.4498 5.5722 11.4498C4.98004 11.4498 4.5 11.9298 4.5 12.522C4.5 13.1141 4.98004 13.5942 5.5722 13.5942Z" fill="#8E8E93"/>
+                                    <path d="M5.5722 18.5438C6.16436 18.5438 6.6444 18.0637 6.6444 17.4716C6.6444 16.8794 6.16436 16.3994 5.5722 16.3994C4.98004 16.3994 4.5 16.8794 4.5 17.4716C4.5 18.0637 4.98004 18.5438 5.5722 18.5438Z" fill="#8E8E93"/>
+                                </svg>
+                            </a>
+                            <div class="wd-find-select flex">
+                                <div class="group-select">
+                                    <div class="nice-select" tabindex="0"><span class="current">Mostrar: 50</span>
+                                        <ul class="list style">                                                          
+                                          <li data-value="10" class="option">10</li>
+                                          <li data-value="30" class="option">30</li>
+                                          <li data-value="50" class="option selected">50</li>
+                                          <li data-value="100" class="option">100</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="group-select">
+                                    <div class="nice-select" tabindex="0"><span class="current">Ordenar</span>
+                                        <ul class="list style">                                                          
+                                        <li data-value class="option selected">Ordenar</li>
+                                        <li data-value="by-latest" class="option">Todos </li>
+                                        <li data-value="low-to-high" class="option">Más reciente</li>
+                                        <li data-value="high-to-low" class="option">Más antiguo</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flat-tabs style2 flex">
+                                    <div class="box-tab center">
+                                        <ul class="menu-tab tab-title flex">
+                                            <li class="item-title active flex align-center">
+                                                <i class="far fa-check-circle"></i> <h4 class="inner">Arriendos</h4>
+                                            </li>
+                                            <li class="item-title style">
+                                                <h4 class="inner"> Ventas </h4>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="content-tab">
+                                        <div class="content-inner tab-content">
+                                            <div class="form-sl">
+                                                <form method="post">
+                                                    <div class="wd-find-select flex">
+                                                        <div class="form-group-1 search-form form-style relative">
+                                                            <i class="far fa-search"></i>
+                                                            <input type="search" class="search-field" placeholder="Escribe lo que buscas..." value="" name="s" title="Search for" required="">
+                                                        </div>                                                  
+                                                        <div class="form-group-2 form-style">
+                                                            <div class="group-select">
+                                                                <div class="nice-select" tabindex="0"><span class="current">Tipo de propiedad</span>
+                                                                    <ul class="list">    
+                                                                        <li data-value class="option selected">Casa</li>
+                                                                        <li data-value="bungalow" class="option">Apartamento</li>
+                                                                        <li data-value="apartment" class="option">Oficina</li>
+                                                                        <li data-value="house" class="option">Lote</li>
+                                                                        <li data-value="smart-home" class="option">Finca</li>                                                      
+                                                                        <li data-value="Single family home" class="option">Proyecto en construcción</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group-3 form-style">
+                                                            <div class="group-select">
+                                                                <div class="nice-select" tabindex="0"><span class="current">Ubicación</span>
+                                                                    <ul class="list">  
+                                                                        <li data-value class="option selected">Sabaneta</li>                                                        
+                                                                        <li data-value="Japan" class="option">Medellín</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>                                                    
+                                                        </div>
+                                                      
+                                                        <div class="button-search sc-btn-top">
+                                                            <a class="sc-button button-top" href="#">
+                                                                <span>Búscar</span>
+                                                                <i class="far fa-search"></i>
+                                                            </a>
+                                                        </div> 
+                                                    </div>
+                                                   
+                                                </form>
+                                                <!-- End Job  Search Form-->
+                                            </div> 
+                                        </div>
+                
+                                    </div>
+                                </div>
+                                <div class="container6">
+                                    <div class="row">                      
+                                        <div class="col-lg-12">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
                     </div>
-                 
-                </div>
-                <div class="wrap-item flex ">
-                    <!-- col 1 -->
-                    <div class="box box-dream hv-one style-dream" *ngFor="let property of global.properties">
-                        <div class="image-group" >
-                            <span class="featured fs-12 fw-6">{{property.status}}</span>  
+                <div class="wrap-list" *ngIf="!isGridView">
+                    <div class="box box-dream flex" *ngFor="let property of global.properties">
+                        <div class="image-group relative ">
+                            <span class="featured fs-12 fw-6">{{property.status}}</span>    
                             <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
-                            <div class="swiper-container noo carousel-2 img-style" >   
-                                <a  class="icon-plus"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
+                            <div class="swiper-container carousel-2 img-style" >    
+                                <a class="icon-plus" (click)="view(property)"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
                                 <div class="swiper-wrapper ">
-                                    <div class="swiper-slide" style="width: auto; height: 300px;" *ngFor="let image of property.images"><img src="{{image}}" alt="images"></div>
-                                    <!-- <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
-                                       <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
-                                       <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
-                                       <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div> -->
-                                   </div>
-                                <div class="pagi2"><div class="swiper-pagination2">  </div> </div>
-                                <div class="swiper-button-next2 "><i class="fal fa-arrow-right"></i></div>
-                                <div class="swiper-button-prev2 "><i class="fal fa-arrow-left"></i> </div>                                         
+                                 <div class="swiper-slide" style="width: auto; height: 400px;" *ngFor="let image of property.images"><img src="{{image}}" alt="images"></div>
+                                 <!-- <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
+                                    <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
+                                    <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
+                                    <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div> -->
+                                </div>
+                                <div class="pagi2"><div class="swiper-pagination2" >  </div> </div>
+                                <div class="swiper-button-next2 " ><i class="fal fa-arrow-right"></i></div>
+                                <div class="swiper-button-prev2 " ><i class="fal fa-arrow-left"></i> </div>                                        
                             </div>
                         </div>
                         <div class="content">
-                            <h3 class="link-style-1"><a (click)="view(property)">{{property.title}}</a> </h3>
-                            <h4>{{property.address}}</h4>
+                            <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
+                            <h3 class="link-style-1"><a >{{property.title}}</a> </h3>
+                            <div class="text-address"><p class="p-12">{{property.address}}</p></div>
+                            <div class="money fs-20 fw-8 font-2 text-color-3"><a>{{property.canon}}</a></div>  
+                             <div class="icon-box">
+                                <div class="icons icon-1 flex"><span>Habitaciones: </span><span class="fw-6">{{property.bedrooms}}</span></div>
+                                <div class="icons icon-2 flex"><span>Baños: </span><span class="fw-6">{{property.bathroom}}</span></div>
+                                <div class="icons icon-3 flex"><span>Area: </span><span class="fw-6">{{property.area}} m2</span></div>
+                            </div>                                                                                               
+                        </div>
+                    </div>
+                </div>                                            
+             </div>
+            </div>  
+         
+        </div>
+    </div>
+</section>
+<section class="flat-featured flat-property flat-property-grid-1 tf-section2 wg-dream style5" *ngIf="isGridView">
+    <div class="container6">
+        <div class="row flex">                      
+            <div class="properties" >                                          
+                <div class="wrap-item flex ">
+                    <!-- col 1 -->
+                    <div class="box box-dream hv-one style-dream" *ngFor="let property of global.properties">
+                        <div class="image-group relative ">
+                            <span class="featured fs-12 fw-6">{{property.status}}</span>    
+                            <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
+                            <div class="swiper-container carousel-2 img-style" >    
+                                <a class="icon-plus" (click)="view(property)"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
+                                <div class="swiper-wrapper ">
+                                 <div class="swiper-slide" style="width: auto; height: 400px;" *ngFor="let image of property.images"><img src="{{image}}" alt="images"></div>
+                                 <!-- <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
+                                    <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
+                                    <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
+                                    <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div> -->
+                                </div>
+                                <!-- <div class="pagi2"><div class="swiper-pagination2" >  </div> </div>
+                                <div class="swiper-button-next2 " ><i class="fal fa-arrow-right"></i></div>
+                                <div class="swiper-button-prev2 " ><i class="fal fa-arrow-left"></i> </div>  -->                                       
+                            </div>
+                        </div>
+                        <div class="content">
+                            <h3 class="link-style-1"><a >{{property.title}}</a> </h3>
                             <div class="text-address"><p class="p-12">{{property.municipality}}</p></div>
-                            <div class="money fs-18 fw-6 text-color-3"><a href="#">{{property.canon}}</a></div>  
+                            <div class="money fs-18 fw-6 text-color-3"><a>{{property.canon}}</a></div>  
                             <div class="icon-box flex">
                              <div class="icons icon-1 flex"><span>Hab.: </span><span class="fw-6">{{property.bedrooms}}</span></div>
                              <div class="icons icon-2 flex"><span>Ba.: </span><span class="fw-6">{{property.bathroom}}</span></div>
                              <div class="icons icon-3 flex"><span>Area: </span><span class="fw-6">{{property.area}}</span> m²</div>
                             </div>           
                         </div>
-                    </div>
-                   
-                </div>
-                <div class="themesflat-pagination clearfix center style">
-                    <ul>
-                        <li><a href="#" class="page-numbers style"><i class="far fa-angle-left"></i></a></li>
-                        <li><a href="#" class="page-numbers">1</a></li>
-                        <li><a href="#" class="page-numbers">2</a></li>
-                        <li><a href="#" class="page-numbers current">3</a></li>
-                        <li><a href="#" class="page-numbers">4</a></li>
-                        <li><a href="#" class="page-numbers">...</a></li>
-                        <li><a href="#" class="page-numbers style"><i class="far fa-angle-right"></i></a></li>
-                    </ul>
-                </div>
-            </div>  
-            <!-- <aside class="side-bar">
-                <div class="inner-side-bar">                                       
-                    <div class="widget widget-contact"> 
-                        <h3 class="widget-title title-contact">
-                            Agentes 
-                        </h3>                                 
-                        <div class="box-contact flex align-center">
-                            <div class="img-author">
-                                <img src="assets/todobienes/assets/images/author/author-sidebar-1.jpg" alt="images">
-                            </div>
-                            <div class="content">
-                                <p>Agente</p>
-                                
-                            </div>
-                        </div>
-                         <div class="box-contact flex align-center">
-                            <div class="img-author">
-                                <img src="assets/todobienes/assets/images/author/author-sidebar-2.jpg" alt="images">
-                            </div>
-                            <div class="content">
-                                <p>Cameron Williamson</p>
-                                <a class="fw-6" href="tel:012345678">(405) 555-0128</a>
-                            </div>
-                        </div>
-                        <div class="box-contact flex align-center">
-                            <div class="img-author">
-                                <img src="assets/todobienes/assets/images/author/author-sidebar-3.jpg" alt="images">
-                            </div>
-                            <div class="content">
-                                <p>Darlene Robertson</p>
-                                <a class="fw-6" href="tel:012345678">(201) 555-0126</a>
-                            </div>
-                        </div> 
-                    </div>
-                    
-                    <div class="widget widget-listings style"> 
-                        <h3 class="widget-title title-list">
-                            Featured listings
-                        </h3>                                                                                                                        
-                        <div class="box-listings flex hover-img3">
-                            <div class="img-listings img-style3">
-                                <img src="assets/todobienes/assets/images/img-box/sidebar-listings-1.jpg" alt="images">
-                            </div>
-                            <div class="content link-style-1">
-                                <a class="fs-16 lh-24" href="">Gorgeous Apartment Building</a>
-                                <h4>$7,500</h4>
-                            </div>
-                        </div>
-                        <div class="box-listings flex hover-img3">
-                            <div class="img-listings img-style3">
-                                <img src="assets/todobienes/assets/images/img-box/sidebar-listings-2.jpg" alt="images">
-                            </div>
-                            <div class="content link-style-1">
-                                <a class="fs-16 lh-24" href="">Gorgeous Apartment Building</a>
-                                <h4>$7,500</h4>
-                            </div>
-                        </div>
-                        <div class="box-listings flex hover-img3">
-                            <div class="img-listings img-style3">
-                                <img src="assets/todobienes/assets/images/img-box/sidebar-listings-3.jpg" alt="images">
-                            </div>
-                            <div class="content link-style-1">
-                                <a class="fs-16 lh-24" href="">Gorgeous Apartment Building</a>
-                                <h4>$7,500</h4>
-                            </div>
-                        </div>
-                        <div class="box-listings flex hover-img3">
-                            <div class="img-listings img-style3">
-                                <img src="assets/todobienes/assets/images/img-box/sidebar-listings-4.jpg" alt="images">
-                            </div>
-                            <div class="content link-style-1">
-                                <a class="fs-16 lh-24" href="">Gorgeous Apartment Building</a>
-                                <h4>$7,500</h4>
-                            </div>
-                        </div>
-                        <div class="box-listings flex hover-img3">
-                            <div class="img-listings img-style3">
-                                <img src="assets/todobienes/assets/images/img-box/sidebar-listings-5.jpg" alt="images">
-                            </div>
-                            <div class="content link-style-1">
-                                <a class="fs-16 lh-24" href="">Gorgeous Apartment Building</a>
-                                <h4>$7,500</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="widget widget-estate">
-                        <h3 class="widget-title title-news">
-                            Real estate near you
-                        </h3>                       
-                        <ul class="group-estate flex">
-                            <li class="box-estate hover-img2">
-                                <div class="thumb img-style2 ">
-                                    <img class="img2" src="assets/todobienes/assets/images/img-box/sidebar-estate-1.jpg" alt="images">
-                                </div>
-                                <div class="content">    
-                                    <div class="title link-style-3 fw-6 lh-18"><a href="properties-map-v1.html">Moncton</a> </div>                              
-                                    <p class="fs-12 lh-16 text-color-1">1570 listing</p>
-                                </div>
-                            </li>
-                            <li class="box-estate hover-img2">
-                                <div class="thumb img-style2 ">
-                                    <img class="img2" src="assets/todobienes/assets/images/img-box/sidebar-estate-2.jpg" alt="images">
-                                </div>
-                                <div class="content">    
-                                    <div class="title link-style-3 fw-6 lh-18"><a href="properties-map-v1.html">Mississauga</a> </div>                              
-                                    <p class="fs-12 lh-16 text-color-1">1570 listing</p>
-                                </div>
-                            </li>
-                            <li class="box-estate hover-img2">
-                                <div class="thumb img-style2 ">
-                                    <img class="img2" src="assets/todobienes/assets/images/img-box/sidebar-estate-3.jpg" alt="images">
-                                </div>
-                                <div class="content">    
-                                    <div class="title link-style-3 fw-6 lh-18"><a href="properties-map-v1.html">Halifax</a> </div>                              
-                                    <p class="fs-12 lh-16 text-color-1">1570 listing</p>
-                                </div>
-                            </li>
-                            <li class="box-estate hover-img2">
-                                <div class="thumb img-style2 ">
-                                    <img class="img2" src="assets/todobienes/assets/images/img-box/sidebar-estate-4.jpg" alt="images">
-                                </div>
-                                <div class="content">    
-                                    <div class="title link-style-3 fw-6 lh-18"><a href="properties-map-v1.html">Ottawa</a> </div>                              
-                                    <p class="fs-12 lh-16 text-color-1">1570 listing</p>
-                                </div>
-                            </li>
-                            <li class="box-estate hover-img2">
-                                <div class="thumb img-style2 ">
-                                    <img class="img2" src="assets/todobienes/assets/images/img-box/sidebar-estate-5.jpg" alt="images">
-                                </div>
-                                <div class="content">    
-                                    <div class="title link-style-3 fw-6 lh-18"><a href="properties-map-v1.html">Iqaluit</a> </div>                              
-                                    <p class="fs-12 lh-16 text-color-1">1570 listing</p>
-                                </div>
-                            </li>
-                            <li class="box-estate hover-img2">
-                                <div class="thumb img-style2 ">
-                                    <img class="img2" src="assets/todobienes/assets/images/img-box/sidebar-estate-6.jpg" alt="images">
-                                </div>
-                                <div class="content">    
-                                    <div class="title link-style-3 fw-6 lh-18"><a href="properties-map-v1.html">Toronto</a> </div>                              
-                                    <p class="fs-12 lh-16 text-color-1">1570 listing</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>  -->
-
-                  <!--   <div class="widget widget-ads">  
-                        <div class="box-ads">
-                            <div class="content relative z-2">
-                                <h3 class="link-style-3"><a href="">Gorgeous Apartment Building</a> </h3>
-                                <div class="text-addres "><p class="p-12 text-color-1 icon-p">58 Hullbrook Road, Billesley, B13 0LA</p></div>
-                                <div class="star flex">
-                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<polygon points="512,197.816 325.961,185.585 255.898,9.569 185.835,185.585 0,197.816 142.534,318.842 95.762,502.431 			255.898,401.21 416.035,502.431 369.263,318.842 		"></polygon>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<polygon points="512,197.816 325.961,185.585 255.898,9.569 185.835,185.585 0,197.816 142.534,318.842 95.762,502.431 			255.898,401.21 416.035,502.431 369.263,318.842 		"></polygon>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<polygon points="512,197.816 325.961,185.585 255.898,9.569 185.835,185.585 0,197.816 142.534,318.842 95.762,502.431 			255.898,401.21 416.035,502.431 369.263,318.842 		"></polygon>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<polygon points="512,197.816 325.961,185.585 255.898,9.569 185.835,185.585 0,197.816 142.534,318.842 95.762,502.431 			255.898,401.21 416.035,502.431 369.263,318.842 		"></polygon>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<polygon points="512,197.816 325.961,185.585 255.898,9.569 185.835,185.585 0,197.816 142.534,318.842 95.762,502.431 			255.898,401.21 416.035,502.431 369.263,318.842 		"></polygon>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>                                               
-                                </div>
-                            </div> 
-                        </div>
-                    </div> 
-
-                </div>
-            </aside> -->
+                                                                        
+                    </div>                                               
+                </div>                                           
+            </div>                                       
         </div>
     </div>
 </section>
+<!--  -->
 
