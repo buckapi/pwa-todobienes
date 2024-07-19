@@ -15,19 +15,22 @@
                     <div class="tf-upload">
                         <h3 class="titles">Cargar imagenes</h3>
                         <div class="row">
-                                <div class="col-md-6 mb-3">
-                                  <ngx-awesome-uploader [adapter]="adapter" [captions]="captions" (change)="onFileChange($event)">
-                                  </ngx-awesome-uploader>
-                                  <div *ngIf="submitted && f['images'].errors" class="invalid-feedback">
-                                    <div *ngIf="f['images'].errors['required']">Por favor, cargue las imágenes.</div>
-                                  </div>
-                                </div>
-                                <div *ngFor="let image of uploadedImages; let i = index" class="preview col-md-6">
-                                  <h4>Vista previa:</h4>
-                                  <img [src]="image" alt="Imagen cargada" class="img-fluid" style="max-width: 60%;">
-                                  <button (click)="deleteImage(i)" class="btn btn-danger mt-2">Eliminar imagen</button>
-                                </div>
-                        </div>
+                            <!-- Sección de carga de imágenes -->
+                            <div class="col-md-6 mb-3">
+                              <ngx-awesome-uploader [adapter]="adapter" [captions]="captions" (change)="onFileChange($event)">
+                              </ngx-awesome-uploader>
+                              <div *ngIf="submitted && f['images'].errors" class="invalid-feedback">
+                                <div *ngIf="f['images'].errors['required']">Por favor, cargue las imágenes.</div>
+                              </div>
+                            </div>
+                          
+                            <!-- Sección de vista previa y eliminación de imágenes -->
+                            <div *ngFor="let image of uploadedImages; let i = index" class="preview col-md-6">
+                              <h4>Vista previa:</h4>
+                              <img [src]="image" alt="Imagen cargada" class="img-fluid" style="max-width: 60%;">
+                            </div>
+                          </div>
+                          
                     </div>
                     <form [formGroup]="addProperties" (ngSubmit)="saveProperties()">
                         <div class="tf-infomation bg-white">
@@ -48,17 +51,28 @@
                                 </div>
                             </div>
                             <div class="row info-box info-wg">
-                                <div class="inner-2 select-group col-6" id="municipality" name="municipality">
+                                <div class="inner-2 select-group col-6">
+                                    <label class="title-user fw-6">Seleccione región *</label>
+                                    <select class="form-control" formControlName="region" (change)="onRegionChange($event)">
+                                      <option value="">Seleccione la región</option>
+                                      <option *ngFor="let region of regiones" [value]="region">{{region}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['region'].errors" class="invalid-feedback">
+                                      <div *ngIf="f['region'].errors['required']">Región es obligatoria.</div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="inner-2 select-group col-6" id="municipality" name="municipality">
                                     <label class="title-user fw-6">Seleccione municipio *</label>
-                                    <select class="form-control" formControlName="municipality" [ngClass]="{ 'is-invalid': submitted && f['municipality'].errors }">
+                                    <select class="form-control" formControlName="municipality" [ngClass]="{'is-invalid': submitted && f['municipality'].errors}">
                                       <option value="">Seleccione el municipio</option>
-                                      <option value="Medellin">Medellín</option>
-                                      <option value="Sabaneta">Sabaneta</option>
+                                      <option *ngFor="let municipio of municipios" [value]="municipio">{{municipio}}</option>
                                     </select>
                                     <div *ngIf="submitted && f['municipality'].errors" class="invalid-feedback">
                                       <div *ngIf="f['municipality'].errors['required']">Municipio es obligatorio.</div>
                                     </div>
-                                </div>
+                                  </div>
+                                
                                   
                                 <div class="inner-1 col-6">
                                     <div class="wg-box2 select-group">

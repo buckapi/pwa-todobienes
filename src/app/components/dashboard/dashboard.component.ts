@@ -103,7 +103,8 @@ export class DashboardComponent {
     // Inicializa previewCard con valores predeterminados si es necesario
     this.global.previewCard = {
       id: "",
-      municipality: "",
+      region: "",
+      municipality: [],
       code: "",
       title: "",
       address: "",

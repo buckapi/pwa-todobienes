@@ -70,7 +70,8 @@ export class GlobalService {
  
   previewCard: { 
     id: string;
-    municipality: string ,
+    region: string;
+    municipality:string[];
     code: string,
     title: string,
     address: string,
@@ -86,13 +87,13 @@ export class GlobalService {
     area: string,
     canon: string,
     phone: string,
-    images: any[];
-    
+    images: string[];    
     }
      = 
     { 
       id: "",
-      municipality: "",
+      region:"",
+      municipality: [],
     code: "",
     title: "",
     address: "",

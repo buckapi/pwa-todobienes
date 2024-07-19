@@ -63,7 +63,7 @@ export class DashboardEditPropertiesComponent {
     area: ['', Validators.required],
     canon: ['', Validators.required],
     phone: ['', Validators.required],
-    images: [null, Validators.required]
+    images: [] as string[] // Asegúrate de que este tipo sea compatible
   };
   properties: any[] = [];
 
@@ -85,13 +85,13 @@ cancelarUpdate() {
     this.global.setRoute('dashboard');
 
   }
-  update() {
+ /*  update() {
     // Actualizar imágenes si es necesario
-   /*  this.global.previewCard.images =
+    this.global.previewCard.images =
       this._butler.uploaderImages.length > 0
         ? this._butler.uploaderImages
-        : this.global.previewCard.images; */
-  
+        : this.global.previewCard.images;
+        
     this.dataApiService
       .updateProperties(this.global.previewCard, this.global.previewCard.id)
       .subscribe(
@@ -124,7 +124,6 @@ cancelarUpdate() {
             images: []
           };
           this._butler.uploaderImages = [];
-          // Mostrar mensaje de éxito
           Swal.fire({
             position: "center",
             icon: "success",
@@ -143,87 +142,82 @@ cancelarUpdate() {
           console.error("Error al actualizar la propiedad:", error);
         }
       );
+  } */
+      update() {
+      let currentImages = this.global.previewCard.images;
+    this.global.previewCard.images = currentImages;
+    if (this._butler.uploaderImages.length > 0) {
+      this.data.images.push(...this._butler.uploaderImages);
+      this._butler.uploaderImages = [];
+    }
+
+    this.dataApiService.updateProperties(this.global.previewCard, this.global.previewCard.id)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.global.loadProperties();
+          this.global.editingProperties = false;
+          this.global.setRoute('dashboard');
+          this.global.previewCard = {
+            id: "",
+            region:"",
+            municipality: [],
+            code: "",
+            title: "",
+            address: "",
+            status: "",
+            description: "",
+            typeProperty: "",
+            bedrooms: "",
+            livinromm: "",
+            kitchen: "",
+            bathroom: "",
+            parking: "",
+            stratum: "",
+            area: "",
+            canon: "",
+            phone: "",
+            images: []
+          };
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Propiedad actualizada",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        },
+        (error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Ocurrió un error al actualizar la propiedad. Inténtelo de nuevo más tarde."
+          });
+          console.error("Error al actualizar la propiedad:", error);
+        }
+      );
   }
+
   
-  updateProperty() {
-    this.submitted = true; // Para manejar el estado de enviado si es necesario
 
-    // Prepara los datos del formulario
-    const formData = this.editProperties.value;
-    
-    // Actualiza las imágenes según el estado del cargador
-   /*  formData.images = this._butler.uploaderImages.length > 0
-      ? this._butler.uploaderImages
-      : this.global.previewCard.images; */
 
-    // Envía la solicitud de actualización al servidor
-    this.dataApiService.updateProperties(formData, this.global.previewCard.id).subscribe(
-      (response) => {
-        console.log(response); // Para depuración
-
-        // Actualiza la vista previa de la propiedad global
-        this.global.previewCard = { ...this.global.previewCard, ...formData };
-
-        // Limpiar imágenes subidas
-        this._butler.uploaderImages = [];
-        
-        // Resetear el estado de envío
-        this.submitted = false;
-        this.global.getProperties().subscribe(
-          response=>{
-            this.global.properties=response.items;
-          }
-        );
-        // Redirige a la vista de dashboard o donde corresponda
-        this.global.setRoute('dashboard');
-
-        // Muestra una alerta de éxito
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Propiedad actualizada correctamente.',
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      },
-      (error) => {
-        // Muestra una alerta de error
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Ocurrió un error al actualizar la propiedad. Por favor, inténtelo de nuevo más tarde.'
-        });
-        console.error('Error al actualizar la propiedad:', error);
-      }
-    );
-  }
-  toggleDeleteButton(index: number, isVisible: boolean) {
-    this.showDeleteButton[index] = isVisible;
+ 
+toggleDeleteButton(index: number, isVisible: boolean) {
+  this.showDeleteButton[index] = isVisible;
 }
-delete(property:any){
-  this.global.previewCard.images.splice(property);
-  Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'borrado',
-    showConfirmButton: false,
-    timer: 1500
-    
-  });
-}
-onFileChange(event: any) {
-  const reader = new FileReader();
-  const file = event.target.files[0];
 
-  if (file) {
-    reader.onload = () => {
-      this.uploadedImage = reader.result;
-    };
-    reader.readAsDataURL(file);
-    this.editProperties.patchValue({
-      identityDocument: file
-    });
-  }
-}
+delete(indice:any){
+this.global.previewCard.images.splice(indice);
+Swal.fire({
+position: 'center',
+icon: 'success',
+title: 'borrado',
+showConfirmButton: false,
+timer: 1500
+
+});
+
+} 
  
 }
+

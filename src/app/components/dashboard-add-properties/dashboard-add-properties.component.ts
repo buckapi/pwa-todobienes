@@ -12,7 +12,7 @@ import { FilePickerModule, UploaderCaptions } from 'ngx-awesome-uploader';
 import Swal from 'sweetalert2';
 import { CustomFilePickerAdapter } from '../../file-picker.adapter'; 
 import { ActivatedRouteSnapshot } from '@angular/router';
-
+import { RegionesYMunicipios } from '../../interface/regiones-municipios';
 @Component({
   selector: 'app-dashboard-add-properties',
   standalone: true,
@@ -47,6 +47,24 @@ export class DashboardAddPropertiesComponent {
       uploadError: 'error',
     },
   };
+  regiones: (keyof RegionesYMunicipios)[] = [
+    "Bajo Cauca", "Magdalena Medio", "Nordeste", "Norte",
+    "Occidente", "Oriente", "Suroeste", "Urabá", "Valle de Aburrá"
+  ];
+
+  regionesYMunicipios: RegionesYMunicipios = {
+    "Bajo Cauca": ["Cáceres", "Caucasia", "El Bagre", "Nechí", "Tarazá", "Zaragoza"],
+    "Magdalena Medio": ["Caracolí", "Maceo", "Puerto Berrío", "Puerto Nare", "Puerto Triunfo", "Yondó"],
+    "Nordeste": ["Amalfi", "Anorí", "Cisneros", "Remedios", "San Roque", "Santo Domingo", "Segovia", "Vegachí", "Yolombó"],
+    "Norte": ["Angostura", "Belmira", "Briceño", "Campamento", "Carolina del Príncipe", "Don Matías", "Entrerríos", "Gómez Plata", "Guadalupe", "Ituango", "San Andrés de Cuerquía", "San José de la Montaña", "San Pedro de los Milagros", "Santa Rosa de Osos", "Toledo", "Valdivia", "Yarumal"],
+    "Occidente": ["Abriaquí", "Anzá", "Armenia", "Buriticá", "Cañasgordas", "Caicedo", "Dabeiba", "Ebéjico", "Frontino", "Giraldo", "Heliconia", "Liborina", "Olaya", "Peque", "Sabanalarga", "San Jerónimo", "Santa Fe de Antioquia", "Sopetrán", "Uramita"],
+    "Oriente": ["Abejorral", "Alejandría", "Argelia", "El Carmen de Viboral", "El Peñol", "El Retiro", "Granada", "Guarne", "La Ceja", "La Unión", "Marinilla", "Nariño", "Rionegro", "San Carlos", "San Francisco", "San Luis", "San Rafael", "San Vicente Ferrer"],
+    "Suroeste": ["Amagá", "Andes", "Angelópolis", "Betania", "Betulia", "Caramanta", "Ciudad Bolívar", "Concordia", "Fredonia", "Hispania", "Jardín", "Jericó", "La Pintada", "Montebello", "Pueblorrico", "Salgar", "Santa Bárbara", "Támesis", "Tarso", "Titiribí", "Urrao", "Valparaíso", "Venecia"],
+    "Urabá": ["Apartadó", "Arboletes", "Carepa", "Chigorodó", "Murindó", "Mutatá", "Necoclí", "San Juan de Urabá", "Turbo", "Vigía del Fuerte"],
+    "Valle de Aburrá": ["Barbosa", "Bello", "Caldas", "Copacabana", "Envigado", "Girardota", "Itagüí", "La Estrella", "Medellín", "Sabaneta"]
+  };
+
+  municipios: string[] = [];
 constructor(
   public global: GlobalService,
   public virtualRouter: virtualRouter,
@@ -80,6 +98,7 @@ constructor(
 get f(): { [key: string]: AbstractControl } {
   return this.addProperties.controls;
 }
+
 
 
 saveProperties(): void {
@@ -157,8 +176,17 @@ deleteImage(index: number): void {
     timer: 1500
   });
 }
+onRegionChange(event: Event): void {
+  const target = event.target as HTMLSelectElement;
+  const region = target.value as keyof RegionesYMunicipios;
+  this.municipios = this.regionesYMunicipios[region] || [];
+  this.addProperties.get('municipality')?.setValue('');  // Reset the municipality selection
+}
+
+
 ngOnInit(): void {
   this.addProperties = this.formBuilder.group({
+    region: ['', Validators.required],
     municipality: ['', Validators.required],
     code: ['', Validators.required],
     title: ['', Validators.required],
