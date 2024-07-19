@@ -8,3 +8,37 @@
   margin: auto;
   margin-top: -42px;
 }
+/* Estilos generales para el slider */
+.thumbs-swiper-row1 {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: -42px;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 767px) {
+  .thumbs-swiper-row1 {
+      margin-top: 0; /* Ajusta el margen superior para móviles */
+      padding: 0 15px; /* Añade un poco de padding horizontal */
+  }
+
+  .swiper-slide {
+      width: 100%; /* Asegura que las imágenes en el slider ocupen todo el ancho del contenedor */
+  }
+
+  .swiper-slide img {
+      width: 100%; /* Hace que las imágenes se adapten al ancho del slide */
+      height: auto; /* Mantiene la proporción de las imágenes */
+  }
+
+  .swiper-pagination, .swiper-button-next, .swiper-button-prev {
+      display: none; /* Oculta los controles para móviles si el espacio es limitado */
+  }
+}
+
+/* Estilos para pantallas medianas y grandes */
+@media (min-width: 768px) {
+  .thumbs-swiper-row1 {
+      margin-top: -42px; /* Mantiene el margen superior en pantallas medianas y grandes */
+  }
+}
