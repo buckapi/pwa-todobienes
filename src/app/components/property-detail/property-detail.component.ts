@@ -2,7 +2,8 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { GlobalService } from '../../services/global.service';
 import { virtualRouter } from '../../services/virtualRouter.service';
 import { CommonModule } from '@angular/common';
-
+import { SwiperEvents, } from 'swiper/types';
+import Swiper from 'swiper';
 @Component({
   selector: 'app-property-detail',
   standalone: true,

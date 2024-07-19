@@ -29,7 +29,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/todobienes/app/dist/swiper-bundle.min.css",
+              "node_modules/swiper/swiper-bundle.min.css" 
+
             ],
             "scripts": []
           },

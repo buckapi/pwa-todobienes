@@ -13,8 +13,8 @@
 <section class="flat-slider01 style" >
     <div class="container">
         <div class="row">                      
-            <!-- <div class="col-lg-12">
-                <div class="swiper-container thumbs-swiper-row">
+            <div class="col-lg-12">
+               <!--  <div class="swiper-container thumbs-swiper-row">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="image-detail" *ngFor="let image of global.previewCard.images">
@@ -22,18 +22,19 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div thumbsSlider="" class="swiper-container thumbs-swiper-row1">
+                </div> -->
+                <div  class="swiper-container thumbs-swiper-row1">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="image-detail" *ngFor="let image of global.previewCard.images">
-                                <img src="{{image}}" alt="images">
-                            </div>
-                        </div>
+                        <div class="swiper-slide" *ngFor="let image of global.previewCard.images">
+                            <img [src]="image" alt="Imagen miniatura" class="img-thumbnail">
+                          </div>
                        
                     </div>
                 </div>
-            </div> -->
+            </div> 
+            <!-- Contenedor del slider principal -->
+
+  
         </div>
     </div>
 </section>
