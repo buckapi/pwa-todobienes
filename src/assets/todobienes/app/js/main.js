@@ -59,7 +59,7 @@
           if(retina) {
               $('#site-logo-inner').find('img').attr( {src:'assets/images/logo/logo@2x.png',width:'197',height:'48'} );
 
-              $('#logo-footer.style').find('img').attr( {src:'assets/images/logo/logo-footer@2x.png',width:'197',height:'48'} );
+              $('#logo-footer.style').find('img').attr( {src:'assets/todobienes/assets/images/logo/logo-footer@2x.png',width:'197',height:'48'} );
               $('#logo-footer.style2').find('img').attr( {src:'assets/images/logo/logo@2x.png',width:'197',height:'48'} );
           }   
         };

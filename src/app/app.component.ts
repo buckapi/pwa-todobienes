@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { ScriptService } from './services/script.service';
 import { MapwrapperComponent } from './components/mapwrapper/mapwrapper.component';
 import { HeaderComponent } from './components/ui/header/header.component';
-import { HeaderHomeComponent } from './components/ui/header-home/header-home.component';
 import { FooterComponent } from './components/ui/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { virtualRouter } from './services/virtualRouter.service';
@@ -41,7 +40,7 @@ import Swiper from 'swiper';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    HeaderHomeComponent,
+    
     TestComponent,
     HeaderDashboardComponent,
     AboutComponent,
