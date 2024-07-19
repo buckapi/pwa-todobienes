@@ -241,28 +241,26 @@
                 <div class="wrap-item flex ">
                     <!-- col 1 -->
                     <div class="box box-dream hv-one style-dream" *ngFor="let property of global.properties">
-                        <div class="image-group relative " >
+                        <div class="image-group" >
                             <span class="featured fs-12 fw-6">{{property.status}}</span>  
                             <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
                             <div class="swiper-container noo carousel-2 img-style" >   
                                 <a (click)="view(property)" class="icon-plus"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
-
                                 <div class="swiper-wrapper ">
-                                    <div class="swiper-slide" *ngFor="let image of property.images"><img src="{{image}}" alt="images"></div>
-                                   <!-- <div class="swiper-slide"><img src="{{property.images[0]}}" alt="images"></div> -->
-
-                                    <!--  <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-22.jpg" alt="images"></div>
-                                    <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-23.jpg" alt="images"></div>
-                                    <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-24.jpg" alt="images"></div>
-                                    <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-26.jpg" alt="images"></div> -->
-                                </div>
+                                    <div class="swiper-slide" style="width: auto; height: 400px;" *ngFor="let image of property.images"><img src="{{image}}" alt="images"></div>
+                                    <!-- <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-2.jpg" alt="images"></div>
+                                       <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-3.jpg" alt="images"></div>
+                                       <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-4.jpg" alt="images"></div>
+                                       <div class="swiper-slide"><img src="assets/todobienes/assets/images/house/featured-5.jpg" alt="images"></div> -->
+                                   </div>
                                 <div class="pagi2"><div class="swiper-pagination2">  </div> </div>
                                 <div class="swiper-button-next2 "><i class="fal fa-arrow-right"></i></div>
                                 <div class="swiper-button-prev2 "><i class="fal fa-arrow-left"></i> </div>                                        
                             </div>
                         </div>
                         <div class="content">
-                            <h3 class="link-style-1"><a >{{property.address}}</a> </h3>
+                            <h3 class="link-style-1"><a >{{property.title}}</a> </h3>
+                            <h4>{{property.address}}</h4>
                             <div class="text-address"><p class="p-12">{{property.municipality}}</p></div>
                             <div class="money fs-18 fw-6 text-color-3"><a href="#">{{property.canon}}</a></div>  
                             <div class="icon-box flex">
