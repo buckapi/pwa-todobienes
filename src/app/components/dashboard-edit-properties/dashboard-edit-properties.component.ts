@@ -200,8 +200,8 @@ cancelarUpdate() {
   toggleDeleteButton(index: number, isVisible: boolean) {
     this.showDeleteButton[index] = isVisible;
 }
-delete(indice:any){
-  this.yeoman.preview.images.splice(indice);
+delete(property:any){
+  this.global.previewCard.images.splice(property);
   Swal.fire({
     position: 'center',
     icon: 'success',

@@ -15,20 +15,19 @@
                     <div class="tf-upload">
                         <h3 class="titles">Cargar imagenes</h3>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <ngx-awesome-uploader [adapter]="adapter" [captions]="captions" (change)="onFileChange($event)">
-                                </ngx-awesome-uploader>
-                                <div *ngIf="submitted && f['images'].errors" class="invalid-feedback">
-                                    <div *ngIf="f['images'].errors['required']">Por favor, cargue las imagenes.</div>
+                                <div class="col-md-6 mb-3">
+                                  <ngx-awesome-uploader [adapter]="adapter" [captions]="captions" (change)="onFileChange($event)">
+                                  </ngx-awesome-uploader>
+                                  <div *ngIf="submitted && f['images'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['images'].errors['required']">Por favor, cargue las imágenes.</div>
+                                  </div>
                                 </div>
-                            </div>
-                            <div *ngIf="uploadedImage" class="preview col-md-6">
-                                <h4>Vista previa:</h4>
-                                <img [src]="uploadedImage" alt="Imagen cargada" class="img-fluid" style="max-width: 60%;">
-                                <button (click)="removeImage()" class="btn btn-danger mt-2">Eliminar imagen</button>
-                            </div>
+                                <div *ngFor="let image of uploadedImages; let i = index" class="preview col-md-6">
+                                  <h4>Vista previa:</h4>
+                                  <img [src]="image" alt="Imagen cargada" class="img-fluid" style="max-width: 60%;">
+                                  <button (click)="deleteImage(i)" class="btn btn-danger mt-2">Eliminar imagen</button>
+                                </div>
                         </div>
-                        
                     </div>
                     <form [formGroup]="addProperties" (ngSubmit)="saveProperties()">
                         <div class="tf-infomation bg-white">

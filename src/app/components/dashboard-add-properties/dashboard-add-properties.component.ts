@@ -23,7 +23,8 @@ import { ActivatedRouteSnapshot } from '@angular/router';
 })
 export class DashboardAddPropertiesComponent {
   addProperties: FormGroup;
-  submitted = false;
+  submitted: boolean = false;
+  uploadedImages: string[] = [];
   public isError = false;
   showDeleteButton: boolean[] = [];
   uploadedImage: string | ArrayBuffer | null = null;
@@ -81,23 +82,22 @@ get f(): { [key: string]: AbstractControl } {
 }
 
 
-saveProperties() {
-  this.submitted = true; 
+saveProperties(): void {
+  this.submitted = true;
 
-  // Verifica si el formulario es válido antes de enviarlo
-  /* if (this.addProperties.invalid) {
+ /*  if (this.addProperties.invalid) {
     Swal.fire({
       icon: 'error',
       title: 'Error',
       text: 'Por favor, complete todos los campos requeridos antes de enviar la solicitud.'
     });
     return;
-  } */
-
+  }
+ */
   let data: any = this.addProperties.value;
   data.images = this._butler.uploaderImages;
   this._butler.uploaderImages = [];
-  
+
   this.dataApiService.saveProperties(data).subscribe(
     (response) => {
       Swal.fire({
@@ -105,17 +105,12 @@ saveProperties() {
         title: 'Éxito',
         text: 'Solicitud guardada correctamente.'
       }).then(() => {
-        // Limpiar los valores para futuros usos
         this.global.properties = '';
         this.global.allProperties.push(response);
         this.global.allProperties = [...this.global.allProperties];
         this.isError = false;
-        
-        // Reiniciar el formulario
         this.addProperties.reset();
-        this.submitted = false;  // Resetear el estado de envío
-
-        // Recargar la página
+        this.submitted = false;
         window.location.reload();
       });
 
@@ -131,6 +126,36 @@ saveProperties() {
       console.log('Error al guardar la solicitud:', error);
     }
   );
+}
+onFileChange(event: any): void {
+  const files = event.target.files;
+
+  for (let i = 0; i < files.length; i++) {
+    const reader = new FileReader();
+    const file = files[i];
+
+    if (file) {
+      reader.onload = () => {
+        this.uploadedImages.push(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+      // Actualiza el formulario o maneja el archivo según sea necesario
+      this.addProperties.patchValue({
+        identityDocument: file
+      });
+    }
+  }
+}
+
+deleteImage(index: number): void {
+  this.uploadedImages.splice(index, 1);
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Imagen borrada',
+    showConfirmButton: false,
+    timer: 1500
+  });
 }
 ngOnInit(): void {
   this.addProperties = this.formBuilder.group({
@@ -153,54 +178,11 @@ ngOnInit(): void {
     images: [null, Validators.required]
   });
 }
-/* onFileChange(event: any) {
-  const reader = new FileReader();
-  const file = event.target.files[0];
-
-  if (file) {
-    reader.onload = () => {
-      this.uploadedImage = reader.result;
-    };
-    reader.readAsDataURL(file);
-    this.addProperties.patchValue({
-      identityDocument: file
-    });
-  }
-} */
-onFileChange(event: any): void {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (e: any) => {
-      this.uploadedImage = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
-}
-
-removeImage(): void {
-  this.uploadedImage = null;
-  // Aquí puedes agregar lógica adicional para eliminar la imagen del formulario si es necesario.
-}
-toggleDeleteButton(index: number, isVisible: boolean) {
-  this.showDeleteButton[index] = isVisible;
-}
-delete(indice:any){
-this.yeoman.preview.images.splice(indice);
-Swal.fire({
-  position: 'center',
-  icon: 'success',
-  title: 'borrado',
-  showConfirmButton: false,
-  timer: 1500
   
-});
-}
-
 onIsError(): void {
   this.isError = true;
-  /* setTimeout(() => {
+  setTimeout(() => {
     this.isError = false;
-  }, 4000); */
+  }, 4000);
 }
 }
