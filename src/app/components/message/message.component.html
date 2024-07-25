@@ -1,0 +1,51 @@
+
+<div class="dashboard__content">
+    <section class="flat-title2 " >
+        <div class="container7">
+            <div class="row">                      
+                <div class="col-lg-12">
+                        <div class="title-group fs-30 lh-45 fw-7">Mensajes</div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <section class="flat-dashboard flat-all-review" >
+        <div class="container7">
+            <div class="row">                      
+                <div class="col-lg-12">
+                    
+                    <div class="tf-reviews">
+                        <div class="reviews-sidebar messages-sidebar bg-white">
+                            <ul *ngFor="let message of global.message">
+                                <li>
+                                    <div class="image-box flex align-center">
+                                        <div class="images">
+                                            <img src="assets/todobienes/assets/images/author/avatar.png" alt="images">
+                                        </div>
+                                        <div class="title-flat fw-6">{{message.name}}</div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="star flex">
+                                            <li>
+                                                <div class="title-flat fw-6">{{message.typeProperty}}</div>
+                                                <div class="title-flat fw-6">{{message.email}}</div>
+                                                <div class="title-flat fw-6">{{message.phone}}</div>
+                                            </li>
+                                        </div>
+                                        <p class="text-color-2">{{message.message}}</p>
+                                    </div>
+                                </li>
+                              
+                            </ul>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  </div>
+

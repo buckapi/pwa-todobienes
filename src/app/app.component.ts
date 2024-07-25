@@ -29,6 +29,7 @@ import { DashboardAddPropertiesComponent } from './components/dashboard-add-prop
 import { DashboardDetailPropertiesComponent } from './components/dashboard-detail-properties/dashboard-detail-properties.component';
 import { DashboardEditPropertiesComponent } from './components/dashboard-edit-properties/dashboard-edit-properties.component';
 import Swiper from 'swiper';
+import { MessageComponent } from './components/message/message.component';
 
 @Component({
   selector: 'app-root',
@@ -40,7 +41,6 @@ import Swiper from 'swiper';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    
     TestComponent,
     HeaderDashboardComponent,
     AboutComponent,
@@ -59,9 +59,7 @@ import Swiper from 'swiper';
     DashboardAddPropertiesComponent,
     DashboardDetailPropertiesComponent,
     DashboardEditPropertiesComponent,
-    
-  
-    
+    MessageComponent    
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

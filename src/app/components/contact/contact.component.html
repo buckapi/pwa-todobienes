@@ -143,45 +143,68 @@
                         <p><strong>¡Contáctanos hoy mismo y descubre cómo podemos ayudarte a encontrar el inmueble ideal para ti!</strong></p>
                     </div>
                     <div class="respond-comment">
-                        <form method="post" id="contactform" class="comment-form form-submit"
-                            action="https://themesflat.co/html/dreamhomehtml/contact/contact-process.php"
+                        <form [formGroup]="addmessage" (ngSubmit)="sendmessage()" class="comment-form form-submit"
+                            
                             accept-charset="utf-8" novalidate="novalidate">
                             <div class="text-wrap flex form-wg">
                                 <fieldset class="info-box">
                                     <label class="fw-6">Nombre</label>
-                                    <input type="text" class="tb-my-input" name="text" placeholder="Nombre"
-                                        required="">
+                                    <input type="text" placeholder="Nombre completo" class="input-form"
+                                        id="name" name="name"
+                                        formControlName="name" required
+                                        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }">
+                                    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['name'].errors['required']">Nombre  obligatorio.</div>
+                                    </div>
                                 </fieldset>
                                 <fieldset class="info-box">
-                                    <label class="fw-6">Correo</label>
-                                    <input type="email" class="tb-my-input" name="email"
-                                        placeholder="Correo" required="">
+                                    <label class="fw-6">Correo *</label>
+                                    <input type="text" placeholder="ejemplo@gmail.com" class="input-form"
+                                        id="email" name="email"
+                                        formControlName="email" required
+                                        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['email'].errors['required']">Correo  obligatorio.</div>
+                                    </div>
                                 </fieldset>
-                                <fieldset class="info-box">
-                                    <label class="fw-6">Teléfono</label>
-                                    <input type="email" class="tb-my-input" name="email"
-                                        placeholder="Teléfono" required="">
-                                </fieldset>
-                                <div class="info-box">
-                                    <label class="fw-6">Tipo de propiedad</label>
-                                    <div class="nice-select relative" tabindex="0"><span class="current">Seleccione</span>
-                                        <ul class="list style">
-                                            <li data-value class="option selected">Seleccione</li>
-                                            <li data-value="America" class="option">Casa</li>
-                                            <li data-value="England" class="option">Apartamento</li>
-                                            <li data-value="VietNam" class="option">Oficina</li>
-                                            <li data-value="VietNam" class="option">Finca</li>
-                                            <li data-value="VietNam" class="option">Lote</li>
-                                            <li data-value="VietNam" class="option">Proyecto en construcción</li>
-                                        </ul>
+                                
+                                    <fieldset>
+                                        <label class="title-user fw-6">Numero de teléfono *</label>
+                                        <input type="text" placeholder="57 302 123 1212" class="input-form"
+                                        id="phone" name="phone"
+                                        formControlName="phone" required
+                                        [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }">
+                                    <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['phone'].errors['required']">Telefono  obligatorio.</div>
+                                    </div>
+                                    </fieldset>
+                               
+                                <div class="inner-2 select-group col-4" id="typeProperty" name="typeProperty">
+                                    <label class="title-user fw-6">Tipo de propiedad *</label>
+                                    <select class="form-control" formControlName="typeProperty" [ngClass]="{ 'is-invalid': submitted && f['typeProperty'].errors }">
+                                    <option value=""></option>
+                                    <option value="casa">Casa</option>
+                                    <option value="Apartamento">Apartamento</option>
+                                    <option value="Oficina">Oficina</option>
+                                    <option value="Lote">Lote</option>
+                                    <option value="Finca">Finca</option>
+                                    <option value="Proyecto">Proyecto en construcción</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['typeProperty'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['typeProperty'].errors['required']">Tipo de propiedad es obligatorio.</div>
                                     </div>
                                 </div>
                             </div>
 
                             <fieldset class="message-wrap">
                                 <label class="fw-6">Mensaje</label>
-                                <textarea id="comment-message" name="message" rows="4" tabindex="4"
-                                    placeholder="Notas y solicitudes" aria-required="true"></textarea>
+                                <textarea id="message" name="message" rows="4" tabindex="4"
+                                    placeholder="Notas y solicitudes" aria-required="true" formControlName="message" required
+                                    [ngClass]="{ 'is-invalid': submitted && f['message'].errors }"></textarea>
+                                   
+                                    <div *ngIf="submitted && f['message'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['message'].errors['required']">Mensaje  obligatorio.</div>
+                                    </div>
                             </fieldset>
                             <div class="button-boxs">
                                 <button class="sc-button btn-icon" name="submit" type="submit">

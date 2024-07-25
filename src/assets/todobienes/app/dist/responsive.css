@@ -52,7 +52,7 @@
     margin-bottom: 12px;
   }
   .top-filters.style2 {
-    padding: 24px 0px 18px 0px;
+    padding: 9px 0px 18px 16px;
   }
   .flat-property-list1 .post {
     width: 77.3%;
@@ -1477,7 +1477,7 @@
     margin-right: 0px;
   }
   .flat-property .category-filter {
-    display: block;
+    display: contents;
     margin-bottom: 30px;
   }
   .flat-property .category-filter .box-1 {

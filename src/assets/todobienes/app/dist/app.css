@@ -1396,7 +1396,7 @@
 
 .top-filters {
   padding: 30px 0px 30px 0px;
-  background-color: #fff;
+  background-color: transparent;
   z-index: 2;
   position: relative;
 }
@@ -1485,7 +1485,7 @@
 .flat-tabs.style2 .tab-title li i {
   margin-right: 8px;
   font-size: 19px;
-  color: #fff;
+  color: #100808;
   font-weight: 100;
 }
 .flat-tabs.style2 .tab-title li h4 {
@@ -8667,7 +8667,7 @@ ul, li {
 }
 
 .container6 {
-  max-width: 1750px;
+  max-width: 1400px;
 }
 
 .container5 {

@@ -2,3 +2,24 @@
 .properties {
     padding: 25px;
 }
+
+/* Contenedor principal del grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en escritorio */
+    gap: 20px; /* Espacio entre las columnas */
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 991px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 columna en móvil */
+    }
+}

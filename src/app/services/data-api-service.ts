@@ -186,6 +186,12 @@ export class DataApiService {
 		  map(data => data)
 		);
 	  }
+	  sendmessage( properties: PropertiesInterface) {
+		const url_api = this.yeoman.origin.restUrl + '/api/collections/tdmessage/records';
+		return this.http.post<PropertiesInterface>(url_api, properties).pipe(
+		  map(data => data)
+		);
+	  }
 	  updateProperties(properties: any, id: string): Observable<any> {
 		// Construir la URL de la solicitud
 		const url = `https://db.buckapi.com:8090/api/collections/tdProperties/records/${id}`;

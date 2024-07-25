@@ -34,5 +34,11 @@
     .swiper-pagination, .swiper-button-next, .swiper-button-prev {
         display: none; /* Oculta los controles para móviles si el espacio es limitado */
     }
+    .flat-title{
+      padding-top: 65px;
+    }
 }
 
+.flat-title{
+  padding-top: 65px;
+}

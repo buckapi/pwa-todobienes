@@ -1,0 +1,7 @@
+.flat-dashboard .messages-sidebar li .image-box .images img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    margin-right: 12px;
+    background-color: #000;
+}

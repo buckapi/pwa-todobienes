@@ -267,7 +267,6 @@
                                                 <div class="box box-dream flex" *ngFor="let property of global.properties">
                                                     <div class="image-group relative ">
                                                         <span class="featured fs-12 fw-6">{{property.status}}</span>    
-                                                        <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
                                                         <div class="swiper-container carousel-2 img-style" >    
                                                             <a class="icon-plus" (click)="view(property)"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
                                                             <div class="swiper-wrapper ">
@@ -318,8 +317,8 @@
                                                 <div class="box box-dream hv-one style-dream" *ngFor="let property of global.properties">
                                                     <div class="image-group  ">
                                                         <span class="featured fs-12 fw-6">{{property.status}}</span>    
-                                                        <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
-                                                        <div class="swiper-container carousel-2 img-style" >    
+<!--                                                         <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
+ -->                                                        <div class="swiper-container carousel-2 img-style" >    
                                                             <a class="icon-plus" (click)="view(property)"><img src="assets/todobienes/assets/images/icon/plus.svg" alt="images"></a>
                                                             <div class="swiper-wrapper ">
                                                              <div class="swiper-slide" style="width: auto; height: 400px;" *ngFor="let image of property.images"><img src="{{image}}" alt="images"></div>
