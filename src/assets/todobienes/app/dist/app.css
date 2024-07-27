@@ -2472,7 +2472,7 @@
   position: relative;
   display: inline-block;
   margin: 0 auto;
-  font-size: 32px;
+  font-size: 30px;
 }
 .curved-text span {
   min-width: 0.5em;
@@ -2502,7 +2502,7 @@
 }
 .curved-group .curved-text::before {
   font-family: "Font Awesome 5 Pro";
-  font-size: 42px;
+  font-size: 30px;
   font-weight: 1;
   content: "\f178";
   position: absolute;

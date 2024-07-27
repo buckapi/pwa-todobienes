@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { GlobalService } from '../../services/global.service';
 import { virtualRouter } from '../../services/virtualRouter.service';
 import { HeaderDashboardComponent } from '../ui/header-dashboard/header-dashboard.component';
@@ -16,91 +16,30 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [CommonModule,
     HeaderDashboardComponent,
-    SidebarDashboardComponent, ReactiveFormsModule
-  ],
+    SidebarDashboardComponent, ReactiveFormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent {
+export class DashboardComponent implements AfterViewInit {
   isGridView: boolean = true;
   constructor(
     public global:GlobalService,
     public vitualRouter: virtualRouter,
     public dataApiService: DataApiService,
     public yeoman: Yeoman,
-    public http: HttpClient
+    public http: HttpClient,    
+    private cdRef: ChangeDetectorRef
+
+
   ){}
-  showGridView() {
-  this.isGridView = true;
-  }
-
-  showListView() {
-    this.isGridView = false;
-  }
-  view(property:any){
-    this.global.previewCard=property;
-    this.global.setRoute('dashboard-detail-properties');
-  }
-
-  edit(property:any){
-    this.global.previewCard=property;
-    this.global.setRoute('dashboard-edit-properties');
-  }
-  deleteProperty(property:any) {
-    console.log('Intentando eliminar propiedad...');
-    console.log('Preview Card:', this.global.previewCard);
-    const propertyId = property.id;
-
-    if (!propertyId) {
-      console.error('No se puede eliminar la propiedad: ID no definido');
-      return;
-    }
-
-    Swal.fire({
-      title: '¿Estás seguro?',
-      text: '¡Esta acción no se podrá revertir!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Sí, borrar!',
-      cancelButtonText: 'No, cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.dataApiService.deleteProperty(propertyId).subscribe(
-          response => {
-            console.log('Propiedad eliminada:', response);
-            // Realiza cualquier actualización necesaria en la vista
-            this.global.loadProperties(); // Actualiza la lista de propiedades
-
-            Swal.fire(
-              'Borrado!',
-              'La propiedad ha sido eliminada.',
-              'success'
-            );
-          },
-          error => {
-            Swal.fire(
-              'Error',
-              'Ocurrió un error al eliminar la propiedad. Inténtelo de nuevo más tarde.',
-              'error'
-            );
-            console.error('Error al borrar la propiedad:', error);
-          }
-        );
-      }
-    });
-  }
-  
-  
-
-  cancelDelete(){}
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.loadInitialData();
+    this.cdRef.detectChanges(); // Forzar la detección de cambios después de cargar los datos iniciales
   }
 
   loadInitialData(): void {
     console.log('Cargando datos iniciales...');
-    // Inicializa previewCard con valores predeterminados si es necesario
     this.global.previewCard = {
       id: "",
       region: "",
@@ -122,7 +61,68 @@ export class DashboardComponent {
       phone: "",
       images: []
     };
-    
   }
+
+  showGridView() {
+    this.isGridView = true;
   }
+
+  showListView() {
+    this.isGridView = false;
+  }
+
+  view(property: any) {
+    this.global.previewCard = property;
+    this.global.setRoute('dashboard-detail-properties');
+  }
+
+  edit(property: any) {
+    this.global.previewCard = property;
+    this.global.setRoute('dashboard-edit-properties');
+  }
+
+  deleteProperty(property: any) {
+    console.log('Intentando eliminar propiedad...');
+    console.log('Preview Card:', this.global.previewCard);
+    const propertyId = property.id;
+
+    if (!propertyId) {
+      console.error('No se puede eliminar la propiedad: ID no definido');
+      return;
+    }
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¡Esta acción no se podrá revertir!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, borrar!',
+      cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.dataApiService.deleteProperty(propertyId).subscribe(
+          response => {
+            console.log('Propiedad eliminada:', response);
+            this.global.loadProperties();
+            Swal.fire(
+              'Borrado!',
+              'La propiedad ha sido eliminada.',
+              'success'
+            );
+          },
+          error => {
+            Swal.fire(
+              'Error',
+              'Ocurrió un error al eliminar la propiedad. Inténtelo de nuevo más tarde.',
+              'error'
+            );
+            console.error('Error al borrar la propiedad:', error);
+          }
+        );
+      }
+    });
+  }
+  cancelDelete(){}
+}
+
 

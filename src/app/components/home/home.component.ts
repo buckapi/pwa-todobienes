@@ -91,9 +91,9 @@ ngOnInit(): void {
 }
 onIsError(): void {
   this.isError = true;
-  setTimeout(() => {
+  /* setTimeout(() => {
     this.isError = false;
-  }, 4000);
+  }, 4000); */
 }
 
 }

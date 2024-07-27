@@ -115,20 +115,7 @@ export class AppComponent {
       .catch((error) => console.log(error));
     // this.epicFunction();
   }
-  ngOnInit(): void {
-    this.ngFormLogin = this.formBuilder.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-    });
-   /*  this.ngFormRegister = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      passwordConfirm: ['', Validators.required],
-      name: ['', Validators.required],
-      phone: ['', Validators.required],
-    });
-    this.restoreSession(); */
-  }
+  
    
   get f(): { [key: string]: AbstractControl } {
     return this.ngFormLogin.controls;
@@ -187,7 +174,7 @@ export class AppComponent {
         (error) => this.onIsError()
       );
   }
- /*  restoreSession(): void {
+  restoreSession(): void {
     const isLoggedin = localStorage.getItem('isLoggedin');
     const currentUser = localStorage.getItem('currentUser');
     const userType = localStorage.getItem('type');
@@ -201,8 +188,6 @@ export class AppComponent {
           this.virtualRouter.routerActive = "dashboard";
           this.virtualRouter.routerActive = "dashboard-add-properties";
           this.virtualRouter.routerActive = "dashboard";
-          this.virtualRouter.routerActive = "agentes";
-          this.virtualRouter.routerActive = "properties";
           break;
         case 'cliente':
           this.fetchClientData(user.id);
@@ -210,20 +195,18 @@ export class AppComponent {
         default:
           this.virtualRouter.routerActive = "dashboard-add-properties";
           this.virtualRouter.routerActive = "dashboard";
-          this.virtualRouter.routerActive = "agentes";
-          this.virtualRouter.routerActive = "properties";
 
 
           break;
       }
     }
-  } */
-  /* fetchClientData(userId: string): void {
+  }
+  fetchClientData(userId: string): void {
     // Crear una instancia de PocketBase
     const pb = new PocketBase('https://db.buckapi.com:8090');
 
     // Hacer la solicitud para obtener los datos del cliente
-    pb.collection('todobienesClients')
+    pb.collection('tdProperties')
       .getList(1, 1, {
         userId: userId,
       })
@@ -247,7 +230,7 @@ export class AppComponent {
         // Redirigir al usuario al home
         this.virtualRouter.routerActive = 'user-home';
       });
-  } */
+  }
   onRegister() {
     this.submitted = true;
     if (this.f['password'].value !== this.f['passwordConfirm'].value) {
@@ -292,5 +275,19 @@ export class AppComponent {
         this.isError = true;
       }
     );
+  }
+  ngOnInit(): void {
+    this.ngFormLogin = this.formBuilder.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+    });
+   /*  this.ngFormRegister = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      passwordConfirm: ['', Validators.required],
+      name: ['', Validators.required],
+      phone: ['', Validators.required],
+    });
+    this.restoreSession(); */
   }
 }

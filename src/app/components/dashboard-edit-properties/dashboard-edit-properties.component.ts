@@ -85,64 +85,7 @@ cancelarUpdate() {
     this.global.setRoute('dashboard');
 
   }
- /*  update() {
-    // Actualizar imágenes si es necesario
-    this.global.previewCard.images =
-      this._butler.uploaderImages.length > 0
-        ? this._butler.uploaderImages
-        : this.global.previewCard.images;
-        
-    this.dataApiService
-      .updateProperties(this.global.previewCard, this.global.previewCard.id)
-      .subscribe(
-        (response) => {
-          console.log(response);  
-          // Actualizar la vista general
-          this.global.loadProperties(); // Asegúrate de que este método actualiza la lista de propiedades
-          // Limpiar el estado de edición y datos
-          this.global.editingProperties = false;
-          this.global.setRoute('dashboard');  
-          // Limpiar la vista previa de la propiedad
-          this.global.previewCard = {
-            id: "",
-            municipality: "",
-            code: "",
-            title: "",
-            address: "",
-            status: "",
-            description: "",
-            typeProperty: "",
-            bedrooms: "",
-            livinromm: "",
-            kitchen: "",
-            bathroom: "",
-            parking: "",
-            stratum: "",
-            area: "",
-            canon: "",
-            phone: "",
-            images: []
-          };
-          this._butler.uploaderImages = [];
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Propiedad actualizada",
-            showConfirmButton: false,
-            timer: 1500
-          });
-        },
-        (error) => {
-          // Mostrar mensaje de error
-          Swal.fire({
-            icon: "error",
-            title: "Error",
-            text: "Ocurrió un error al actualizar la propiedad. Inténtelo de nuevo más tarde."
-          });
-          console.error("Error al actualizar la propiedad:", error);
-        }
-      );
-  } */
+ 
       update() {
       let currentImages = this.global.previewCard.images;
     this.global.previewCard.images = currentImages;

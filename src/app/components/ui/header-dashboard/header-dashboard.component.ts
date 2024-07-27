@@ -39,13 +39,13 @@ ngOnInit(): void {
     email: ['', [Validators.required]],
     password: ['', [Validators.required]],
   });
-  this.ngFormRegister = this.formBuilder.group({
+ /*  this.ngFormRegister = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
     passwordConfirm: ['', Validators.required],
     name: ['', Validators.required],
     phone: ['', Validators.required],
-  });
+  }); */
   this.restoreSession();
 }
 restoreSession(): void {
