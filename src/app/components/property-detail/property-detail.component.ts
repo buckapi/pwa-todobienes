@@ -2,6 +2,7 @@ import {
   AfterViewChecked,
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
+  OnInit,
 } from '@angular/core';
 import { GlobalService } from '../../services/global.service';
 import { virtualRouter } from '../../services/virtualRouter.service';
@@ -24,7 +25,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './property-detail.component.html',
   styleUrl: './property-detail.component.css',
 })
-export class PropertyDetailComponent implements AfterViewChecked {
+export class PropertyDetailComponent implements OnInit {
   submitted: boolean = false;
   name: string = '';
   phone: string = '';
@@ -38,7 +39,7 @@ export class PropertyDetailComponent implements AfterViewChecked {
     public http: HttpClient
   ) {
     this.share = this.formBuilder.group({
-      name: ['', Validators.requiredTrue],
+      name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
     });
@@ -130,22 +131,21 @@ export class PropertyDetailComponent implements AfterViewChecked {
     const formData = this.share.value;
     const phoneNumber = '+573015605187';
     const message = `Hola Todo Bienes, mis datos son:
-- Nombre: ${formData.name}
-- Email: ${formData.email}
-- Teléfono: ${formData.phone}
-
-Me gustaría reservar una visita para la propiedad "${this.global.previewCard.title}" por un canon de ${this.global.previewCard.canon}.
-`;
+  - Nombre: ${formData.name}
+  - Email: ${formData.email}
+  - Teléfono: ${formData.phone}
+  Me gustaría reservar una visita para la propiedad "${this.global.previewCard.title}" 
+  por un canon de ${this.global.previewCard.canon}`;
 
     const encodedMessage = encodeURIComponent(message);
     const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
     window.open(url, '_blank');
   }
 
-  /* ngOnInit(): void {
+  ngOnInit(): void {
   window.scrollTo(0, 0); // Desplaza a la parte superior de la página
-} */
-  ngAfterViewChecked(): void {
+}
+  /* ngAfterViewChecked(): void {
     window.scrollTo(0, 0);
-  }
+  } */
 }

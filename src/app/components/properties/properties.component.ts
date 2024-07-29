@@ -30,4 +30,5 @@ view(property:any){
   this.global.setRoute('property-detail');
   
 }
+
 }
