@@ -146,7 +146,7 @@
                                    <div class="content-inner tab-content" >                            
                                        <div class="wrap-item flex" >
                                            <!-- col 1 -->
-                                           <div class="box box-dream hv-one" *ngFor="let property of global.properties" >
+                                           <div class="box box-dream hv-one" *ngFor="let property of global.properties; let i = index"  [hidden]="i >= 8">
                                                <div class="image-group relative ">
                                                    <span class="featured fs-12 fw-6">{{property.status}}</span>    
                                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span> 
@@ -179,9 +179,16 @@
                                                        <div class="days">Nombre de agente</div>
                                                    </div>   -->                                         
                                                </div>
-                                           </div>
+                                               
+                                           </div>                                          
                                            
                                        </div>
+                                       <div class="button-boxs" style="text-align: center;">
+                                        <button class="sc-button btn-icon" (click)="global.setRoute('properties')">
+                                            
+                                            <span>Todas las propiedades</span>
+                                        </button>
+                                    </div>
 
                                    </div>
                                   

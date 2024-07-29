@@ -54,5 +54,10 @@
   .img-box .icon-list li a i {
     margin-right: 5px; /* Espacio entre el icono y el texto, ajusta según sea necesario */
   }
+
+  .fab {
+    font-family: 'Font Awesome 5 Brands';
+    font-weight: 400;
+    color: #000;}
   
   

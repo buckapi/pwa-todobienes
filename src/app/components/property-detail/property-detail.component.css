@@ -42,3 +42,9 @@
 .flat-title{
   padding-top: 65px;
 }
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  font-weight: 400;
+  color: #000;}
+

@@ -32,7 +32,9 @@ export class DashboardComponent implements AfterViewInit {
     private cdRef: ChangeDetectorRef
 
 
-  ){}
+  ){
+    this.loadPropertyDetails(this.global.previewCard.id);
+  }
   ngAfterViewInit(): void {
     this.loadInitialData();
     this.cdRef.detectChanges(); // Forzar la detección de cambios después de cargar los datos iniciales
@@ -123,6 +125,62 @@ export class DashboardComponent implements AfterViewInit {
     });
   }
   cancelDelete(){}
+  loadPropertyDetails(id: string) {
+    const endpoint = `https://db.buckapi.com:8090/api/collections/tdProperties/records/${id}`;
+    this.http.get(endpoint).subscribe(
+      (data: any) => {
+        this.global.previewCard.title = data.title;
+        this.global.previewCard.canon = data.canon;
+/*         this.global.previewCard.images = JSON.parse(data.images); // Asume que 'images' es un JSON de URLs
+ */      },
+      (error) => {
+        console.error('Error al cargar los detalles de la propiedad:', error);
+      }
+    );
+  }
+  // Comparte en WhatsApp
+  shareOnWhatsApp() {
+    const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.global.previewCard.id}`;
+    const message = `¡Hola! Bienvenido a Todo Bienes Grupo Inmobiliario. Aquí tienes la información sobre una de nuestras propiedades:\n\n` +
+                    `**Título:** ${this.global.previewCard.title}\n` +
+                    `**Canon:** ${this.global.previewCard.canon}\n` +
+                    `**Descripción:** ${this.global.previewCard.description}\n\n` +
+                    `Para más detalles, visita el siguiente enlace: ${propertyLink}`;
+    const encodedMessage = encodeURIComponent(message);
+    const url = `https://api.whatsapp.com/send?phone=+573015605187&text=${encodedMessage}`;
+    window.open(url, '_blank');
+  }
+  
+
+  // Comparte en Facebook Messenger
+  shareOnMessenger() {
+    const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.global.previewCard.id}`;
+    const message = `¡Hola! Bienvenido a Todo Bienes Grupo Inmobiliario. Aquí tienes la información sobre una de nuestras propiedades:\n\n` +
+                    `**Título:** ${this.global.previewCard.title}\n` +
+                    `**Canon:** ${this.global.previewCard.canon}\n` +
+                    `**Descripción:** ${this.global.previewCard.description}\n\n` +
+                    `Para más detalles, visita el siguiente enlace: ${propertyLink}`;
+    // Facebook Messenger no soporta la precompone de mensajes a través de URLs
+    const url = `https://www.messenger.com/t/?link=${encodeURIComponent(propertyLink)}`;
+    window.open(url, '_blank');
+  }
+  
+
+  // Copia el enlace al portapapeles
+  copyLink() {
+    const propertyLink = `https://todobienesgrupoinmobiliario.com/${this.global.previewCard.id}`;
+    
+    // Crea un elemento de input para usarlo como intermediario
+    const tempInput = document.createElement('input');
+    tempInput.value = propertyLink;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    
+    // Opcional: Mostrar un mensaje de confirmación al usuario
+    alert('Enlace copiado al portapapeles!');
+  }
 }
 
 

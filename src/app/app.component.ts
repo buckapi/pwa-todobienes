@@ -103,9 +103,9 @@ export class AppComponent {
          'shortcodes',
          'main',
         'curved',
-/*         'priceRanger',
- *//*         'apexcharts',
- */        'jqueryCookie',
+        /* 'priceRanger', 
+        'apexcharts',*/
+        'jqueryCookie',
         'dashboardMenuMin',
         'dashboardMenu'
       )
