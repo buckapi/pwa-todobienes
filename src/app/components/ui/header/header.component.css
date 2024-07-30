@@ -12,4 +12,28 @@
   body {
     padding-top: 70px; /* Ajusta este valor según la altura de tu header */
   }
+  /* Ocultar el menú principal en dispositivos móviles */
+@media (max-width: 767px) {
+  .main-menu {
+      display: none; /* Oculta el menú principal en pantallas pequeñas */
+  }
+  .mobile-menu {
+      display: block; /* Muestra el menú móvil en pantallas pequeñas */
+  }
+}
+
+/* Ocultar el menú móvil en pantallas grandes */
+@media (min-width: 768px) {
+  .mobile-menu {
+      display: none; /* Oculta el menú móvil en pantallas grandes */
+  }
+}
+
+.mobile-menu .menu-outer {
+  border-bottom: 1px solid #EFEFEF;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  display: none;
+}
+
   

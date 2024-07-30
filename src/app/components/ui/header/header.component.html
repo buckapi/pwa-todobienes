@@ -98,6 +98,27 @@
                     <li class=""><a data-toggle="modal" data-target="#popup_bid"> Ingresar</a></li>
                 </div>
                 <div class="menu-outer"></div>
+                
+                    <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                        <ul class="navigation clearfix">
+                            <li class="current"><a (click)="global.setRoute('home')">Inicio</a>
+                            </li>
+                            <li><a (click)="global.setRoute('properties')">Propiedades</a>
+                            </li>
+                            <li><a (click)="global.setRoute('about')">Quienes somos</a></li>
+
+                            <!-- <li class="dropdown2"><a >Nosotros</a>
+                                <ul>
+                                    <li><a (click)="global.setRoute('about')">Quienes somos</a></li>
+                                    <li><a (click)="global.setRoute('faq')">Faq's</a></li>
+                                </ul>
+                            </li> -->
+                            <li><a (click)="global.setRoute('blog')">Novedades</a>
+                            </li>
+                            <li><a (click)="global.setRoute('contact')">Contacto</a></li>
+                        </ul>
+                    </div>
+                
                 <div class="button-mobi-sell">
                     <a class="sc-button btn-icon center" (click)="global.setRoute('contact')">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
