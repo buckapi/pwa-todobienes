@@ -174,7 +174,7 @@ export class AppComponent {
         (error) => this.onIsError()
       );
   }
-  restoreSession(): void {
+  /* restoreSession(): void {
     const isLoggedin = localStorage.getItem('isLoggedin');
     const currentUser = localStorage.getItem('currentUser');
     const userType = localStorage.getItem('type');
@@ -200,7 +200,7 @@ export class AppComponent {
           break;
       }
     }
-  }
+  }*/
   fetchClientData(userId: string): void {
     // Crear una instancia de PocketBase
     const pb = new PocketBase('https://db.buckapi.com:8090');
@@ -230,7 +230,7 @@ export class AppComponent {
         // Redirigir al usuario al home
         this.virtualRouter.routerActive = 'user-home';
       });
-  }
+  } 
   onRegister() {
     this.submitted = true;
     if (this.f['password'].value !== this.f['passwordConfirm'].value) {
@@ -276,18 +276,5 @@ export class AppComponent {
       }
     );
   }
-  ngOnInit(): void {
-    this.ngFormLogin = this.formBuilder.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-    });
-   /*  this.ngFormRegister = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      passwordConfirm: ['', Validators.required],
-      name: ['', Validators.required],
-      phone: ['', Validators.required],
-    });
-    this.restoreSession(); */
-  }
+ 
 }
