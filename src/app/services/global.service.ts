@@ -32,6 +32,28 @@ interface ApiResponse {
   totalPages: number;
   items: any[]; // Puedes ajustar el tipo de 'items' según su estructura real
 }
+interface Properties {
+  id: string;
+    region: string;
+    municipality:string[];
+    code: string,
+    title: string,
+    address: string,
+    status: string,
+    description: string,
+    typeProperty: string,
+    bedrooms: string,
+    livinromm: string,
+    kitchen: string,
+    bathroom: string,
+    parking: string,
+    stratum: string,
+    area: string,
+    canon: string,
+    phone: string,
+    images: string[];   
+  // otros campos según tu estructura de datos
+}
 // const GET_EXTERNAL_PRODUCTS_WITH_DISCOUNTS = gql`
 //   query GetExternalProducts($url: String!, $clcodigo: Int!, $page: Int!, $limit: Int!, $discountUrl: String!, $prolistaprecio: Int!) {
 //     getExternalProducts(url: $url, clcodigo: $clcodigo, page: $page, limit: $limit, discountUrl: $discountUrl, prolistaprecio: $prolistaprecio) {
@@ -60,11 +82,21 @@ export class GlobalService {
   selectedTicketsCount=0;
   addingProduct = false;
   editingProperties = false;
-  properties: any;
+   properties: any;
   products: any[] = [];
   doctors: any[] = [];
   specialties: any[] = [];
   allProperties:any=[];
+/*   properties: Properties[] = [];
+ */  filteredProperties: Properties[] = [];
+  propertyTypes: string[] = [];
+  municipalities: string[] = [];
+  selectedTypeProperty: string = "";
+  selectedMunicipality: string[] = [];
+  searchQuery: string = '';
+  selectedYear: number | null = null;
+  selectedCategory: string = '';
+  searchText: string = '';
   message:any=[];
 
   car: any[] = [];
@@ -134,7 +166,7 @@ export class GlobalService {
       };
 
     specialtySelected:string='';
-    propertySelected:string='';
+    propertySelected:[] = [];
     filtered=false;
   mySelection: { [key: number]: boolean }= {};
   assetments: any[] = [];  
@@ -193,6 +225,7 @@ totales: any = {
           this.message=response.items;
         }
       );
+      this.loadProperties();
    }
  
   /*  getProperties(): Observable<any[]> {
@@ -307,9 +340,9 @@ select(i: any) {
  /*  getRequest(): Observable<any> {
     return this.http.get<any>(this.requestUrl);
   } */
-  getProperties(): Observable<any> {
+  /* getProperties(): Observable<any> {
      return this.http.get<any>(this.propertiesUrl);
-   }
+   } */
    getMessage(): Observable<any> {
     return this.http.get<any>(this.messageUrl);
   }
@@ -385,7 +418,7 @@ this.categoryPrev=item;
       })
     );
   }
-  loadProperties() {
+  /* loadProperties() {
     this.getProperties().subscribe(
       (data) => {
         this.properties = data.items;
@@ -393,15 +426,12 @@ this.categoryPrev=item;
         this.propertySelected = this.properties; // Asigna los registros obtenidos a la variable 'registros'
         console.log(data);
         let size = data.items.length;
-
-/*         this.conteoRubros();
- */        // Puedes hacer lo que quieras con los datos recibidos
       },
       (error) => {
         console.error(error); // Manejo de errores si la solicitud falla
       }
     );
-  }
+  } */
   setRoute(route:string){
     this.virtuallRouter.routerActive=route;
   }
@@ -465,8 +495,86 @@ this.categoryPrev=item;
         }
         return null;
     }
+
   
-
-
-
+    loadProperties() {
+      this.getProperties().subscribe(
+        response => {
+          this.properties = response.items;
+          this.extractPropertyTypes();
+          this.applyFilters(); // Aplicar filtros después de cargar propiedades
+        },
+        error => {
+          console.error(error);
+        }
+      );
+    }
+  
+    getProperties(): Observable<ApiResponse> {
+      return this.http.get<ApiResponse>(this.propertiesUrl);
+    }
+  
+   /*  applyFilters() {
+      this.filteredProperties = this.properties.filter((property: Properties) => {
+        let matchesTypeProperties = this.selectedTypeProperty ? property.typeProperty === this.selectedTypeProperty : true;
+        let matchesSearchText = this.searchQuery ? property.title.toLowerCase().includes(this.searchQuery.toLowerCase()) : true;
+        let matchesMunicipality = this.selectedMunicipality.length > 0 ? this.selectedMunicipality.some(m => property.municipality.includes(m)) : true;
+  
+        return matchesTypeProperties && matchesSearchText && matchesMunicipality;
+      });
+    } */
+  
+   /*  selectTypeProperty(typeProperty: string) {
+      this.selectedTypeProperty = typeProperty;
+      this.applyFilters();
+    } */
+  
+    selectMunicipality(municipalities: string[]) {
+      this.selectedMunicipality = municipalities;
+      this.applyFilters();
+    }
+  
+    updateSearchQuery(query: string) {
+      this.searchQuery = query;
+      this.applyFilters();
+    }
+  
+    searchProperties(event: Event) {
+      event.preventDefault(); // Evitar el comportamiento por defecto del formulario
+      this.applyFilters();
+    }
+  
+    loadPropertyTypesAndMunicipalities() {
+      this.getProperties().subscribe(response => {
+        const propertyTypes = new Set<string>();
+        const municipalities = new Set<string>();
+  
+        response.items.forEach(property => {
+          propertyTypes.add(property.typeProperty);
+          property.municipality.forEach((municipality: string) => municipalities.add(municipality));
+        });
+  
+        this.propertyTypes = Array.from(propertyTypes);
+        this.municipalities = Array.from(municipalities);
+      });
+    }
+    applyFilters() {
+      this.filteredProperties = this.properties.filter((property: Properties) => {
+        let matchesTypeProperties = this.selectedTypeProperty ? property.typeProperty === this.selectedTypeProperty : true;
+        return matchesTypeProperties;
+      });
+    }
+  
+    selectTypeProperty(typeProperty: string) {
+      this.selectedTypeProperty = typeProperty;
+      this.applyFilters();
+    }
+  
+    extractPropertyTypes() {
+      const propertyTypes = new Set<string>();
+      this.properties.forEach((property: { typeProperty: string; }) => {
+        propertyTypes.add(property.typeProperty);
+      });
+      this.propertyTypes = Array.from(propertyTypes);
+    }
 }

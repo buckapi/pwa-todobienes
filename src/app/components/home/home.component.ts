@@ -3,14 +3,14 @@ import { GlobalService } from '../../services/global.service';
 import { CommonModule } from '@angular/common';
 import { Yeoman } from '../../services/yeoman.service';
 import { DataApiService } from '../../services/data-api-service';
-import { FormBuilder, AbstractControl, FormControlDirective, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, AbstractControl, FormControlDirective, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -34,6 +34,9 @@ constructor(
     message: ['', Validators.required],
   });
 }
+/* searchProperties(event: Event) {
+  this.global.searchProperties(event);
+} */
 get f(): { [key: string]: AbstractControl } {
   return this.addmessage.controls;
 }
@@ -80,6 +83,14 @@ sendmessage(): void {
     }
   );
 }
+searchProperties(event: Event) {
+  event.preventDefault();
+  this.global.applyFilters();
+}
+
+selectTypeProperty(typeProperty: string) {
+  this.global.selectTypeProperty(typeProperty);
+}
 ngOnInit(): void {
   this.addmessage = this.formBuilder.group({
    name: ['', Validators.required],
@@ -88,6 +99,9 @@ ngOnInit(): void {
   typeProperty: ['', Validators.required],
   message: ['', Validators.required],
  });
+ this.global.loadPropertyTypesAndMunicipalities(); // Cargar tipos de propiedad y municipios al inicializar
+ this.global.loadProperties();
+
 }
 onIsError(): void {
   this.isError = true;
