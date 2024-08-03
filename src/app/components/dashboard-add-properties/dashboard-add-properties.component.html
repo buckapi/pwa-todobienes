@@ -137,12 +137,12 @@
                                     <label class="title-user fw-6">Tipo de propiedad *</label>
                                     <select class="form-control" formControlName="typeProperty" [ngClass]="{ 'is-invalid': submitted && f['typeProperty'].errors }">
                                     <option value=""></option>
-                                    <option value="casa">Casa</option>
-                                    <option value="apartamento">Apartamento</option>
-                                    <option value="oficina">Oficina</option>
-                                    <option value="lote">Lote</option>
-                                    <option value="finca">Finca</option>
-                                    <option value="proyecto">Proyecto en construcción</option>
+                                    <option value="Casa">Casa</option>
+                                    <option value="Apartamento">Apartamento</option>
+                                    <option value="Oficina">Oficina</option>
+                                    <option value="Lote">Lote</option>
+                                    <option value="Finca">Finca</option>
+                                    <option value="Proyecto en construcción">Proyecto en construcción</option>
                                     </select>
                                     <div *ngIf="submitted && f['typeProperty'].errors" class="invalid-feedback">
                                     <div *ngIf="f['typeProperty'].errors['required']">Tipo de propiedad es obligatorio.</div>

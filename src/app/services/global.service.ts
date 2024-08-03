@@ -1,10 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { Butler } from "@services/butler.service";
-// import { Yeoman } from './yeoman.service';
-// import { DataApiService } from './data-api-service';
-// import { virtualRouter } from './virtualRouter.service';
-// import { AuthRESTService } from './auth-rest.service';
-// import { Catalogo } from './catalogo.service';
 import { tap, count, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -87,13 +81,25 @@ export class GlobalService {
   doctors: any[] = [];
   specialties: any[] = [];
   allProperties:any=[];
-/*   properties: Properties[] = [];
- */  filteredProperties: Properties[] = [];
+  filteredProperties: any[] = [];
   propertyTypes: string[] = [];
   municipalities: string[] = [];
-  selectedTypeProperty: string = "";
+  selectedTypeProperty: string = '';
   selectedMunicipality: string[] = [];
   searchQuery: string = '';
+  selectedStatus: string = '';
+
+  regionesYMunicipios: { [key: string]: string[] } = {
+    "Bajo Cauca": ["Cáceres", "Caucasia", "El Bagre", "Nechí", "Tarazá", "Zaragoza"],
+    "Magdalena Medio": ["Caracolí", "Maceo", "Puerto Berrío", "Puerto Nare", "Puerto Triunfo", "Yondó"],
+    "Nordeste": ["Amalfi", "Anorí", "Cisneros", "Remedios", "San Roque", "Santo Domingo", "Segovia", "Vegachí", "Yolombó"],
+    "Norte": ["Angostura", "Belmira", "Briceño", "Campamento", "Carolina del Príncipe", "Don Matías", "Entrerríos", "Gómez Plata", "Guadalupe", "Ituango", "San Andrés de Cuerquía", "San José de la Montaña", "San Pedro de los Milagros", "Santa Rosa de Osos", "Toledo", "Valdivia", "Yarumal"],
+    "Occidente": ["Abriaquí", "Anzá", "Armenia", "Buriticá", "Cañasgordas", "Caicedo", "Dabeiba", "Ebéjico", "Frontino", "Giraldo", "Heliconia", "Liborina", "Olaya", "Peque", "Sabanalarga", "San Jerónimo", "Santa Fe de Antioquia", "Sopetrán", "Uramita"],
+    "Oriente": ["Abejorral", "Alejandría", "Argelia", "El Carmen de Viboral", "El Peñol", "El Retiro", "Granada", "Guarne", "La Ceja", "La Unión", "Marinilla", "Nariño", "Rionegro", "San Carlos", "San Francisco", "San Luis", "San Rafael", "San Vicente Ferrer"],
+    "Suroeste": ["Amagá", "Andes", "Angelópolis", "Betania", "Betulia", "Caramanta", "Ciudad Bolívar", "Concordia", "Fredonia", "Hispania", "Jardín", "Jericó", "La Pintada", "Montebello", "Pueblorrico", "Salgar", "Santa Bárbara", "Támesis", "Tarso", "Titiribí", "Urrao", "Valparaíso", "Venecia"],
+    "Urabá": ["Apartadó", "Arboletes", "Carepa", "Chigorodó", "Murindó", "Mutatá", "Necoclí", "San Juan de Urabá", "Turbo", "Vigía del Fuerte"],
+    "Valle de Aburrá": ["Barbosa", "Bello", "Caldas", "Copacabana", "Envigado", "Girardota", "Itagüí", "La Estrella", "Medellín", "Sabaneta"]
+  };
   selectedYear: number | null = null;
   selectedCategory: string = '';
   searchText: string = '';
@@ -436,19 +442,6 @@ this.categoryPrev=item;
     this.virtuallRouter.routerActive=route;
   }
   classifyOrders() {
-    // this.yeoman.ordersNew = [];
-    // this.yeoman.ordersProcessing = [];
-    // this.yeoman.ordersFinished = [];
-    // for (const order of this.yeoman.myOrders) {
-    //   if (order.status === 'nueva') {
-    //     this.yeoman.ordersNew.push(order);
-    //   } else if (order.status === 'procesando') {
-    //     this.yeoman.ordersProcessing.push(order);
-    //   } else if (order.status === 'terminada') {
-    //     this.yeoman.ordersFinished.push(order);
-    //   }
-    // }
-    // this.cdr.detectChanges();
   }
 //   findClient() {
 //     const idFind = this.authRESTService.getCurrentUser().id;
@@ -496,13 +489,12 @@ this.categoryPrev=item;
         return null;
     }
 
-  
-    loadProperties() {
+    loadProperties(): void {
       this.getProperties().subscribe(
         response => {
           this.properties = response.items;
           this.extractPropertyTypes();
-          this.applyFilters(); // Aplicar filtros después de cargar propiedades
+          this.applyFilters();
         },
         error => {
           console.error(error);
@@ -514,67 +506,55 @@ this.categoryPrev=item;
       return this.http.get<ApiResponse>(this.propertiesUrl);
     }
   
-   /*  applyFilters() {
-      this.filteredProperties = this.properties.filter((property: Properties) => {
-        let matchesTypeProperties = this.selectedTypeProperty ? property.typeProperty === this.selectedTypeProperty : true;
-        let matchesSearchText = this.searchQuery ? property.title.toLowerCase().includes(this.searchQuery.toLowerCase()) : true;
-        let matchesMunicipality = this.selectedMunicipality.length > 0 ? this.selectedMunicipality.some(m => property.municipality.includes(m)) : true;
-  
-        return matchesTypeProperties && matchesSearchText && matchesMunicipality;
-      });
-    } */
-  
-   /*  selectTypeProperty(typeProperty: string) {
-      this.selectedTypeProperty = typeProperty;
-      this.applyFilters();
-    } */
-  
-    selectMunicipality(municipalities: string[]) {
-      this.selectedMunicipality = municipalities;
-      this.applyFilters();
-    }
-  
-    updateSearchQuery(query: string) {
-      this.searchQuery = query;
-      this.applyFilters();
-    }
-  
-    searchProperties(event: Event) {
-      event.preventDefault(); // Evitar el comportamiento por defecto del formulario
-      this.applyFilters();
-    }
-  
-    loadPropertyTypesAndMunicipalities() {
-      this.getProperties().subscribe(response => {
-        const propertyTypes = new Set<string>();
-        const municipalities = new Set<string>();
-  
-        response.items.forEach(property => {
-          propertyTypes.add(property.typeProperty);
-          property.municipality.forEach((municipality: string) => municipalities.add(municipality));
-        });
-  
-        this.propertyTypes = Array.from(propertyTypes);
-        this.municipalities = Array.from(municipalities);
-      });
-    }
-    applyFilters() {
-      this.filteredProperties = this.properties.filter((property: Properties) => {
-        let matchesTypeProperties = this.selectedTypeProperty ? property.typeProperty === this.selectedTypeProperty : true;
-        return matchesTypeProperties;
-      });
-    }
-  
-    selectTypeProperty(typeProperty: string) {
-      this.selectedTypeProperty = typeProperty;
-      this.applyFilters();
-    }
-  
-    extractPropertyTypes() {
+    extractPropertyTypes(): void {
       const propertyTypes = new Set<string>();
       this.properties.forEach((property: { typeProperty: string; }) => {
         propertyTypes.add(property.typeProperty);
       });
       this.propertyTypes = Array.from(propertyTypes);
     }
+  
+    applyFilters(): void {
+      this.filteredProperties = this.properties.filter((property: { typeProperty: string; title: string; status: string; }) => {
+        const matchesTypeProperty = this.selectedTypeProperty ? property.typeProperty === this.selectedTypeProperty : true;
+        const matchesSearchQuery = this.searchQuery ? property.title.toLowerCase().includes(this.searchQuery.toLowerCase()) : true;
+        const matchesStatus = this.selectedStatus ? property.status === this.selectedStatus : true;
+  
+        return matchesTypeProperty && matchesSearchQuery && matchesStatus;
+      });
+    }
+  
+    selectTypeProperty(type: string): void {
+      this.selectedTypeProperty = type;
+      this.applyFilters();
+    }
+  
+    selectStatus(status: string) {
+      this.selectedStatus = status;
+      this.applyFilters();
+    }
+ 
+  
+    updateSearchQuery(query: string): void {
+      this.searchQuery = query;
+      this.applyFilters();
+    }
+  
+    searchProperties(event: Event): void {
+      event.preventDefault();
+      this.applyFilters();
+    }
+  
+    resetFilters(): void {
+      this.selectedTypeProperty = '';
+      this.searchQuery = '';
+      this.selectedStatus = '';
+      this.applyFilters();
+    }
+    loadPropertyTypesAndMunicipalities(): void {
+      // Load property types and municipalities from your data source
+      this.propertyTypes = ['Casa', 'Apartamento', 'Oficina', 'Finca', 'Lote', 'Proyectos en construcción'];
+      this.municipalities = ['']; // Example municipalities
+    }
+  
 }

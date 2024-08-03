@@ -19,6 +19,12 @@ export class HomeComponent  {
   public isError = false;
   propertys:any;
   addmessage: FormGroup;
+  regiones: string[] = [
+    "Bajo Cauca", "Magdalena Medio", "Nordeste", "Norte",
+    "Occidente", "Oriente", "Suroeste", "Urabá", "Valle de Aburrá"
+  ];
+
+  municipios: string[] = [];
 constructor(
   public global:GlobalService,
   public yeoman: Yeoman,
@@ -83,14 +89,33 @@ sendmessage(): void {
     }
   );
 }
-searchProperties(event: Event) {
-  event.preventDefault();
-  this.global.applyFilters();
+selectTypeProperty(type: string) {
+  this.global.selectTypeProperty(type);
 }
 
-selectTypeProperty(typeProperty: string) {
-  this.global.selectTypeProperty(typeProperty);
+/* selectMunicipality(event: Event): void {
+  const target = event.target as HTMLSelectElement;
+  const municipality = target.value;
+  this.global.selectMunicipality([municipality]);
+} */
+
+searchProperties(event: Event): void {
+  this.global.searchProperties(event);
 }
+
+selectStatus(status: string): void {
+  this.global.selectStatus(status);
+}
+
+resetFilters(): void {
+  this.global.searchQuery = '';
+  this.global.selectedTypeProperty = '';
+  this.global.selectedMunicipality = [];
+  this.global.selectedStatus = '';
+  this.global.loadProperties(); // Recargar propiedades sin filtros
+}
+
+
 ngOnInit(): void {
   this.addmessage = this.formBuilder.group({
    name: ['', Validators.required],
@@ -101,6 +126,8 @@ ngOnInit(): void {
  });
  this.global.loadPropertyTypesAndMunicipalities(); // Cargar tipos de propiedad y municipios al inicializar
  this.global.loadProperties();
+ this.global.loadPropertyTypesAndMunicipalities();
+
 
 }
 onIsError(): void {
