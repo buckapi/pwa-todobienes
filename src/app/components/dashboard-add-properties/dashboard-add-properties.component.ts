@@ -124,7 +124,7 @@ saveProperties(): void {
         title: 'Éxito',
         text: 'Solicitud guardada correctamente.'
       }).then(() => {
-        this.global.properties = [];
+        this.global.properties = '';
         this.global.allProperties.push(response);
         this.global.allProperties = [...this.global.allProperties];
         this.isError = false;

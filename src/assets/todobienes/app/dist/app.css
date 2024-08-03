@@ -6952,7 +6952,7 @@
 }
 
 .wd-find-select .inner-group .form-style {
-  width: calc(33.33333% - 12px);
+  width: auto;
   margin-left: 12px;
   margin-right: unset;
 }

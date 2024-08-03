@@ -169,7 +169,7 @@
                                                                 <path d="M5.5722 18.5438C6.16436 18.5438 6.6444 18.0637 6.6444 17.4716C6.6444 16.8794 6.16436 16.3994 5.5722 16.3994C4.98004 16.3994 4.5 16.8794 4.5 17.4716C4.5 18.0637 4.98004 18.5438 5.5722 18.5438Z" fill="#8E8E93"/>
                                                             </svg>
                                                         </a>
-                                                        <div class="wd-find-select flex">
+                                                        <!-- <div class="wd-find-select flex">
                                                             <div class="group-select">
                                                                 <div class="nice-select" tabindex="0"><span class="current">Mostrar: 50</span>
                                                                     <ul class="list style">                                                          
@@ -200,10 +200,10 @@
                                                                 </div>
                                                             </div>
                                                             
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </div>
-                                            <div class="wrap-list" *ngIf="!isGridView">
+                                           <!--  <div class="wrap-list" *ngIf="!isGridView">
                                                 <div class="box box-dream flex" *ngFor="let property of global.properties">
                                                     <div class="image-group relative ">
                                                         <span class="featured fs-12 fw-6">{{property.status}}</span>    
@@ -214,9 +214,7 @@
                                                             <img [src]="property.images[0]" alt="image">
                                                             </div>
                                                              </div>
-                                                            <!-- <div class="pagi2"><div class="swiper-pagination2" >  </div> </div>
-                                                            <div class="swiper-button-next2 " ><i class="fal fa-arrow-right"></i></div>
-                                                            <div class="swiper-button-prev2 " ><i class="fal fa-arrow-left"></i> </div>     -->                                    
+                                                           
                                                         </div>
                                                     </div>
                                                     <div class="content">
@@ -235,17 +233,17 @@
                                                               <li><a class="fw-6" (click)="global.setRoute('dashboard-dashboard-edit-properties')"><i class="far fa-pen"></i> </a></li>
                                                               <li><a class="remove-file fw-6" (click)="deleteProperty(property)"><i class="fal fa-trash-alt"></i> </a></li>
                                                               <li>  <div class="icon-boxs flex">
-                                                                <!-- Botón para compartir en WhatsApp -->
+                                                               
                                                                 <a (click)="shareOnWhatsApp()" style="cursor: pointer;">
                                                                   <i class="fab fa-whatsapp"></i>
                                                                 </a>
                                                               
-                                                                <!-- Botón para compartir en Facebook Messenger -->
+                                                               
                                                                 <a (click)="shareOnMessenger()" style="cursor: pointer;">
                                                                   <i class="fab fa-facebook-messenger"></i>
                                                                 </a>
                                                               
-                                                                <!-- Botón para copiar el enlace -->
+                                                               
                                                                 <a (click)="copyLink()" style="cursor: pointer;">
                                                                   <i class="fas fa-link"></i>
                                                                 </a>
@@ -254,14 +252,15 @@
                                                           </div>                                                                                              
                                                     </div>
                                                 </div>
-                                            </div>                                            
+                                            </div>    -->                                         
                                          </div>
                                         </div>  
                                      
                                     </div>
                                 </div>
                             </section>
-                            <section class="flat-featured flat-property flat-property-grid-1 tf-section2 wg-dream style5" *ngIf="isGridView">
+<!--                             <section class="flat-featured flat-property flat-property-grid-1 tf-section2 wg-dream style5" *ngIf="isGridView"
+ -->                            <section class="flat-featured flat-property flat-property-grid-1 tf-section2 wg-dream style5">
                                 <div class="container6">
                                     <div class="row flex">                      
                                         <div class="properties" >                                          

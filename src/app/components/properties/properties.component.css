@@ -25,65 +25,120 @@
 }
 
 /* Estilos comunes para los select */
+/* /* Estilos básicos */
+.flat-featured {
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.wd-find-select {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.inner-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.form-group-1, .form-group-2 {
+/*   flex: 1 1 100%;
+ */  margin-right: 20px;
+}
+
+.search-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.group-select {
+  position: relative;
+}
+
 .nice-select {
-    display: inline-block;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 8px 12px;
-    background-color: #fff;
-    cursor: pointer;
-    position: relative;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+}
+
+.nice-select .current {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.nice-select .list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.nice-select.open .list {
+  display: block;
+}
+
+.nice-select .option {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.nice-select .option:hover, .nice-select .option.selected {
+  background-color: #f0f0f0;
+}
+
+.button-search {
+  align-self: flex-end;
+}
+
+.button-search .sc-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.button-search .sc-button i {
+  margin-left: 5px;
+}
+
+/* Media queries para vistas móviles */
+@media (max-width: 768px) {
+  .wd-find-select {
+      flex-direction: column;
   }
-  
-  .nice-select .current {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 14px;
+
+  .inner-group {
+      flex-direction: column;
+      gap: 10px;
   }
-  
-  .nice-select .list {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-top: none;
-    z-index: 10;
-    max-height: 200px;
-    overflow-y: auto;
-  }
-  
-  .nice-select.open .list {
-    display: block;
-  }
-  
-  .nice-select .option {
-    padding: 8px 12px;
-    cursor: pointer;
-  }
-  
-  .nice-select .option:hover, .nice-select .option.selected {
-    background-color: #f0f0f0;
-  }
-  
+
   .form-group-1, .form-group-2 {
-    margin-right: 20px;
+      margin-right: 0;
+      flex: 1 1 auto;
   }
-  
-  .button-search .sc-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
+
+  .button-search {
+      align-self: center;
+      margin-top: 20px;
   }
-  
-  .button-search .sc-button i {
-    margin-left: 5px;
-  }
-  
+}

@@ -47,9 +47,8 @@
                             </div>
                             <div class="form-group-1 form-style">
                                 <div class="group-select">
-                                    <div  tabindex="1">
-<!--                                         <span class="current">Seleccione el estado</span>
- -->                                        <select class="form-control nice-select" (change)="selectStatus($event)">
+                                    <div tabindex="1">
+                                        <select class="form-control nice-select" (change)="selectStatus($event)">
                                             <option value="">Seleccione el estado</option>
                                             <option value="Renta">Renta</option>
                                             <option value="Venta">Venta</option>
@@ -72,7 +71,8 @@
 </section>
 
 
-<section class="flat-property flat-property-list2 flat-properties-rent tf-section2 wg-dream" *ngIf="!isGridView">
+
+<!-- <section class="flat-property flat-property-list2 flat-properties-rent tf-section2 wg-dream" *ngIf="!isGridView">
     <div class="container">
         <div class="row flex">
             <div class="col-lg-12">
@@ -112,7 +112,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="flat-featured flat-property flat-property-grid-1 tf-section2 wg-dream style5" *ngIf="isGridView">
     <div class="container6">
