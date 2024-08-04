@@ -30,6 +30,7 @@ import { DashboardDetailPropertiesComponent } from './components/dashboard-detai
 import { DashboardEditPropertiesComponent } from './components/dashboard-edit-properties/dashboard-edit-properties.component';
 import Swiper from 'swiper';
 import { MessageComponent } from './components/message/message.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -59,7 +60,8 @@ import { MessageComponent } from './components/message/message.component';
     DashboardAddPropertiesComponent,
     DashboardDetailPropertiesComponent,
     DashboardEditPropertiesComponent,
-    MessageComponent    
+    MessageComponent,
+    ServiceWorkerModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
