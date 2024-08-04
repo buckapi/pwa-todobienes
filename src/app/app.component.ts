@@ -1,4 +1,4 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component, Renderer2, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GlobalService } from './services/global.service';
 import { CommonModule } from '@angular/common';
@@ -22,7 +22,7 @@ import { PropertyDetailComponent } from './components/property-detail/property-d
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthRESTService } from './services/auth-rest.service';
 import { PocketAuthService } from './services/pocket-auth.service';
-import { FormBuilder, ReactiveFormsModule, AbstractControl,  FormGroup, Validators, FormsModule,  } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, AbstractControl, FormGroup, Validators, FormsModule } from '@angular/forms';
 import PocketBase from 'pocketbase';
 import { BrowserModule } from '@angular/platform-browser';
 import { DashboardAddPropertiesComponent } from './components/dashboard-add-properties/dashboard-add-properties.component';
@@ -62,10 +62,10 @@ import { MessageComponent } from './components/message/message.component';
     MessageComponent    
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'camiwa';
+export class AppComponent implements AfterViewChecked {
+  title = 'Todo Bienes';
   ngFormLogin: FormGroup;
   submitted = false;
   public isError = false;
@@ -74,6 +74,7 @@ export class AppComponent {
   message: any = 'Error en datos de acceso';
   ngFormRegister: FormGroup = new FormGroup({});
   errorMessage = '';
+
   constructor(
     private renderer: Renderer2,
     public global: GlobalService,
@@ -82,7 +83,7 @@ export class AppComponent {
     public autRest: AuthRESTService,
     public pocketAuthService: PocketAuthService, 
     public formBuilder: FormBuilder,
-
+    private cdr: ChangeDetectorRef
   ) {
     this.ngFormLogin = this.formBuilder.group({
       email: ['', [Validators.required]],
@@ -100,11 +101,11 @@ export class AppComponent {
         'jqueryValidate',
         'countto',
         'plugin',
-         'shortcodes',
-         'main',
+        'shortcodes',
+        'main',
         'curved',
         /* 'priceRanger', 
-        'apexcharts',*/
+        'apexcharts', */
         'jqueryCookie',
         'dashboardMenuMin',
         'dashboardMenu'
@@ -115,8 +116,7 @@ export class AppComponent {
       .catch((error) => console.log(error));
     // this.epicFunction();
   }
-  
-   
+
   get f(): { [key: string]: AbstractControl } {
     return this.ngFormLogin.controls;
   }
@@ -125,7 +125,8 @@ export class AppComponent {
     this.isError = true;
     setTimeout(() => {
       this.isError = false;
-    }, 4000);
+      this.cdr.detectChanges(); // Forzar la detección de cambios
+    }, 1000);
   }
 
   onLogin(): void {
@@ -159,7 +160,7 @@ export class AppComponent {
                 'class',
                 'fixed sidebar-mini sidebar-collapse'
               );
-               // Pasar el ID del cliente al método
+              // Pasar el ID del cliente al método
               return; // Salir del switch para evitar redirigir a 'request'
             default:
               this.virtualRouter.routerActive = 'home';
@@ -174,33 +175,7 @@ export class AppComponent {
         (error) => this.onIsError()
       );
   }
-  /* restoreSession(): void {
-    const isLoggedin = localStorage.getItem('isLoggedin');
-    const currentUser = localStorage.getItem('currentUser');
-    const userType = localStorage.getItem('type');
-
-    if (isLoggedin && currentUser && userType) {
-      const user = JSON.parse(currentUser);
-      this.global.currentUser = user;
-
-      switch (userType) {
-        case 'admin':
-          this.virtualRouter.routerActive = "dashboard";
-          this.virtualRouter.routerActive = "dashboard-add-properties";
-          this.virtualRouter.routerActive = "dashboard";
-          break;
-        case 'cliente':
-          this.fetchClientData(user.id);
-          break;
-        default:
-          this.virtualRouter.routerActive = "dashboard-add-properties";
-          this.virtualRouter.routerActive = "dashboard";
-
-
-          break;
-      }
-    }
-  }*/
+ 
   fetchClientData(userId: string): void {
     // Crear una instancia de PocketBase
     const pb = new PocketBase('https://db.buckapi.com:8090');
@@ -216,7 +191,7 @@ export class AppComponent {
           const record = resultList.items[0]; // Tomar el primer registro
           console.log('Datos del cliente:', JSON.stringify(record));
           localStorage.setItem('status', record.status);
-          // Redirigir al usuario al home del clienteuser
+          // Redirigir al usuario al home del cliente
           this.virtualRouter.routerActive = 'dashboard';
         } else {
           console.error('No se encontraron registros para el usuario:', userId);
@@ -244,10 +219,10 @@ export class AppComponent {
     let type = 'cliente'; // Esto debería ser 'employee' si es un empleado
     let name = this.ngFormRegister.value.name;
 
-    this.pocketAuthService.registerUser(email, password, type,name).subscribe(
+    this.pocketAuthService.registerUser(email, password, type, name).subscribe(
       (data) => {
         // Registro exitoso, puedes redirigir al usuario a una página de inicio de sesión o mostrar un mensaje de éxito
-       /*  this.spinner.hide(); */
+        /* this.spinner.hide(); */
         console.log('Registro exitoso', data);
         // Setear el usuario y el token
         this.pocketAuthService.setUser(data);
@@ -270,11 +245,14 @@ export class AppComponent {
         this.global.setRoute('home')
       },
       (error) => {
-       /*  this.spinner.hide(); */
+        /* this.spinner.hide(); */
         this.errorMessage = 'Error al registrar usuario';
         this.isError = true;
       }
     );
   }
- 
+
+  ngAfterViewChecked() {
+    this.cdr.detectChanges(); // Forzar la detección de cambios
+  }
 }
