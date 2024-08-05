@@ -188,6 +188,9 @@ export class DashboardComponent implements AfterViewInit {
     // Opcional: Mostrar un mensaje de confirmación al usuario
     alert('Enlace copiado al portapapeles!');
   }
+  selectStatus(status: string) {
+    this.global.selectStatus(status);
+  }
 }
 
 

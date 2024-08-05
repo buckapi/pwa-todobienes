@@ -51,9 +51,9 @@
                             </svg>
                           </div>
                           <div class="counter-box one">
-                            <div class="title-count fw-6 fs-16 text-color-4">Rentados</div>
+                            <div class="title-count fw-6 fs-16 text-color-4">Arriendos</div>
                             <div class="count-number flex">                                  
-                              <div class="number number-one" data-speed="2000" [attr.data-to]="rentedPropertiesCount" data-inviewport="yes">{{rentedPropertiesCount}}</div>                                  
+                              <div class="number number-one" data-speed="2000">{{rentedPropertiesCount}}</div>                                  
                             </div>                            
                           </div>
                         </div> 
@@ -74,10 +74,12 @@
                             </svg>
                           </div>
                           <div class="counter-box one">
-                            <div class="title-count fw-6 fs-16 text-color-4">Vendidos</div>
-                            <div class="count-number flex">                                  
-                              <div class="number number-one" data-speed="2000" [attr.data-to]="soldPropertiesCount" data-inviewport="yes">{{soldPropertiesCount}}</div>                                  
-                            </div>                            
+                            <div class="title-count fw-6 fs-16 text-color-4">A la Venta</div>
+                            <div class="count-number">
+                              <div class="number number-one" data-speed="2000" data-to="06" data-inviewport="yes">
+                                {{ soldPropertiesCount }}
+                              </div>
+                            </div>
                           </div>
                         </div> 
                         <div class="box tf-counter flex  bg-white">

@@ -517,6 +517,7 @@ this.categoryPrev=item;
     getProperties(): Observable<ApiResponse> {
       return this.http.get<ApiResponse>(this.propertiesUrl);
     }
+    
   
     extractPropertyTypes(): void {
       const propertyTypes = new Set<string>();
@@ -526,7 +527,7 @@ this.categoryPrev=item;
       this.propertyTypes = Array.from(propertyTypes);
     }
   
-    /* applyFilters(): void {
+    applyFilters(): void {
       this.filteredProperties = this.properties.filter((property: { typeProperty: string; title: string; status: string; }) => {
         const matchesTypeProperty = this.selectedTypeProperty ? property.typeProperty === this.selectedTypeProperty : true;
         const matchesSearchQuery = this.searchQuery ? property.title.toLowerCase().includes(this.searchQuery.toLowerCase()) : true;
@@ -534,8 +535,8 @@ this.categoryPrev=item;
   
         return matchesTypeProperty && matchesSearchQuery && matchesStatus;
       });
-    } */
-      applyFilters(): void {
+    }
+     /*  applyFilters(): void {
         if (!this.properties) {
             console.error('Properties is undefined');
             return;
@@ -548,7 +549,7 @@ this.categoryPrev=item;
     
             return matchesTypeProperty && matchesSearchQuery && matchesStatus;
         });
-    }
+    } */
     
   
     selectTypeProperty(type: string): void {
