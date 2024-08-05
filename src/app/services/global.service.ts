@@ -231,6 +231,17 @@ totales: any = {
           this.message=response.items;
         }
       );
+      this.properties = []; // Inicializa properties como un array vacío
+      this.getCategories().subscribe(response => {
+          this.categories = response.items;
+      });
+      this.getProperties().subscribe(response => {
+          this.properties = response.items;
+          this.applyFilters(); // Aplica filtros después de cargar las propiedades
+      });
+      this.getMessage().subscribe(response => {
+          this.message = response.items;
+      });
       this.loadProperties();
    }
  
@@ -491,16 +502,17 @@ this.categoryPrev=item;
 
     loadProperties(): void {
       this.getProperties().subscribe(
-        response => {
-          this.properties = response.items;
-          this.extractPropertyTypes();
-          this.applyFilters();
-        },
-        error => {
-          console.error(error);
-        }
+          response => {
+              this.properties = response.items;
+              this.extractPropertyTypes();
+              this.applyFilters();
+          },
+          error => {
+              console.error(error);
+          }
       );
-    }
+  }
+  
   
     getProperties(): Observable<ApiResponse> {
       return this.http.get<ApiResponse>(this.propertiesUrl);
@@ -514,7 +526,7 @@ this.categoryPrev=item;
       this.propertyTypes = Array.from(propertyTypes);
     }
   
-    applyFilters(): void {
+    /* applyFilters(): void {
       this.filteredProperties = this.properties.filter((property: { typeProperty: string; title: string; status: string; }) => {
         const matchesTypeProperty = this.selectedTypeProperty ? property.typeProperty === this.selectedTypeProperty : true;
         const matchesSearchQuery = this.searchQuery ? property.title.toLowerCase().includes(this.searchQuery.toLowerCase()) : true;
@@ -522,7 +534,22 @@ this.categoryPrev=item;
   
         return matchesTypeProperty && matchesSearchQuery && matchesStatus;
       });
+    } */
+      applyFilters(): void {
+        if (!this.properties) {
+            console.error('Properties is undefined');
+            return;
+        }
+    
+        this.filteredProperties = this.properties.filter((property: { typeProperty: string; title: string; status: string; }) => {
+            const matchesTypeProperty = this.selectedTypeProperty ? property.typeProperty === this.selectedTypeProperty : true;
+            const matchesSearchQuery = this.searchQuery ? property.title.toLowerCase().includes(this.searchQuery.toLowerCase()) : true;
+            const matchesStatus = this.selectedStatus ? property.status === this.selectedStatus : true;
+    
+            return matchesTypeProperty && matchesSearchQuery && matchesStatus;
+        });
     }
+    
   
     selectTypeProperty(type: string): void {
       this.selectedTypeProperty = type;
@@ -568,11 +595,11 @@ this.categoryPrev=item;
     }
   
     getRentedPropertiesCount(): Observable<number> {
-      return this.http.get<any>(this.propertiesUrl).pipe(map(data => data.items.filter((property: any) => property.status === 'rentado').length));
+      return this.http.get<any>(this.propertiesUrl).pipe(map(data => data.items.filter((property: any) => property.status === 'renta').length));
     }
   
     getSoldPropertiesCount(): Observable<number> {
-      return this.http.get<any>(this.propertiesUrl).pipe(map(data => data.items.filter((property: any) => property.status === 'vendido').length));
+      return this.http.get<any>(this.propertiesUrl).pipe(map(data => data.items.filter((property: any) => property.status === 'venta').length));
     }
   
     getMessagesCount(): Observable<number> {

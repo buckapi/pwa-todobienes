@@ -21,10 +21,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DashboardComponent implements AfterViewInit {
   isGridView: boolean = true;
-  propertiesCount = 0;
-  rentedPropertiesCount = 0;
-  soldPropertiesCount = 0;
-  messagesCount = 0;
+  propertiesCount: number = 0;
+  rentedPropertiesCount: number = 0;
+  soldPropertiesCount: number = 0;
+  messagesCount: number = 0;
   constructor(
     public global:GlobalService,
     public vitualRouter: virtualRouter,
