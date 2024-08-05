@@ -5,3 +5,71 @@
     margin-right: 12px;
     background-color: #000;
 }
+
+ 
+.dashboard__content {
+    margin-left: 289px;
+    transition: all 0.2s ease-out;
+}
+.dashboard.show-job .dashboard__content {
+    margin-left: 70px;
+    transition: all 0.2s ease-out;
+}
+.main-header .header-lower .nav-outer {
+    position: relative;
+}
+.align-items-center {
+    -webkit-box-align: center !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+.justify-content-between {
+    -webkit-box-pack: justify !important;
+    -webkit-justify-content: space-between !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+}
+.d-flex {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+.img-box .icon-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .img-box .icon-list li {
+    margin-right: 10px; /* Espacio entre los ítems, ajusta según sea necesario */
+  }
+  
+  .img-box .icon-list li:last-child {
+    margin-right: 0; /* Sin margen para el último ítem */
+  }
+  
+  .img-box .icon-list li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .img-box .icon-list li a i {
+    margin-right: 5px; /* Espacio entre el icono y el texto, ajusta según sea necesario */
+  }
+
+  .fab {
+    font-family: 'Font Awesome 5 Brands';
+    font-weight: 400;
+    color: #000;}
+  
+    .flat-dashboard .tf-new-listing {
+      width: 90.7%;
+      margin-right: 20px;
+  }
+  

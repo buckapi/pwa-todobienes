@@ -1,10 +1,29 @@
+<app-header-dashboard></app-header-dashboard>
+<!-- Mobile Menu  -->
+<div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>    
+
+
+<div class="btn2 header-item " id="left-menu-btn">
+    <span class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+</div>
+
+<app-sidebar-dashboard></app-sidebar-dashboard>
 <div class="dashboard__content">
-    <section class="flat-title2">
-        <div class="container7">
-            <div class="row">
+    <section class="flat-title" style="padding-top: 65px;">
+        <div class="container">
+            <div class="row">                      
                 <div class="col-lg-12">
-                    <div class="title-group fs-30 lh-45 fw-7">Agregar propiedad</div>
-                </div>
+                    <div class="title-inner">
+                        <div class="title-group fs-12"><a class="home fw-6 text-color-3" (click)="global.setRoute('dashboard')">Volver</a><span > Editar propiedades</span>
+                            
+                        </div>
+                    </div>
+                   
+                </div> 
             </div>
         </div>
     </section>

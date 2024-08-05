@@ -13,10 +13,12 @@ import Swal from 'sweetalert2';
 import { CustomFilePickerAdapter } from '../../file-picker.adapter'; 
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { RegionesYMunicipios } from '../../interface/regiones-municipios';
+import { HeaderDashboardComponent } from '../ui/header-dashboard/header-dashboard.component';
+import { SidebarDashboardComponent } from '../ui/sidebar-dashboard/sidebar-dashboard.component';
 @Component({
   selector: 'app-dashboard-add-properties',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FilePickerModule ],
+  imports: [CommonModule, ReactiveFormsModule, FilePickerModule, SidebarDashboardComponent, HeaderDashboardComponent ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dashboard-add-properties.component.html',
   styleUrl: './dashboard-add-properties.component.css'

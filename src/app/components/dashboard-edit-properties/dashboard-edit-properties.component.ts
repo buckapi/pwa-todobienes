@@ -11,12 +11,13 @@ import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { FilePickerModule, UploaderCaptions } from 'ngx-awesome-uploader';
 import { CustomFilePickerAdapter } from '../../file-picker.adapter'; 
-
+import { HeaderDashboardComponent } from '../ui/header-dashboard/header-dashboard.component';
+import { SidebarDashboardComponent } from '../ui/sidebar-dashboard/sidebar-dashboard.component';
 
 @Component({
   selector: 'app-dashboard-edit-properties',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FilePickerModule, FormsModule ],
+  imports: [CommonModule, ReactiveFormsModule, FilePickerModule, FormsModule, HeaderDashboardComponent, SidebarDashboardComponent ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dashboard-edit-properties.component.html',
   styleUrl: './dashboard-edit-properties.component.css'
