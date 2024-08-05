@@ -18,7 +18,7 @@ import { SidebarDashboardComponent } from '../ui/sidebar-dashboard/sidebar-dashb
 @Component({
   selector: 'app-dashboard-add-properties',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FilePickerModule, SidebarDashboardComponent, HeaderDashboardComponent ],
+  imports: [CommonModule, ReactiveFormsModule, FilePickerModule,],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dashboard-add-properties.component.html',
   styleUrl: './dashboard-add-properties.component.css'

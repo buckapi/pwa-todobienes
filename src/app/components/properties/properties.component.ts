@@ -61,8 +61,9 @@ resetFilters(): void {
 }
 
 ngOnInit(): void {
+  this.global.initializeFilters();
   this.global.loadPropertyTypesAndMunicipalities(); // Cargar tipos de propiedad y municipios al inicializar
-    this.global.loadProperties();
+  this.global.loadProperties();
 }
 
 }

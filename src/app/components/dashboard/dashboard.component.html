@@ -1,22 +1,5 @@
 
 
-            <app-header-dashboard></app-header-dashboard>
-            <!-- Mobile Menu  -->
-            <div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>    
-           
-            
-            <div class="btn2 header-item " id="left-menu-btn">
-                <span class="hamburger-icon">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </span>
-            </div>
-            
-  <!-- ========== Left Sidebar ========== -->
-            <app-sidebar-dashboard></app-sidebar-dashboard>
-  <!-- left sidebar end -->
-
   <div class="dashboard__content">
     <section class="flat-title2 " >
         <div class="container7">
@@ -120,7 +103,13 @@
                             </div>
                         </div> 
                     </div>
-                    
+                    <div class="wrap-count flex-wrap flex">
+                        <app-counter title="Propiedades" [count]="propertiesCount" icon='<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg>'></app-counter>
+                        <app-counter title="Rentados" [count]="rentedPropertiesCount" icon='<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg>'></app-counter>
+                        <app-counter title="Vendidos" [count]="soldPropertiesCount" icon='<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg>'></app-counter>
+                        <app-counter title="Visitas" [count]="messagesCount" icon='<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg>'></app-counter>
+                      </div>
+                      
                 </div>
                 <div class="col-lg-3">
                     

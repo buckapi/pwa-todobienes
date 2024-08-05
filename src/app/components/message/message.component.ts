@@ -9,9 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-message',
   standalone: true,
-  imports: [CommonModule,
-    HeaderDashboardComponent,
-    SidebarDashboardComponent, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './message.component.html',
   styleUrl: './message.component.css'
 })

@@ -17,7 +17,7 @@ import { SidebarDashboardComponent } from '../ui/sidebar-dashboard/sidebar-dashb
 @Component({
   selector: 'app-dashboard-edit-properties',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FilePickerModule, FormsModule, HeaderDashboardComponent, SidebarDashboardComponent ],
+  imports: [CommonModule, ReactiveFormsModule, FilePickerModule, FormsModule, ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dashboard-edit-properties.component.html',
   styleUrl: './dashboard-edit-properties.component.css'

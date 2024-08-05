@@ -1,4 +1,4 @@
-import { Component, Renderer2, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
+import { Component, Renderer2, AfterViewChecked, ChangeDetectorRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GlobalService } from './services/global.service';
 import { CommonModule } from '@angular/common';
@@ -31,6 +31,7 @@ import { DashboardEditPropertiesComponent } from './components/dashboard-edit-pr
 import Swiper from 'swiper';
 import { MessageComponent } from './components/message/message.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { SidebarDashboardComponent } from "./components/ui/sidebar-dashboard/sidebar-dashboard.component";
 
 @Component({
   selector: 'app-root',
@@ -61,10 +62,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     DashboardDetailPropertiesComponent,
     DashboardEditPropertiesComponent,
     MessageComponent,
-    ServiceWorkerModule
-  ],
+    ServiceWorkerModule,
+    SidebarDashboardComponent
+],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Añadir CUSTOM_ELEMENTS_SCHEMA
+
 })
 export class AppComponent implements AfterViewChecked {
   title = 'Todo Bienes';

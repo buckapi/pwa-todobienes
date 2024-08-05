@@ -1,6 +1,7 @@
 <div>
     <app-header [hidden]="virtualRouter.routerActive === 'dashboard' || virtualRouter.routerActive === 'dashboard-add-properties' || virtualRouter.routerActive === 'dashboard-edit-properties' || virtualRouter.routerActive === 'dashboard-detail-properties' || virtualRouter.routerActive === 'message'"></app-header>
     <app-header-dashboard [hidden]="virtualRouter.routerActive !== 'dashboard' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'dashboard-detail-properties' && virtualRouter.routerActive !== 'dashboard-edit-properties' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'message'"></app-header-dashboard>
+    <app-sidebar-dashboard [hidden]="virtualRouter.routerActive !== 'dashboard' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'dashboard-detail-properties' && virtualRouter.routerActive !== 'dashboard-edit-properties' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'message'"></app-sidebar-dashboard>
     <app-home [hidden]="virtualRouter.routerActive !== 'home'"></app-home>
     <app-about [hidden]="virtualRouter.routerActive !== 'about'"></app-about>
     <app-contact [hidden]="virtualRouter.routerActive !== 'contact'"></app-contact>

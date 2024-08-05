@@ -556,5 +556,27 @@ this.categoryPrev=item;
       this.propertyTypes = ['Casa', 'Apartamento', 'Oficina', 'Finca', 'Lote', 'Proyectos en construcción'];
       this.municipalities = ['']; // Example municipalities
     }
+    initializeFilters(): void {
+      this.selectedTypeProperty = '';
+      this.searchQuery = '';
+      this.selectedStatus = '';
+      this.selectedMunicipality = [];
+      this.applyFilters();
+    }
+    getPropertiesCount(): Observable<number> {
+      return this.http.get<any>(this.propertiesUrl).pipe(map(data => data.items.length));
+    }
+  
+    getRentedPropertiesCount(): Observable<number> {
+      return this.http.get<any>(this.propertiesUrl).pipe(map(data => data.items.filter((property: any) => property.status === 'rentado').length));
+    }
+  
+    getSoldPropertiesCount(): Observable<number> {
+      return this.http.get<any>(this.propertiesUrl).pipe(map(data => data.items.filter((property: any) => property.status === 'vendido').length));
+    }
+  
+    getMessagesCount(): Observable<number> {
+      return this.http.get<any>(this.messageUrl).pipe(map(data => data.items.length));
+    }
   
 }

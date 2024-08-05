@@ -124,11 +124,16 @@ ngOnInit(): void {
   typeProperty: ['', Validators.required],
   message: ['', Validators.required],
  });
+ this.global.initializeFilters();
  this.global.loadPropertyTypesAndMunicipalities(); // Cargar tipos de propiedad y municipios al inicializar
  this.global.loadProperties();
  this.global.loadPropertyTypesAndMunicipalities();
 
 
+}
+navigateToProperties(): void {
+  this.global.initializeFilters(); // Inicializar los filtros antes de navegar
+  this.global.setRoute('properties');
 }
 onIsError(): void {
   this.isError = true;

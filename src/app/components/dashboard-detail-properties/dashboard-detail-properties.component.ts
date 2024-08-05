@@ -8,7 +8,7 @@ import { SidebarDashboardComponent } from '../ui/sidebar-dashboard/sidebar-dashb
 @Component({
   selector: 'app-dashboard-detail-properties',
   standalone: true,
-  imports: [CommonModule, HeaderDashboardComponent, SidebarDashboardComponent],
+  imports: [CommonModule, ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dashboard-detail-properties.component.html',
   styleUrl: './dashboard-detail-properties.component.css'

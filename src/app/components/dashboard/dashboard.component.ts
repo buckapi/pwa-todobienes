@@ -14,15 +14,17 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule,
-    HeaderDashboardComponent,
-    SidebarDashboardComponent, ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements AfterViewInit {
   isGridView: boolean = true;
+  propertiesCount = 0;
+  rentedPropertiesCount = 0;
+  soldPropertiesCount = 0;
+  messagesCount = 0;
   constructor(
     public global:GlobalService,
     public vitualRouter: virtualRouter,
@@ -38,6 +40,11 @@ export class DashboardComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.loadInitialData();
     this.cdRef.detectChanges(); // Forzar la detección de cambios después de cargar los datos iniciales
+    this.global.getPropertiesCount().subscribe(count => this.propertiesCount = count);
+    this.global.getRentedPropertiesCount().subscribe(count => this.rentedPropertiesCount = count);
+    this.global.getSoldPropertiesCount().subscribe(count => this.soldPropertiesCount = count);
+    this.global.getMessagesCount().subscribe(count => this.messagesCount = count);
+
   }
 
   loadInitialData(): void {
