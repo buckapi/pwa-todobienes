@@ -154,7 +154,7 @@ export class DashboardComponent implements AfterViewInit {
                     `**Descripción:** ${this.global.previewCard.description}\n\n` +
                     `Para más detalles, visita el siguiente enlace: ${propertyLink}`;
     const encodedMessage = encodeURIComponent(message);
-    const url = `https://api.whatsapp.com/send?phone=+573015605187&text=${encodedMessage}`;
+    const url = `https://api.whatsapp.com/send?phone&text=${encodedMessage}`;
     window.open(url, '_blank');
   }
   

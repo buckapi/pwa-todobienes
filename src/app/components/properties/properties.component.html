@@ -12,7 +12,6 @@
         </div>
     </div>
 </section>
-
 <section class="flat-featured flat-property-grid flat-property tf-section2 wg-dream home2">
     <div class="content-tab">
         <div class="content-inner tab-content">
@@ -69,6 +68,67 @@
         </div>
     </div>
 </section>
+<section class="flat-featured wg-dream home">
+    <div class="container3">
+      <div class="row">
+        <div class="col-lg-12">
+          
+          <div class="flat-tabs themesflat-tabs">
+            <div class="box-tab center">
+              <ul class="menu-tab tab-title flex justify-center">
+                <li *ngFor="let type of global.propertyTypes" class="item-title hv-tool" (click)="selectTypeProperty(type)">
+                  <h5 class="inner">{{ type }}</h5>
+                </li>
+              </ul>
+            </div>
+  
+            <div class="content-tab">
+              <div class="content-inner tab-content">
+                <div class="wrap-item flex">
+                  <!-- col 1 -->
+                  <div class="box box-dream hv-one" *ngFor="let property of global.filteredProperties; let i = index" >
+                    <div class="image-group relative ">
+                      <span class="featured fs-12 fw-6">{{property.status}}</span>
+                      <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
+                      <div class="swiper-container carousel-2 img-style">
+                        <a class="icon-plus" (click)="view(property)">
+                          <img src="assets/todobienes/assets/images/icon/plus.svg" alt="images">
+                        </a>
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide" style="width: auto; height: 300px;" *ngFor="let image of property.images">
+                            <img src="{{image}}" alt="images">
+                          </div>
+                        </div>
+                        <div class="pagi2">
+                          <div class="swiper-pagination2"></div>
+                        </div>
+                        <div class="swiper-button-next2"><i class="fal fa-arrow-right"></i></div>
+                        <div class="swiper-button-prev2"><i class="fal fa-arrow-left"></i></div>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <h3 class="link-style-1"><a (click)="view(property)">{{property.title}}</a></h3>
+                      <h4 class="link-style-1"><a>{{property.address}}</a></h4>
+                      <div class="text-address"><p class="p-12">{{property.municipality}}</p></div>
+                      <div class="money fs-18 fw-6 text-color-3"><a (click)="view(property)">{{property.canon}}</a></div>
+                      <div class="icon-box flex">
+                        <div class="icons icon-1 flex"><span>Hab.: </span><span class="fw-6">{{property.bedrooms}}</span></div>
+                        <div class="icons icon-2 flex"><span>Ba.: </span><span class="fw-6">{{property.bathroom}}</span></div>
+                        <div class="icons icon-3 flex"><span>Area: </span><span class="fw-6">{{property.area}}</span> m²</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 
 
@@ -114,7 +174,7 @@
     </div>
 </section> -->
 
-<section class="flat-featured flat-property flat-property-grid-1 tf-section2 wg-dream style5" *ngIf="isGridView">
+<!-- <section class="flat-featured flat-property flat-property-grid-1 tf-section2 wg-dream style5" *ngIf="isGridView">
     <div class="container6">
         <div class="row flex">
             <div class="properties">
@@ -152,4 +212,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->

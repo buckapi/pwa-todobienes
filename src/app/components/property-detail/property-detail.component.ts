@@ -70,7 +70,7 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   // Comparte en WhatsApp
-  shareOnWhatsApp() {
+ /*  shareOnWhatsApp() {
     const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.global.previewCard.id}`;
     const message =
       `¡Hola! Bienvenido a Todo Bienes Grupo Inmobiliario. Aquí tienes la información sobre una de nuestras propiedades:\n\n` +
@@ -79,9 +79,9 @@ export class PropertyDetailComponent implements OnInit {
       `**Descripción:** ${this.global.previewCard.description}\n\n` +
       `Para más detalles, visita el siguiente enlace: ${propertyLink}`;
     const encodedMessage = encodeURIComponent(message);
-    const url = `https://api.whatsapp.com/send?phone=+573015605187&text=${encodedMessage}`;
+    const url = `https://api.whatsapp.com/send?phone&text=${encodedMessage}`;
     window.open(url, '_blank');
-  }
+  } */
 
   // Comparte en Facebook Messenger
   shareOnMessenger() {
@@ -99,9 +99,20 @@ export class PropertyDetailComponent implements OnInit {
     window.open(url, '_blank');
   }
 
-  // Copia el enlace al portapapeles
-  copyLink() {
-    const propertyLink = `https://todobienesgrupoinmobiliario.com/${this.global.previewCard.id}`;
+  shareOnWhatsApp() {
+    const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.global.previewCard.id}`;
+    const message = `¡Hola! Bienvenido a Todo Bienes Grupo Inmobiliario. Aquí tienes la información sobre una de nuestras propiedades:\n\n` +
+                    `**Título:** ${this.global.previewCard.title}\n` +
+                    `**Canon:** ${this.global.previewCard.canon}\n` +
+                    `**Descripción:** ${this.global.previewCard.description}\n\n` +
+                    `Para más detalles, visita el siguiente enlace: ${propertyLink}`;
+    const encodedMessage = encodeURIComponent(message);
+    const url = `https://api.whatsapp.com/send?text=${encodedMessage}`;
+    window.open(url, '_blank');
+}
+
+copyLink() {
+    const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.global.previewCard.id}`;
 
     // Crea un elemento de input para usarlo como intermediario
     const tempInput = document.createElement('input');
@@ -113,7 +124,8 @@ export class PropertyDetailComponent implements OnInit {
 
     // Opcional: Mostrar un mensaje de confirmación al usuario
     alert('Enlace copiado al portapapeles!');
-  }
+}
+
 
   sendMessageToWhatsApp() {
     this.submitted = true;
