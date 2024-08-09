@@ -629,10 +629,10 @@ export class GlobalService {
 
   previewFromUrl(propertyId: any): void {
     if (propertyId) {
-      this.getProperties().subscribe((response) => {
+      // this.getProperties().subscribe((response) => {
         let size = this.properties.length;
         // alert('response' +JSON.stringify(response) )
-        // alert('id: ' + propertyId);
+        alert('id: ' + propertyId);
         this.parametro=propertyId;
         for (let i = 0; i < size; i++) {
       // alert(this.properties[i].id )
@@ -641,7 +641,7 @@ export class GlobalService {
             this.setRoute('property-detail');
           }
         }
-      });
+      // });
     }
   }
   extractPropertyTypes(): void {
