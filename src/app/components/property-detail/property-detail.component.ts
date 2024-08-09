@@ -2,7 +2,7 @@ import {
   AfterViewChecked,
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
-  OnInit,
+  OnInit,Input,
 } from '@angular/core';
 import { GlobalService } from '../../services/global.service';
 import { virtualRouter } from '../../services/virtualRouter.service';
@@ -26,11 +26,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './property-detail.component.css',
 })
 export class PropertyDetailComponent implements OnInit {
+  @Input() propertyId: string | null = null;
   submitted: boolean = false;
   name: string = '';
   phone: string = '';
   email: string = '';
   share: FormGroup;
+  property: any;
   constructor(
     public global: GlobalService,
     public virtualRouter: virtualRouter,
@@ -69,19 +71,6 @@ export class PropertyDetailComponent implements OnInit {
     );
   }
 
-  // Comparte en WhatsApp
- /*  shareOnWhatsApp() {
-    const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.global.previewCard.id}`;
-    const message =
-      `¡Hola! Bienvenido a Todo Bienes Grupo Inmobiliario. Aquí tienes la información sobre una de nuestras propiedades:\n\n` +
-      `**Título:** ${this.global.previewCard.title}\n` +
-      `**Canon:** ${this.global.previewCard.canon}\n` +
-      `**Descripción:** ${this.global.previewCard.description}\n\n` +
-      `Para más detalles, visita el siguiente enlace: ${propertyLink}`;
-    const encodedMessage = encodeURIComponent(message);
-    const url = `https://api.whatsapp.com/send?phone&text=${encodedMessage}`;
-    window.open(url, '_blank');
-  } */
 
   // Comparte en Facebook Messenger
   shareOnMessenger() {
@@ -100,19 +89,21 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   shareOnWhatsApp() {
-    const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.global.previewCard.id}`;
+    const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.virtualRouter.getId()}`;
     const message = `¡Hola! Bienvenido a Todo Bienes Grupo Inmobiliario. Aquí tienes la información sobre una de nuestras propiedades:\n\n` +
-                    `**Título:** ${this.global.previewCard.title}\n` +
-                    `**Canon:** ${this.global.previewCard.canon}\n` +
-                    `**Descripción:** ${this.global.previewCard.description}\n\n` +
+                    `Título: ${this.global.previewCard.title}\n` +
+                    `Canon: ${this.global.previewCard.canon}\n` +
+                    `Descripción: ${this.global.previewCard.description}\n\n` +
                     `Para más detalles, visita el siguiente enlace: ${propertyLink}`;
     const encodedMessage = encodeURIComponent(message);
     const url = `https://api.whatsapp.com/send?text=${encodedMessage}`;
     window.open(url, '_blank');
-}
+  }
+  
+  
 
 copyLink() {
-    const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.global.previewCard.id}`;
+    const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.virtualRouter.getId()}`;
 
     // Crea un elemento de input para usarlo como intermediario
     const tempInput = document.createElement('input');
@@ -155,9 +146,16 @@ copyLink() {
   }
 
   ngOnInit(): void {
-  window.scrollTo(0, 0); // Desplaza a la parte superior de la página
-}
-  /* ngAfterViewChecked(): void {
+    if (this.propertyId) {
+      // Aquí carga los detalles de la propiedad utilizando el propertyId
+      console.log('Cargando detalles de la propiedad con ID:', this.propertyId);
+      // Asegúrate de que esta parte de código esté funcionando correctamente.
+    } else {
+      console.warn('No se recibió ningún ID de propiedad');
+    }
+  }
+
+  ngAfterViewChecked(): void {
     window.scrollTo(0, 0);
-  } */
+  }
 }

@@ -6,6 +6,7 @@ import { DataApiService } from '../../services/data-api-service';
 import { FormBuilder, AbstractControl, FormControlDirective, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { virtualRouter } from '../../services/virtualRouter.service';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +31,7 @@ constructor(
   public yeoman: Yeoman,
   public dataApiService: DataApiService,
   private formBuilder: FormBuilder,
+  public virtualRouter: virtualRouter
 
 ){
   this.addmessage = this.formBuilder.group({
@@ -51,6 +53,10 @@ view(property:any){
   this.global.setRoute('property-detail');
   
 }
+viewProperty(propertyId: string): void {
+  this.global.virtuallRouter.navigate('property-detail', propertyId);
+}
+
 sendmessage(): void {
   this.submitted = true;
 
