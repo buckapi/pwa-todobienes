@@ -30,7 +30,6 @@ import { DashboardDetailPropertiesComponent } from './components/dashboard-detai
 import { DashboardEditPropertiesComponent } from './components/dashboard-edit-properties/dashboard-edit-properties.component';
 import Swiper from 'swiper';
 import { MessageComponent } from './components/message/message.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { SidebarDashboardComponent } from "./components/ui/sidebar-dashboard/sidebar-dashboard.component";
 import { ActivatedRoute } from '@angular/router';
 interface Property {
@@ -70,7 +69,7 @@ interface Property {
     DashboardDetailPropertiesComponent,
     DashboardEditPropertiesComponent,
     MessageComponent,
-    ServiceWorkerModule,
+    
     SidebarDashboardComponent
 ],
   templateUrl: './app.component.html',
