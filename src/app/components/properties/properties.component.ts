@@ -26,11 +26,12 @@ showGridView() {
   showListView() {
     this.isGridView = false;
   }
+  
 view(property:any){
   this.global.previewCard=property;
   this.global.setRoute('property-detail');
-  
 }
+
 
 selectTypeProperty(type: string) {
   this.global.selectTypeProperty(type);

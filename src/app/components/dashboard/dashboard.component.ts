@@ -147,7 +147,7 @@ export class DashboardComponent implements AfterViewInit {
   }
   // Comparte en WhatsApp
   shareOnWhatsApp() {
-    const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.global.previewCard.id}`;
+    const propertyLink = `https://todobienesgrupoinmobiliario.com/?id=/${this.global.previewCard.id}`;
     const message = `¡Hola! Bienvenido a Todo Bienes Grupo Inmobiliario. Aquí tienes la información sobre una de nuestras propiedades:\n\n` +
                     `**Título:** ${this.global.previewCard.title}\n` +
                     `**Canon:** ${this.global.previewCard.canon}\n` +
@@ -161,7 +161,7 @@ export class DashboardComponent implements AfterViewInit {
 
   // Comparte en Facebook Messenger
   shareOnMessenger() {
-    const propertyLink = `https://todobienesgrupoinmobiliario.com/property-detail/${this.global.previewCard.id}`;
+    const propertyLink = `https://todobienesgrupoinmobiliario.com/?id=/${this.global.previewCard.id}`;
     const message = `¡Hola! Bienvenido a Todo Bienes Grupo Inmobiliario. Aquí tienes la información sobre una de nuestras propiedades:\n\n` +
                     `**Título:** ${this.global.previewCard.title}\n` +
                     `**Canon:** ${this.global.previewCard.canon}\n` +

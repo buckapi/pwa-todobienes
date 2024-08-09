@@ -32,6 +32,14 @@ import Swiper from 'swiper';
 import { MessageComponent } from './components/message/message.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SidebarDashboardComponent } from "./components/ui/sidebar-dashboard/sidebar-dashboard.component";
+import { ActivatedRoute } from '@angular/router';
+interface Property {
+  id: string;
+  // Otros campos que tenga la propiedad
+  title: string;
+  address: string;
+  // Añade aquí los demás campos que pertenezcan a una propiedad
+}
 
 @Component({
   selector: 'app-root',
@@ -73,6 +81,8 @@ import { SidebarDashboardComponent } from "./components/ui/sidebar-dashboard/sid
 export class AppComponent implements AfterViewChecked {
   title = 'Todo Bienes';
   ngFormLogin: FormGroup;
+  property:any;
+  propertyId:string='';
   submitted = false;
   public isError = false;
   returnUrl: any;
@@ -89,8 +99,10 @@ export class AppComponent implements AfterViewChecked {
     public autRest: AuthRESTService,
     public pocketAuthService: PocketAuthService, 
     public formBuilder: FormBuilder,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    public route: ActivatedRoute
   ) {
+    this.link();
     this.ngFormLogin = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -121,12 +133,20 @@ export class AppComponent implements AfterViewChecked {
       })
       .catch((error) => console.log(error));
     // this.epicFunction();
+   
   }
 
   get f(): { [key: string]: AbstractControl } {
     return this.ngFormLogin.controls;
   }
 
+  link() {
+    this.route.queryParams.subscribe((params) => {
+      this.propertyId = params['id'];
+      this.global.previewFromUrl(this.propertyId);
+
+    });
+  }
   onIsError(): void {
     this.isError = true;
     setTimeout(() => {
