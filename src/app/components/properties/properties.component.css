@@ -130,6 +130,7 @@
   .inner-group {
       flex-direction: column;
       gap: 10px;
+      text-align-last: auto;
   }
 
   .form-group-1, .form-group-2 {
