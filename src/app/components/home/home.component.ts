@@ -93,12 +93,6 @@ selectTypeProperty(type: string) {
   this.global.selectTypeProperty(type);
 }
 
-/* selectMunicipality(event: Event): void {
-  const target = event.target as HTMLSelectElement;
-  const municipality = target.value;
-  this.global.selectMunicipality([municipality]);
-} */
-
 searchProperties(event: Event): void {
   this.global.searchProperties(event);
 }
@@ -113,6 +107,15 @@ resetFilters(): void {
   this.global.selectedMunicipality = [];
   this.global.selectedStatus = '';
   this.global.loadProperties(); // Recargar propiedades sin filtros
+}
+
+onSearch(event?: Event): void {
+  if (!event) {
+    event = new Event('submit'); // Crea un evento falso si no se pasó ninguno
+  }
+  this.resetFilters(); // Restablece filtros si es necesario
+  this.global.searchProperties(event); // Aplica los filtros actuales
+  this.global.setRoute('properties'); // Navega a la vista de propiedades
 }
 
 

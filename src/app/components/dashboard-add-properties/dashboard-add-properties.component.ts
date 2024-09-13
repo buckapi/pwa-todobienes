@@ -93,6 +93,7 @@ constructor(
     area: ['', Validators.required],
     canon: ['', Validators.required],
     phone: ['', Validators.required],
+    asesor: ['', Validators.required],
     images: [null, Validators.required]
     
   });
@@ -205,6 +206,7 @@ ngOnInit(): void {
     area: ['', Validators.required],
     canon: ['', Validators.required],
     phone: ['', Validators.required],
+    asesor: ['', Validators.required],
     images: [null, Validators.required]
   });
 }

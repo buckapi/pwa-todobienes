@@ -68,6 +68,7 @@ export class DashboardComponent implements AfterViewInit {
       area: "",
       canon: "",
       phone: "",
+      asesor: "",
       images: []
     };
   }

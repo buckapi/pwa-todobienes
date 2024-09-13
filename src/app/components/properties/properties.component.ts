@@ -37,11 +37,12 @@ selectTypeProperty(type: string) {
   this.global.selectTypeProperty(type);
 }
 
-/* selectMunicipality(event: Event): void {
+selectMunicipality(event: Event): void {
   const target = event.target as HTMLSelectElement;
   const municipality = target.value;
-  this.global.selectMunicipality([municipality]);
-} */
+  this.global.selectedMunicipality = [municipality];  // Reemplaza el array con un solo municipio
+
+}
 
 searchProperties(event: Event): void {
   event.preventDefault(); // Prevent the default form submit action
@@ -53,6 +54,7 @@ selectStatus(event: Event): void {
   const status = target.value;
   this.global.selectStatus(status);
 }
+
 resetFilters(): void {
   this.global.searchQuery = '';
   this.global.selectedTypeProperty = '';

@@ -45,6 +45,7 @@ interface Properties {
     area: string,
     canon: string,
     phone: string,
+    asesor: string,
     images: string[];   
   // otros campos según tu estructura de datos
 }
@@ -92,7 +93,8 @@ export class GlobalService {
   selectedMunicipality: string[] = [];
   searchQuery: string = '';
   selectedStatus: string = '';
-
+/*   selectedMunicipaly: string = '';
+ */
   regionesYMunicipios: { [key: string]: string[] } = {
     'Bajo Cauca': [
       'Cáceres',
@@ -269,6 +271,7 @@ export class GlobalService {
     area: string;
     canon: string;
     phone: string;
+    asesor: string;
     images: string[];
   } = {
     id: '',
@@ -289,6 +292,7 @@ export class GlobalService {
     area: '',
     canon: '',
     phone: '',
+    asesor: '',
     images: [],
   };
   previewMessage: {
@@ -654,7 +658,7 @@ export class GlobalService {
 
   applyFilters(): void {
     this.filteredProperties = this.properties.filter(
-      (property: { typeProperty: string; title: string; status: string }) => {
+      (property: { typeProperty: string; title: string; status: string; municipality: string; }) => {
         const matchesTypeProperty = this.selectedTypeProperty
           ? property.typeProperty === this.selectedTypeProperty
           : true;
@@ -666,11 +670,17 @@ export class GlobalService {
         const matchesStatus = this.selectedStatus
           ? property.status === this.selectedStatus
           : true;
-
-        return matchesTypeProperty && matchesSearchQuery && matchesStatus;
+        
+        // Verifica si selectedMunicipality es un array y si incluye el municipio actual
+        const matchesUbication = this.selectedMunicipality && this.selectedMunicipality.length > 0
+          ? this.selectedMunicipality.includes(property.municipality)
+          : true;
+  
+        return matchesTypeProperty && matchesSearchQuery && matchesStatus && matchesUbication;
       }
     );
   }
+  
   
   selectTypeProperty(type: string): void {
     this.selectedTypeProperty = type;
