@@ -671,7 +671,21 @@ export class GlobalService {
       }
     );
   }
-  
+  /*  applyFilters(): void {
+        if (!this.properties) {
+            console.error('Properties is undefined');
+            return;
+        }
+    
+        this.filteredProperties = this.properties.filter((property: { typeProperty: string; title: string; status: string; }) => {
+            const matchesTypeProperty = this.selectedTypeProperty ? property.typeProperty === this.selectedTypeProperty : true;
+            const matchesSearchQuery = this.searchQuery ? property.title.toLowerCase().includes(this.searchQuery.toLowerCase()) : true;
+            const matchesStatus = this.selectedStatus ? property.status === this.selectedStatus : true;
+    
+            return matchesTypeProperty && matchesSearchQuery && matchesStatus;
+        });
+    } */
+
   selectTypeProperty(type: string): void {
     this.selectedTypeProperty = type;
     this.applyFilters();
@@ -690,7 +704,6 @@ export class GlobalService {
   searchProperties(event: Event): void {
     event.preventDefault();
     this.applyFilters();
-    this.setRoute('properties');
   }
 
   resetFilters(): void {

@@ -1643,8 +1643,7 @@
   padding-bottom: 5px;
   cursor: pointer;
   padding: 8px 14px 8px 14px;
-  box-shadow: 0px 4px 18px 0px rgb(66 71 76 / 62%);
-    border-radius: 10px;
+  box-shadow: 0px 4px 18px 0px rgba(66, 71, 76, 0.1019607843);
 }
 .flat-featured .flat-tabs .tab-title li h5 {
   font-weight: 400;
@@ -5916,7 +5915,7 @@
   content: attr(data-tooltip);
   color: #120A21;
   padding: 6px 11px;
-  background: #3873b9;
+  background: #fff;
   box-shadow: 0px 4px 26px 0px rgba(66, 71, 76, 0.1215686275);
   width: max-content;
   border-radius: 5px;
@@ -5930,7 +5929,7 @@
   --translate-y: calc(-1 * var(--arrow-size));
   content: "";
   border: 6px solid transparent;
-  border-top-color: #3873b9;
+  border-top-color: #fff;
   transition: all 0.3s ease;
 }
 
@@ -6662,7 +6661,6 @@
   width: 150px;
   height: 84px;
   cursor: pointer;
-  
 }
 
 .wd-search-form {
@@ -6720,8 +6718,7 @@
 }
 
 .icon-filter {
-  padding: 10px;
-    width: 100px;
+  width: 54px;
   height: 54px;
   display: flex;
   align-items: center;
@@ -6761,13 +6758,12 @@
 
 .form-style {
   margin-right: 12px;
-  margin-left: 12px;
 }
 
 .wd-find-select .group-select .nice-select {
   padding: 14px 17px;
   border-radius: 10px;
-  width: 190px;
+  width: 266px;
 }
 
 .wd-find-select .group-select select {
@@ -7404,7 +7400,6 @@
 }
 .widget-rent .form-group-1 {
   margin-bottom: 12px;
-  width: 100%;
 }
 .widget-rent .wd-find-select .group-select .nice-select {
   height: 54px;
@@ -9417,10 +9412,9 @@ path {
   background: #fff;
   color: #120A21;
   width: 100%;
-  width: 300px; 
   border: 1px solid #E5E5EA;
   line-height: 24px;
-  padding: 14px 80px 14px 17px;
+  padding: 14px 49px 14px 17px;
   border-radius: 10px;
 }
 .search-form .search-field::placeholder {
@@ -9428,7 +9422,6 @@ path {
   line-height: 19px;
   font-size: 14px !important;
   font-weight: 400;
-  width: 300px; 
 }
 .search-form .search-field:focus {
   color: #120A21;
