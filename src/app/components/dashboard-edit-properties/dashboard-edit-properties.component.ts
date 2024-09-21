@@ -121,7 +121,6 @@ cancelarUpdate() {
             area: "",
             canon: "",
             phone: "",
-            asesor: "",
             images: []
           };
           Swal.fire({

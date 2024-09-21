@@ -51,19 +51,8 @@
                     </div>
                     <form>
                         <div class="tf-infomation bg-white">
-                            <h3 class="titles">Infomación Basica</h3>
+                            <h3 class="titles">Infomación</h3>
                             <div class="info-box info-wg">
-                                <div class="inner-1 select-group">
-                                    <div class="wg-box2 select-group">
-                                        <fieldset>
-                                            <label class="title-user fw-6">Codigo de la propiedad</label>
-                                            <input class="form-control" placeholder="codigo" type="text"
-                                            [(ngModel)]="global.previewCard.code" name="code" required
-                                            [ngModelOptions]="{standalone: true}">
-                                        
-                                        </fieldset>
-                                    </div>
-                                </div>
                                 <div class="inner-1 select-group">
                                     <div class="wg-box2 select-group">
                                         <fieldset>
@@ -76,7 +65,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <h3 class="titles">Ubicación</h3>
                             <div class="row info-box info-wg">
                                <!--  <div class="inner-2 select-group col-6" id="municipality" name="municipality">
                                     <label class="title-user fw-6">Seleccione municipio *</label>
@@ -103,7 +91,7 @@
                             </div> 
                         </div>
                      <div class="tf-rent tf-infomation bg-white">
-                            <h3 class="titles">Caracteristicas de la propiedad</h3>
+                            <h3 class="titles">Información de la propiedad</h3>
                             <div class="row">
                                <!--  <div class="inner-2 select-group col-4" id="stratum" name="stratum">
                                     <label class="title-user fw-6">Seleccione el estrato *</label>
@@ -150,16 +138,16 @@
                                     <div class="inner-1 form-wg flex ">
                                         <div class="wg-box2 select-group">
                                             <fieldset>
-                                                <label class="title-user fw-6">Descripcion completa</label>
+                                                <label class="title-user fw-6">Código</label>
                                                 <input class="form-control" placeholder="calle, avenida, sector .." type="text"
-                                                [(ngModel)]="global.previewCard.description" name="description" required
+                                                [(ngModel)]="global.previewCard.code" name="code" required
                                                 [ngModelOptions]="{standalone: true}">
                                             </fieldset>
                                         </div>
                                         <div class="wg-box2 select-group">
                                             <fieldset>
                                                 <label class="title-user fw-6">Habitaciones</label>
-                                                <input class="form-control" placeholder="Habitaciones" type="text"
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
                                                 [(ngModel)]="global.previewCard.bedrooms" name="bedrooms" required
                                                 [ngModelOptions]="{standalone: true}">
                                             </fieldset>
@@ -167,7 +155,7 @@
                                         <div class="wg-box2 select-group">
                                             <fieldset>
                                                 <label class="title-user fw-6">Cocina</label>
-                                                <input class="form-control" placeholder="Cocina" type="text"
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
                                                 [(ngModel)]="global.previewCard.kitchen" name="kitchen" required
                                                 [ngModelOptions]="{standalone: true}">
                                             </fieldset>
@@ -175,7 +163,7 @@
                                         <div class="wg-box2 select-group">
                                             <fieldset>
                                                 <label class="title-user fw-6">Sala</label>
-                                                <input class="form-control" placeholder="Sala" type="text"
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
                                                 [(ngModel)]="global.previewCard.livinromm" name="livinromm" required
                                                 [ngModelOptions]="{standalone: true}">
                                             </fieldset>
@@ -183,7 +171,7 @@
                                         <div class="wg-box2 select-group">
                                             <fieldset>
                                                 <label class="title-user fw-6">Baños </label>
-                                                <input class="form-control" placeholder="Baños" type="text"
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
                                                 [(ngModel)]="global.previewCard.bathroom" name="bathroom" required
                                                 [ngModelOptions]="{standalone: true}">
                                             </fieldset>
@@ -191,7 +179,7 @@
                                         <div class="wg-box2 select-group">
                                             <fieldset>
                                                 <label class="title-user fw-6">Parqueadero</label>
-                                                <input class="form-control" placeholder="Parqueadero" type="text"
+                                                <input class="form-control" placeholder="calle, avenida, sector .." type="text"
                                                 [(ngModel)]="global.previewCard.parking" name="parking" required
                                                 [ngModelOptions]="{standalone: true}">
                                             </fieldset>
@@ -209,21 +197,22 @@
                                                 [ngModelOptions]="{standalone: true}">
                                             </fieldset>
                                         </div>
+                                    
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Numero de teléfono *</label>
+                                                <input type="text" placeholder="57 302 123 1212" class="input-form"
+                                                id="phone" name="phone" class="form-control"  type="text"
+                                                [(ngModel)]="global.previewCard.phone" name="phone" required
+                                                [ngModelOptions]="{standalone: true}">
+                                            </fieldset>
+                                        </div>
                                         <div class="wg-box2 select-group">
                                             <fieldset>
                                                 <label class="title-user fw-6">Valor de canon *</label>
                                                 <input type="text" placeholder="3500000" class="input-form"
                                                 id="canon" name="canon" class="form-control" 
                                                 [(ngModel)]="global.previewCard.canon" name="canon" required
-                                                [ngModelOptions]="{standalone: true}">
-                                            </fieldset>
-                                        </div>
-                                        <div class="wg-box2 select-group">
-                                            <fieldset>
-                                                <label class="title-user fw-6">Asesor *</label>
-                                                <input type="text" placeholder="Asesor" class="input-form"
-                                                id="asesor" name="asesor" class="form-control" 
-                                                [(ngModel)]="global.previewCard.asesor" name="asesor" required
                                                 [ngModelOptions]="{standalone: true}">
                                             </fieldset>
                                         </div>

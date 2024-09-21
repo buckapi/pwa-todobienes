@@ -1,20 +1,21 @@
+
+
 <div class="dashboard__content">
     <section class="flat-title" style="padding-top: 65px;">
         <div class="container">
-            <div class="row">
+            <div class="row">                      
                 <div class="col-lg-12">
                     <div class="title-inner">
-                        <div class="title-group fs-12"><a class="home fw-6 text-color-3"
-                                (click)="global.setRoute('dashboard')">Volver</a><span> Agregar propiedades</span>
-
+                        <div class="title-group fs-12"><a class="home fw-6 text-color-3" (click)="global.setRoute('dashboard')">Volver</a><span > Agregar propiedades</span>
+                            
                         </div>
                     </div>
-
-                </div>
+                   
+                </div> 
             </div>
         </div>
     </section>
-    <section class="flat-counter">
+    <section class="flat-counter flat-title2">
         <div class="container7">
             <div class="row">
                 <div class="col-lg-12">
@@ -32,294 +33,245 @@
                         <div class="row">
                             <!-- Sección de carga de imágenes -->
                             <div class="col-md-6 mb-3">
-                                <ngx-awesome-uploader [adapter]="adapter" [captions]="captions"
-                                    (change)="onFileChange($event)">
-                                </ngx-awesome-uploader>
-                                <div *ngIf="submitted && f['images'].errors" class="invalid-feedback">
-                                    <div *ngIf="f['images'].errors['required']">Por favor, cargue las imágenes.</div>
-                                </div>
+                              <ngx-awesome-uploader [adapter]="adapter" [captions]="captions" (change)="onFileChange($event)">
+                              </ngx-awesome-uploader>
+                              <div *ngIf="submitted && f['images'].errors" class="invalid-feedback">
+                                <div *ngIf="f['images'].errors['required']">Por favor, cargue las imágenes.</div>
+                              </div>
                             </div>
-
+                          
                             <!-- Sección de vista previa y eliminación de imágenes -->
                             <div *ngFor="let image of uploadedImages; let i = index" class="preview col-md-6">
-                                <h4>Vista previa:</h4>
-                                <img [src]="image" alt="Imagen cargada" class="img-fluid" style="max-width: 60%;">
+                              <h4>Vista previa:</h4>
+                              <img [src]="image" alt="Imagen cargada" class="img-fluid" style="max-width: 60%;">
                             </div>
-                        </div>
-
+                          </div>
+                          
                     </div>
                     <form [formGroup]="addProperties" (ngSubmit)="saveProperties()">
                         <div class="tf-infomation bg-white">
+                            <h3 class="titles">Infomación</h3>
                             <div class="info-box info-wg">
-                                <h3 class="titles">Información basica de la propiedad</h3>                                
-                                <div class="inner-4 form-wg flex">
-                                    <div class="wg-box2 select-group">
-                                        <fieldset>
-                                            <label class="title-user fw-6">Código de la propiedad</label>
-                                            <input type="text" placeholder="ingrese el codigo " class="input-form"
-                                                id="code" name="code" formControlName="code" required
-                                                [ngClass]="{ 'is-invalid': submitted && f['code'].errors }">
-                                            <div *ngIf="submitted && f['code'].errors" class="invalid-feedback">
-                                                <div *ngIf="f['code'].errors['required']">codigo obligatorio.</div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
+                                <div class="inner-1 select-group">
                                     <div class="wg-box2 select-group">
                                         <fieldset>
                                             <label class="title-user fw-6">Nombre de la propiedad</label>
-                                            <input type="text" placeholder="Nombre o titulo de la propiedad "
-                                                class="input-form" id="title" name="title" formControlName="title"
-                                                required [ngClass]="{ 'is-invalid': submitted && f['title'].errors }">
-                                            <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
-                                                <div *ngIf="f['title'].errors['required']">titulo obligatorio.</div>
+                                            <input type="text" placeholder="... " class="input-form" id="title" name="title"
+                                            formControlName="title" required
+                                            [ngClass]="{ 'is-invalid': submitted && f['title'].errors }">
+                                        <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['title'].errors['required']">titulo  obligatorio.</div>
+                                        </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row info-box info-wg">
+                                <div class="inner-2 select-group col-6">
+                                    <label class="title-user fw-6">Seleccione región *</label>
+                                    <select class="form-control" formControlName="region" (change)="onRegionChange($event)">
+                                      <option value="">Seleccione la región</option>
+                                      <option *ngFor="let region of regiones" [value]="region">{{region}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['region'].errors" class="invalid-feedback">
+                                      <div *ngIf="f['region'].errors['required']">Región es obligatoria.</div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="inner-2 select-group col-6" id="municipality" name="municipality">
+                                    <label class="title-user fw-6">Seleccione municipio *</label>
+                                    <select class="form-control" formControlName="municipality" [ngClass]="{'is-invalid': submitted && f['municipality'].errors}">
+                                      <option value="">Seleccione el municipio</option>
+                                      <option *ngFor="let municipio of municipios" [value]="municipio">{{municipio}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['municipality'].errors" class="invalid-feedback">
+                                      <div *ngIf="f['municipality'].errors['required']">Municipio es obligatorio.</div>
+                                    </div>
+                                  </div>
+                                
+                                  
+                                <div class="inner-1 col-6">
+                                    <div class="wg-box2 select-group">
+                                        <fieldset>
+                                            <label class="title-user fw-6">Dirección aproximada *</label>
+                                            <input type="text" placeholder="calle, avenida, sector .."
+                                                class="input-form" id="address" name="address" formControlName="address" required [ngClass]="{ 'is-invalid': submitted && f['address'].errors }"
+                                                >
+                                            <div *ngIf="submitted && f['address'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['address'].errors['required']">Dirección aproximada es
+                                                    obligatorio.</div>
                                             </div>
                                         </fieldset>
                                     </div>
                                 </div>
-                                <h3 class="titles">Ubicación</h3>
-                                <div class="inner-4 form-wg flex">
-                                    <div class="wg-box2 select-group">
-                                        <label class="title-user fw-6">Seleccione región *</label>
-                                        <select class="form-control" formControlName="region"
-                                            (change)="onRegionChange($event)">
-                                            <option value="">Seleccione la región</option>
-                                            <option *ngFor="let region of regiones" [value]="region">{{region}}</option>
-                                        </select>
-                                        <div *ngIf="submitted && f['region'].errors" class="invalid-feedback">
-                                            <div *ngIf="f['region'].errors['required']">Región es obligatoria.</div>
-                                        </div>
+                            </div>
+                        </div>
+                        <div class="tf-rent tf-infomation bg-white">
+                            <h3 class="titles">Información de la propiedad</h3>
+                            <div class="row">
+                                <div class="inner-2 select-group col-4" id="stratum" name="stratum">
+                                    <label class="title-user fw-6">Seleccione el estrato *</label>
+                                    <select class="form-control" formControlName="stratum" [ngClass]="{ 'is-invalid': submitted && f['stratum'].errors }">
+                                    <option value="">Seleccione</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['stratum'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['stratum'].errors['required']">Estrato es obligatorio.</div>
                                     </div>
-
-                                    <div class="wg-box2 select-group" id="municipality" name="municipality">
-                                        <label class="title-user fw-6">Seleccione municipio *</label>
-                                        <select class="form-control" formControlName="municipality"
-                                            [ngClass]="{'is-invalid': submitted && f['municipality'].errors}">
-                                            <option value="">Seleccione el municipio</option>
-                                            <option *ngFor="let municipio of municipios" [value]="municipio">
-                                                {{municipio}}</option>
-                                        </select>
-                                        <div *ngIf="submitted && f['municipality'].errors" class="invalid-feedback">
-                                            <div *ngIf="f['municipality'].errors['required']">Municipio es obligatorio.
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="inner-2 select-group col-4" id="status" name="status">
+                                    <label class="title-user fw-6">Seleccione el estado*</label>
+                                    <select class="form-control" formControlName="status" [ngClass]="{ 'is-invalid': submitted && f['status'].errors }">
+                                    <option value="">Seleccione</option>
+                                    <option value="Renta">renta</option>
+                                    <option value="venta">venta</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['status'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['status'].errors['required']">Estrato es obligatorio.</div>
                                     </div>
-                                    <div class="inner-1 col-6">
+                                </div>
+                                <div class="inner-2 select-group col-4" id="typeProperty" name="typeProperty">
+                                    <label class="title-user fw-6">Tipo de propiedad *</label>
+                                    <select class="form-control" formControlName="typeProperty" [ngClass]="{ 'is-invalid': submitted && f['typeProperty'].errors }">
+                                    <option value=""></option>
+                                    <option value="Casa">Casa</option>
+                                    <option value="Apartamento">Apartamento</option>
+                                    <option value="Oficina">Oficina</option>
+                                    <option value="Lote">Lote</option>
+                                    <option value="Finca">Finca</option>
+                                    <option value="Proyecto en construcción">Proyecto en construcción</option>
+                                    </select>
+                                    <div *ngIf="submitted && f['typeProperty'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['typeProperty'].errors['required']">Tipo de propiedad es obligatorio.</div>
+                                    </div>
+                                </div>
+                                <div class="info-box info-wg col-6">
+                                    <div class="inner-1 select-group">
                                         <div class="wg-box2 select-group">
                                             <fieldset>
-                                                <label class="title-user fw-6">Dirección aproximada *</label>
-                                                <input type="text" placeholder="calle, avenida, sector .."
-                                                    class="input-form" id="address" name="address"
-                                                    formControlName="address" required
-                                                    [ngClass]="{ 'is-invalid': submitted && f['address'].errors }">
-                                                <div *ngIf="submitted && f['address'].errors" class="invalid-feedback">
-                                                    <div *ngIf="f['address'].errors['required']">Dirección aproximada es
-                                                        obligatorio.</div>
-                                                </div>
+                                                <label class="title-user fw-6">Descripción completa</label>
+                                                <input type="text" placeholder="apartamento centrico ... " class="input-form" id="description" name="description"
+                                                formControlName="description" required
+                                                [ngClass]="{ 'is-invalid': submitted && f['description'].errors }">
+                                            <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['description'].errors['required']">Descripcion  obligatorio.</div>
+                                            </div>
                                             </fieldset>
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="titles">Caracteristicas de la propiedad</h3>
-
-                                <div class="row">
-                                    <div class="inner-2 select-group col-4" id="typeProperty" name="typeProperty">
-                                        <label class="title-user fw-6">Tipo de propiedad *</label>
-                                        <select class="form-control" formControlName="typeProperty"
-                                            [ngClass]="{ 'is-invalid': submitted && f['typeProperty'].errors }">
-                                            <option value=""></option>
-                                            <option value="Casa">Casa</option>
-                                            <option value="Apartamento">Apartamento</option>
-                                            <option value="Oficina">Oficina</option>
-                                            <option value="Lote">Lote</option>
-                                            <option value="Finca">Finca</option>
-                                            <option value="Proyecto en construcción">Proyecto en construcción</option>
-                                        </select>
-                                        <div *ngIf="submitted && f['typeProperty'].errors" class="invalid-feedback">
-                                            <div *ngIf="f['typeProperty'].errors['required']">Tipo de propiedad es
-                                                obligatorio.</div>
-                                        </div>
-                                    </div>
-                                    <div class="inner-2 select-group col-4" id="status" name="status">
-                                        <label class="title-user fw-6">Seleccione el estado*</label>
-                                        <select class="form-control" formControlName="status"
-                                            [ngClass]="{ 'is-invalid': submitted && f['status'].errors }">
-                                            <option value="">Seleccione</option>
-                                            <option value="Renta">renta</option>
-                                            <option value="venta">venta</option>
-                                        </select>
-                                        <div *ngIf="submitted && f['status'].errors" class="invalid-feedback">
-                                            <div *ngIf="f['status'].errors['required']">Estrato es obligatorio.</div>
-                                        </div>
-                                    </div>
-                                    <div class="inner-2 select-group col-4" id="stratum" name="stratum">
-                                        <label class="title-user fw-6">Seleccione el estrato *</label>
-                                        <select class="form-control" formControlName="stratum"
-                                            [ngClass]="{ 'is-invalid': submitted && f['stratum'].errors }">
-                                            <option value="">Seleccione</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                        </select>
-                                        <div *ngIf="submitted && f['stratum'].errors" class="invalid-feedback">
-                                            <div *ngIf="f['stratum'].errors['required']">Estrato es obligatorio.</div>
-                                        </div>
-                                    </div>
-                                    <div class="info-box info-wg col-6">
-                                        <div class="inner-1 select-group">
-                                            <div class="wg-box2 select-group">
-                                                <fieldset>
-                                                    <label class="title-user fw-6">Descripción completa</label>
-                                                    <input type="text" placeholder="apartamento centrico ... "
-                                                        class="input-form" id="description" name="description"
-                                                        formControlName="description" required
-                                                        [ngClass]="{ 'is-invalid': submitted && f['description'].errors }">
-                                                    <div *ngIf="submitted && f['description'].errors"
-                                                        class="invalid-feedback">
-                                                        <div *ngIf="f['description'].errors['required']">Descripcion
-                                                            obligatorio.</div>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="info-box info-wg">
-                                        <div class="inner-1 form-wg flex ">
-
-                                            <div class="wg-box2 select-group">
-                                                <fieldset>
-                                                    <label class="title-user fw-6">Habitaciones</label>
-                                                    <input type="text" placeholder="numero de habitaciones "
-                                                        class="input-form" id="bedrooms" name="bedrooms"
-                                                        formControlName="bedrooms" required
-                                                        [ngClass]="{ 'is-invalid': submitted && f['bedrooms'].errors }">
-                                                    <div *ngIf="submitted && f['bedrooms'].errors"
-                                                        class="invalid-feedback">
-                                                        <div *ngIf="f['bedrooms'].errors['required']">Habitaciones
-                                                            obligatorio.</div>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                            <div class="wg-box2 select-group">
-                                                <fieldset>
-                                                    <label class="title-user fw-6">Cocina</label>
-                                                    <input type="text" placeholder="descripcion de cocina"
-                                                        class="input-form" id="kitchen" name="kitchen"
-                                                        formControlName="kitchen" required
-                                                        [ngClass]="{ 'is-invalid': submitted && f['kitchen'].errors }">
-                                                    <div *ngIf="submitted && f['kitchen'].errors"
-                                                        class="invalid-feedback">
-                                                        <div *ngIf="f['kitchen'].errors['required']">cocina obligatorio.
-                                                        </div>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                            <div class="wg-box2 select-group">
-                                                <fieldset>
-                                                    <label class="title-user fw-6">Sala</label>
-                                                    <input type="text" placeholder="descripcion de sala balcon ... "
-                                                        class="input-form" id="livinromm" name="livinromm"
-                                                        formControlName="livinromm" required
-                                                        [ngClass]="{ 'is-invalid': submitted && f['livinromm'].errors }">
-                                                    <div *ngIf="submitted && f['livinromm'].errors"
-                                                        class="invalid-feedback">
-                                                        <div *ngIf="f['livinromm'].errors['required']">sala obligatorio.
-                                                        </div>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                            <div class="wg-box2 select-group">
-                                                <fieldset>
-                                                    <label class="title-user fw-6">Baños </label>
-                                                    <input type="text" placeholder="Numero de baños ... "
-                                                        class="input-form" id="bathroom" name="bathroom"
-                                                        formControlName="bathroom" required
-                                                        [ngClass]="{ 'is-invalid': submitted && f['bathroom'].errors }">
-                                                    <div *ngIf="submitted && f['bathroom'].errors"
-                                                        class="invalid-feedback">
-                                                        <div *ngIf="f['bathroom'].errors['required']">bathroom
-                                                            obligatorio.</div>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                            <div class="wg-box2 select-group">
-                                                <fieldset>
-                                                    <label class="title-user fw-6">Parqueadero</label>
-                                                    <input type="text" placeholder="parqueadero si, no ... "
-                                                        class="input-form" id="parking" name="parking"
-                                                        formControlName="parking" required
-                                                        [ngClass]="{ 'is-invalid': submitted && f['parking'].errors }">
-                                                    <div *ngIf="submitted && f['parking'].errors"
-                                                        class="invalid-feedback">
-                                                        <div *ngIf="f['parking'].errors['required']">parqueadero
-                                                            obligatorio.</div>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="inner-4 form-wg flex ">
-                                            <div class="wg-box2 select-group">
-                                                <fieldset>
-                                                    <label class="title-user fw-6">Area de la propiedad (mts2)</label>
-                                                    <input type="text" placeholder="150*200" class="input-form"
-                                                        id="area" name="area" formControlName="area" required
-                                                        [ngClass]="{ 'is-invalid': submitted && f['area'].errors }">
-                                                    <div *ngIf="submitted && f['area'].errors" class="invalid-feedback">
-                                                        <div *ngIf="f['area'].errors['required']">area obligatorio.
-                                                        </div>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                            <div class="wg-box2 select-group">
-                                                <fieldset>
-                                                    <label class="title-user fw-6">Valor de canon *</label>
-                                                    <input type="text" placeholder="3500000" class="input-form"
-                                                        id="canon" name="canon" formControlName="canon" required
-                                                        [ngClass]="{ 'is-invalid': submitted && f['canon'].errors }">
-                                                    <div *ngIf="submitted && f['canon'].errors"
-                                                        class="invalid-feedback">
-                                                        <div *ngIf="f['canon'].errors['required']">canon obligatorio.
-                                                        </div>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-
-                                            <!-- <div class="wg-box2 select-group">
-                                                <fieldset>
-                                                    <label class="title-user fw-6">Numero de teléfono *</label>
-                                                    <input type="text" placeholder="57 302 123 1212" class="input-form"
-                                                    id="phone" name="phone"
-                                                    formControlName="phone" required
-                                                    [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }">
-                                                <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
-                                                    <div *ngIf="f['phone'].errors['required']">telefono  obligatorio.</div>
-                                                </div>
-                                                </fieldset>
-                                            </div> -->
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info-box info-wg">
-                                <h3 class="titles">Información del agente</h3>
                                 <div class="info-box info-wg">
                                     <div class="inner-1 form-wg flex ">
-
                                         <div class="wg-box2 select-group">
                                             <fieldset>
-                                                <label class="title-user fw-6">Nombre del asesor</label>
-                                                <input type="text" placeholder="Ingrese su nombre"
-                                                    class="input-form" id="asesor" name="asesor"
-                                                    formControlName="asesor" required
-                                                    [ngClass]="{ 'is-invalid': submitted && f['asesor'].errors }">
-                                                <div *ngIf="submitted && f['asesor'].errors"
-                                                    class="invalid-feedback">
-                                                    <div *ngIf="f['asesor'].errors['required']">Asesor
-                                                        obligatorio.</div>
-                                                </div>
+                                                <label class="title-user fw-6">Código</label>
+                                                <input type="text" placeholder="ingrese el codigo " class="input-form" id="code" name="code"
+                                                formControlName="code" required
+                                                [ngClass]="{ 'is-invalid': submitted && f['code'].errors }">
+                                            <div *ngIf="submitted && f['code'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['code'].errors['required']">codigo  obligatorio.</div>
+                                            </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Habitaciones</label>
+                                                <input type="text" placeholder="numero de habitaciones " class="input-form" id="bedrooms" name="bedrooms"
+                                                formControlName="bedrooms" required
+                                                [ngClass]="{ 'is-invalid': submitted && f['bedrooms'].errors }">
+                                            <div *ngIf="submitted && f['bedrooms'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['bedrooms'].errors['required']">Habitaciones  obligatorio.</div>
+                                            </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Cocina</label>
+                                                <input type="text" placeholder="descripcion de cocina" class="input-form" id="kitchen" name="kitchen"
+                                                formControlName="kitchen" required
+                                                [ngClass]="{ 'is-invalid': submitted && f['kitchen'].errors }">
+                                            <div *ngIf="submitted && f['kitchen'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['kitchen'].errors['required']">cocina  obligatorio.</div>
+                                            </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Sala</label>
+                                                <input type="text" placeholder="descripcion de sala balcon ... " class="input-form" id="livinromm" name="livinromm"
+                                                formControlName="livinromm" required
+                                                [ngClass]="{ 'is-invalid': submitted && f['livinromm'].errors }">
+                                            <div *ngIf="submitted && f['livinromm'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['livinromm'].errors['required']">sala  obligatorio.</div>
+                                            </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Baños </label>
+                                                <input type="text" placeholder="Numero de baños ... " class="input-form" id="bathroom" name="bathroom"
+                                                formControlName="bathroom" required
+                                                [ngClass]="{ 'is-invalid': submitted && f['bathroom'].errors }">
+                                            <div *ngIf="submitted && f['bathroom'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['bathroom'].errors['required']">bathroom  obligatorio.</div>
+                                            </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Parqueadero</label>
+                                                <input type="text" placeholder="parqueadero si, no ... " class="input-form" id="parking" name="parking"
+                                                formControlName="parking" required
+                                                [ngClass]="{ 'is-invalid': submitted && f['parking'].errors }">
+                                            <div *ngIf="submitted && f['parking'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['parking'].errors['required']">parqueadero  obligatorio.</div>
+                                            </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="inner-4 form-wg flex ">
+                                       
+                                        
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Area de la propiedad (mts2)</label>
+                                                <input type="text" placeholder="150*200" class="input-form"
+                                                id="area" name="area"
+                                                formControlName="area" required
+                                                [ngClass]="{ 'is-invalid': submitted && f['area'].errors }">
+                                            <div *ngIf="submitted && f['area'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['area'].errors['required']">area  obligatorio.</div>
+                                            </div>
+                                            </fieldset>
+                                        </div>
+                                    
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Numero de teléfono *</label>
+                                                <input type="text" placeholder="57 302 123 1212" class="input-form"
+                                                id="phone" name="phone"
+                                                formControlName="phone" required
+                                                [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }">
+                                            <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['phone'].errors['required']">telefono  obligatorio.</div>
+                                            </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="wg-box2 select-group">
+                                            <fieldset>
+                                                <label class="title-user fw-6">Valor de canon *</label>
+                                                <input type="text" placeholder="3500000" class="input-form"
+                                                id="canon" name="canon"
+                                                formControlName="canon" required
+                                                [ngClass]="{ 'is-invalid': submitted && f['canon'].errors }">
+                                            <div *ngIf="submitted && f['canon'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['canon'].errors['required']">canon  obligatorio.</div>
+                                            </div>
                                             </fieldset>
                                         </div>
                                     </div>

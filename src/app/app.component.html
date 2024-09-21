@@ -1,7 +1,7 @@
 <div>
-    <app-header [hidden]="virtualRouter.routerActive === 'dashboard' || virtualRouter.routerActive === 'dashboard-add-properties' || virtualRouter.routerActive === 'dashboard-edit-properties' || virtualRouter.routerActive === 'dashboard-detail-properties' || virtualRouter.routerActive === 'message' || virtualRouter.routerActive === 'agents'"></app-header>
-    <app-header-dashboard [hidden]="virtualRouter.routerActive !== 'dashboard' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'dashboard-detail-properties' && virtualRouter.routerActive !== 'dashboard-edit-properties' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'message' && virtualRouter.routerActive !== 'agents'"></app-header-dashboard>
-    <app-sidebar-dashboard [hidden]="virtualRouter.routerActive !== 'dashboard' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'dashboard-detail-properties' && virtualRouter.routerActive !== 'dashboard-edit-properties' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'message' && virtualRouter.routerActive !== 'agents'"></app-sidebar-dashboard>
+    <app-header [hidden]="virtualRouter.routerActive === 'dashboard' || virtualRouter.routerActive === 'dashboard-add-properties' || virtualRouter.routerActive === 'dashboard-edit-properties' || virtualRouter.routerActive === 'dashboard-detail-properties' || virtualRouter.routerActive === 'message'"></app-header>
+    <app-header-dashboard [hidden]="virtualRouter.routerActive !== 'dashboard' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'dashboard-detail-properties' && virtualRouter.routerActive !== 'dashboard-edit-properties' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'message'"></app-header-dashboard>
+    <app-sidebar-dashboard [hidden]="virtualRouter.routerActive !== 'dashboard' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'dashboard-detail-properties' && virtualRouter.routerActive !== 'dashboard-edit-properties' && virtualRouter.routerActive !== 'dashboard-add-properties' && virtualRouter.routerActive !== 'message'"></app-sidebar-dashboard>
     <app-home [hidden]="virtualRouter.routerActive !== 'home'"></app-home>
     <app-about [hidden]="virtualRouter.routerActive !== 'about'"></app-about>
     <app-contact [hidden]="virtualRouter.routerActive !== 'contact'"></app-contact>
@@ -15,7 +15,7 @@
     <app-dashboard-edit-properties [hidden]="virtualRouter.routerActive !== 'dashboard-edit-properties'"></app-dashboard-edit-properties>
     <app-dashboard-detail-properties [hidden]="virtualRouter.routerActive !== 'dashboard-detail-properties'"></app-dashboard-detail-properties>
     <app-message [hidden]="virtualRouter.routerActive !== 'message'"></app-message>
-    <app-footer [hidden]="virtualRouter.routerActive === 'dashboard' || virtualRouter.routerActive === 'dashboard-add-properties' || virtualRouter.routerActive === 'dashboard-edit-properties' || virtualRouter.routerActive === 'dashboard-detail-properties' || virtualRouter.routerActive === 'message' || virtualRouter.routerActive === 'agents'"></app-footer>
+    <app-footer [hidden]="virtualRouter.routerActive === 'dashboard' || virtualRouter.routerActive === 'dashboard-add-properties' || virtualRouter.routerActive === 'dashboard-edit-properties' || virtualRouter.routerActive === 'dashboard-detail-properties' || virtualRouter.routerActive === 'message'"></app-footer>
   </div>
   
 <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
